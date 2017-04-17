@@ -1,0 +1,6 @@
+<header class="Hero TagHero TagHero--colored" style="color: rgb(255, 255, 255); background-color: rgb(255, 255, 255);">
+    <p *ngFor="let alert of alerts">
+        <ngb-alert [type]="alert.type" (close)="closeAlert(alert)">{{ alert.message }}</ngb-alert>
+    </p>
+</header>
+

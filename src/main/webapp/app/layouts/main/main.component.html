@@ -1,11 +1,19 @@
-<jhi-page-ribbon></jhi-page-ribbon>
-<div>
+<div id="app" class="App panePinned App--index affix">
     <router-outlet name="navbar"></router-outlet>
-</div>
-<div class="container-fluid">
-    <div class="card jh-card">
-        <router-outlet></router-outlet>
-        <router-outlet name="popup"></router-outlet>
-    </div>
-    <jhi-footer></jhi-footer>
+
+    <main class="App-content">
+        <div id="content">
+            <div class="IndexPage">
+                <jhi-notice></jhi-notice>
+                <div class="container">
+                    <jhi-tags></jhi-tags>
+                    <div class="IndexPage-results sideNavOffset">
+                        <jhi-sort></jhi-sort>
+                        <router-outlet></router-outlet>
+                        <router-outlet name="popup"></router-outlet>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 </div>

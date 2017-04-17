@@ -8,3 +8,6 @@ export * from './profiles/page-ribbon.component';
 export * from './profiles/profile.service';
 export * from './profiles/profile-info.model';
 export * from './layout-routing.module';
+export * from './notice/notice.component'
+export * from './tags/tags.component';
+export * from './sort/sort.component';
