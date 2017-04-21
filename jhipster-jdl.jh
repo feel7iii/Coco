@@ -1,0 +1,229 @@
+entity ScAccessTokens {
+    userId Integer,
+    createdAt ZonedDateTime,
+    expiresAt ZonedDateTime,
+}
+
+entity ScAuthTokens {
+	payload String,
+	createdAt ZonedDateTime,
+}
+
+entity ScDiscussions {
+	title String,
+	commentsCount Integer,
+	participantsCount Integer,
+	numberIndex Integer,
+	startTime ZonedDateTime,
+	startUserId Integer,
+	startPostId Integer,
+	lastTime ZonedDateTime,
+	lastUserId Integer,
+	lastPostId Integer,
+	lastPostNumber Integer,
+	hideTime ZonedDateTime,
+	hideUserId Integer,
+	isApproved Integer,
+	isLocked Integer,
+	isSticky Integer,
+}
+
+entity ScDiscussionsTags {
+	discussionId Integer,
+	tagId Integer,
+}
+
+entity ScEmailTokens {
+	email String,
+	userId Integer,
+	createdAt ZonedDateTime,
+}
+
+entity ScFlags {
+	postId Integer,
+	type String,
+	userId Integer,
+	reason String,
+	reasonDetail String,
+	time ZonedDateTime,
+}
+
+entity ScGroups {
+	nameSingular String,
+	namePlural String,
+	color String,
+	icon String,
+}
+
+entity ScMentionsUserPosts {
+	userId Integer,
+	postId Integer,
+}
+
+entity ScNotifications {
+	userId Integer,
+	senderId Integer,
+	type String,
+	subjectType String, 
+	subjectId Integer,
+	data Blob
+	time ZonedDateTime,
+	isRead Integer,
+	isDeleted Integer,
+}
+
+entity ScPasswordTokens {
+	userId Integer,
+	createdAt ZonedDateTime,
+}
+
+entity ScPermissions {
+	groupId Integer,
+	permission String,
+}
+
+entity ScPosts {
+	discussionId Integer,
+	number Integer,
+	time ZonedDateTime,
+	userId Integer,
+	type String,
+	content Blob,
+	editTime ZonedDateTime,
+	editUserId Integer,
+	hideTime ZonedDateTime,
+	hideUserId Integer,
+	ipAddress String,
+	isApproved Integer,
+	isSpam Integer,
+}
+
+entity ScPostsLikes {
+	postId Integer,
+	userId Integer,
+}
+
+entity ScSettings {
+	key String,
+	value Blob
+}
+
+entity ScTags {
+	name String,
+	slug String,
+	description Blob,
+	color String,
+	backgroundPath String,
+	backgroundMode String,
+	position Integer,
+	parentId Integer,
+	defaultSort String,
+	isRestricted Integer,
+	isHidden Integer,
+	discussionsCount Integer,
+	lastTime ZonedDateTime,
+	lastDiscussionId Integer,
+}
+
+entity ScUsers {
+	email String,
+	isActivated Integer,
+	bio Blob,
+	avatarPath String,
+	preferences Blob,
+	joinTime ZonedDateTime,
+	lastSeenTime ZonedDateTime,
+	readTime ZonedDateTime,
+	notificationsReadTime ZonedDateTime,
+	discussionsCount Integer,
+	commentsCount Integer,
+	flagsReadTime ZonedDateTime,
+	suspendUntil ZonedDateTime,
+}
+
+entity ScUsersDiscussions {
+	userId Long,
+	discussionId Integer,
+	readTime ZonedDateTime,
+	readNumber Integer,
+	Subscription Subscription,
+}
+
+enum Subscription {
+	FOLLOW,
+    IGNORE
+}
+
+entity ScUsersGroups {
+	userId Integer,
+	groupId Integer,
+}
+
+entity ScUsersTags {
+	user_id Integer,
+	tag_id Integer,
+	read_time ZonedDateTime,
+	is_hidden Integer,
+}
+
+relationship OneToOne {
+	ScAccessTokens{scUser} to ScUsers,
+	ScAuthTokens{scUser} to ScUsers,
+	ScEmailTokens{scUser} to ScUsers,
+    
+	ScFlags{scPosts} to ScPosts,
+	
+	ScGroups{scUser} to ScUsers,
+	ScPosts{scMentionsUserPosts(postId)} to ScMentionsUserPosts,
+	ScPasswordTokens{scUser} to ScUsers,
+    
+	ScPosts{scPostsLikes} to ScPostsLikes,
+	ScPostsLikes{scUser} to ScUsers,
+    
+	ScSettings{scUser} to ScUsers,
+    
+	ScUsers{scUsersGroups(userId)} to ScUsersGroups,
+	ScGroups{scUsersGroups(groupId)} to ScUsersGroups,
+    
+    ScDiscussions{scUsersDiscussions(discussionId)} to ScUsersDiscussions,
+    
+	ScUsers{user} to User
+}
+
+relationship OneToMany {
+	ScDiscussions{scDiscussionsTags(discussionId)} to ScDiscussionsTags,
+	ScTags{scDiscussionsTags(tagId)} to ScDiscussionsTags,
+    
+    ScDiscussions{scUsersDiscussions(discussionId)} to ScPosts,
+    
+	ScUsers{scUsersDiscussions(userId)} to ScUsersDiscussions,
+    
+    ScUsers{scMentionsUserPosts(userId)} to ScMentionsUserPosts,
+    
+	ScUsers{scUsersTags(userId)} to ScUsersTags,
+	ScTags{scUserTags(tagId)} to ScUsersTags,
+    
+    ScGroups{scPermissions(groupId)} to ScPermissions
+
+}
+
+relationship ManyToOne{
+	ScFlags{scUser(userId)} to ScUsers,
+    ScUsers{scNotifications(userId)} to ScNotifications
+}
+
+relationship ManyToMany {
+	ScTags{scTags(parentId)} to ScTags
+}
+
+paginate ScTags, ScDiscussions with infinite-scroll
+
+paginate ScUsers with pager
+
+dto ScPosts, ScDiscussions, ScTags with mapstruct
+
+service ScUsers, ScPosts, ScDiscussions, ScTags with serviceClass
+
+skipClient for ScAccessTokens, ScAuthTokens, ScDiscussionsTags, ScEmailTokens, ScMentionsUserPosts, ScPasswordTokens, ScPermissions, ScSettings, ScUsersDiscussions, ScUsersGroups, ScUsersTags
+
+skipServer for ScAccessTokens, ScAuthTokens, ScDiscussionsTags, ScEmailTokens, ScMentionsUserPosts, ScPasswordTokens, ScPermissions, ScSettings, ScUsersDiscussions, ScUsersGroups, ScUsersTags
