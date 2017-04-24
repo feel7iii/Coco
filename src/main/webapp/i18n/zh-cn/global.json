@@ -52,7 +52,7 @@
                 },
                 "register": {
                     "noaccount": "您还没有账号",
-                    "link": "注册一个新账号"
+                    "link": "注册"
                 }
             },
             "error": {

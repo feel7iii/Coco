@@ -1,3 +1,10 @@
+DEFAULT_MIN_LENGTH = 1
+DEFAULT_MAX_LENGTH = 64
+DEFAULT_MIN_BYTES = 20
+DEFAULT_MAX_BYTES = 40
+DEFAULT_MIN = 0
+DEFAULT_MAX = 64
+
 entity ScAccessTokens {
     userId Integer,
     createdAt ZonedDateTime,
@@ -10,7 +17,7 @@ entity ScAuthTokens {
 }
 
 entity ScDiscussions {
-	title String,
+	title String required minlength(DEFAULT_MIN_LENGTH) maxlength(DEFAULT_MAX_LENGTH),
 	commentsCount Integer,
 	participantsCount Integer,
 	numberIndex Integer,
@@ -34,7 +41,7 @@ entity ScDiscussionsTags {
 }
 
 entity ScEmailTokens {
-	email String,
+	email String required minlength(DEFAULT_MIN_LENGTH) maxlength(DEFAULT_MAX_LENGTH),
 	userId Integer,
 	createdAt ZonedDateTime,
 }
@@ -43,8 +50,8 @@ entity ScFlags {
 	postId Integer,
 	type String,
 	userId Integer,
-	reason String,
-	reasonDetail String,
+	reason String required minlength(DEFAULT_MIN_LENGTH) maxlength(DEFAULT_MAX_LENGTH),
+	reasonDetail String required minlength(DEFAULT_MIN_LENGTH) maxlength(DEFAULT_MAX_LENGTH),
 	time ZonedDateTime,
 }
 
@@ -109,7 +116,7 @@ entity ScSettings {
 }
 
 entity ScTags {
-	name String,
+	name String required minlength(DEFAULT_MIN_LENGTH) maxlength(DEFAULT_MAX_LENGTH),
 	slug String,
 	description Blob,
 	color String,
@@ -126,7 +133,7 @@ entity ScTags {
 }
 
 entity ScUsers {
-	email String,
+	email String required minlength(DEFAULT_MIN_LENGTH) maxlength(DEFAULT_MAX_LENGTH),
 	isActivated Integer,
 	bio Blob,
 	avatarPath String,
@@ -219,8 +226,6 @@ relationship ManyToMany {
 paginate ScTags, ScDiscussions with infinite-scroll
 
 paginate ScUsers with pager
-
-dto ScPosts, ScDiscussions, ScTags with mapstruct
 
 service ScUsers, ScPosts, ScDiscussions, ScTags with serviceClass
 

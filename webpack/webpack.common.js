@@ -88,8 +88,7 @@ module.exports = function (options) {
                 { from: './src/main/webapp/i18n', to: 'i18n' }
             ]),
             new webpack.ProvidePlugin({
-                $: "jquery",
-                jQuery: "jquery"
+                $: "jquery"
             }),
             new HtmlWebpackPlugin({
                 template: './src/main/webapp/index.html',
@@ -99,11 +98,7 @@ module.exports = function (options) {
             new AddAssetHtmlPlugin([
                 { filepath: path.resolve('./target/www/vendor.dll.js'), includeSourcemap: false }
             ]),
-            new StringReplacePlugin(),
-            new WebpackNotifierPlugin({
-                title: 'JHipster',
-                contentImage: path.join(__dirname, 'logo.jpg')
-            })
+            new StringReplacePlugin()
         ]
     };
 };

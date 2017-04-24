@@ -1,18 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ElementRef, ViewChild, Renderer2} from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { EventManager, JhiLanguageService } from 'ng-jhipster';
 
-import { ProfileService } from '../profiles/profile.service'; // FIXME barrel doesn't work here
+import { ProfileService } from '../profiles/profile.service';
 import { JhiLanguageHelper, Principal, LoginModalService, LoginService } from '../../shared';
 
-import { VERSION, DEBUG_INFO_ENABLED } from '../../app.constants';
 
 @Component({
     selector: 'jhi-navbar',
     templateUrl: './navbar.component.html',
+    styles: [`
+        .img-height {
+            height: 27px;
+        }
+    `]
 })
 export class NavbarComponent implements OnInit {
+
+    @ViewChild('search') search: ElementRef;
+    @ViewChild('info') info: ElementRef;
 
     account: Account;
     inProduction: boolean;
@@ -30,9 +37,10 @@ export class NavbarComponent implements OnInit {
         private loginModalService: LoginModalService,
         private profileService: ProfileService,
         private router: Router,
-        private eventManager: EventManager
+        private eventManager: EventManager,
+        private elementRef: ElementRef,
+        private renderer: Renderer2,
     ) {
-        this.version = DEBUG_INFO_ENABLED ? 'v' + VERSION : '';
         this.isNavbarCollapsed = true;
         this.languageService.addLocation('home');
     }
@@ -83,11 +91,20 @@ export class NavbarComponent implements OnInit {
         this.router.navigate(['']);
     }
 
-    toggleNavbar() {
-        this.isNavbarCollapsed = !this.isNavbarCollapsed;
+    searchFocused() {
+        this.renderer.setAttribute(this.search.nativeElement, "class", "Search open focused");
     }
 
-    getImageUrl() {
-        return this.isAuthenticated() ? this.principal.getImageUrl() : null;
+    searchBlur() {
+        this.renderer.setAttribute(this.search.nativeElement, "class", "Search");
     }
+
+    showInfo() {
+        this.renderer.setAttribute(this.info.nativeElement, "class", "ButtonGroup Dropdown NotificationsDropdown itemCount open");
+    }
+
+    hiddenInfo() {
+        this.renderer.setAttribute(this.info.nativeElement, "class", "ButtonGroup Dropdown NotificationsDropdown itemCount");
+    }
+
 }

@@ -21,9 +21,9 @@
                     <input type="password" class="form-control" name="password" id="password" placeholder="{{'login.form.password.placeholder' | translate}}"
                            [(ngModel)]="password">
                 </div>
-                <div class="form-check">
+                <div class="form-check hidden-rememberme">
                     <label class="form-check-label" for="rememberMe">
-                        <input class="form-check-input" type="checkbox" name="rememberMe" id="rememberMe" [(ngModel)]="rememberMe" checked>
+                        <input class="form-check-input" type="checkbox" name="rememberMe" id="rememberMe" [(ngModel)]="rememberMe" checked="checked">
                         <span jhiTranslate="login.form.rememberme">Remember me</span>
                     </label>
                 </div>

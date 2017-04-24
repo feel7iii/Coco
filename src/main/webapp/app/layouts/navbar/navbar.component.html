@@ -4,7 +4,7 @@
         <div class="container">
             <h1 class="Header-title">
                 <a href="#" id="home-link">
-                    <img src="../../../content/images/logo.jpg" alt="" height="27">
+                    <img src="../../../content/images/logo.jpg" class="img-circle img-height" alt="JHipster中文社区">
                 </a>
             </h1>
             <div class="Header-primary">
@@ -18,54 +18,77 @@
             <div id="header-secondary" class="Header-secondary">
                 <ul class="Header-controls" [ngSwitch]="isAuthenticated()">
                     <li class="item-search">
-                        <div class="Search ">
+                        <div #search class="Search">
                             <div class="Search-input">
-                                <input class="FormControl" type="search" placeholder="Search Forum">
+                                <input  class="FormControl" (click)="searchFocused()" (blur)="searchBlur()" placeholder="检索议题....">
                             </div>
-                            <ul class="Dropdown-menu Search-results"></ul>
+                            <ul class="Dropdown-menu Search-results">
+                                <li class="Dropdown-header">Discussions</li>
+                                <li class="">
+                                    <a href="/?q=feel" active="false" class="hasIcon" title="Search all discussions for &quot;feel&quot;">
+                                        <i class="icon fa fa-fw fa-search Button-icon"></i>
+                                        <span class="Button-label">Search all discussions for "feel"</span>
+                                    </a>
+                                </li>
+                                <li class="DiscussionSearchResult" data-index="discussions1662">
+                                    <a href="/d/1662-extension-developer-first-read/23">
+                                        <div class="DiscussionSearchResult-title">Extension developer - first read</div>
+                                        <div class="DiscussionSearchResult-excerpt">
+                                            <mark>Feel</mark> free to continue tips in this addition by @issyrocks12
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="Dropdown-header">Users</li>
+                                <li class="UserSearchResult active" data-index="users7011">
+                                    <a href="/u/Feel_7">
+                                        <span class="Avatar " style="background: rgb(160, 229, 218);">F</span>
+                                        <span class="username"><mark>Feel</mark>_7</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </li>
-                    <li class="item-notifications">
-                        <div class="ButtonGroup Dropdown dropdown NotificationsDropdown itemCount0">
-                            <button class="Dropdown-toggle Button Button--flat" data-toggle="dropdown" title="Notifications" aria-expanded="true">
+                    <li class="item-notifications" *ngSwitchCase="true">
+                        <div #info class="ButtonGroup Dropdown NotificationsDropdown itemCount">
+                            <button class="Dropdown-toggle Button Button--flat" title="消息" aria-expanded="true" (click)="showInfo()" (blur)="hiddenInfo()">
                                 <i class="icon fa fa-fw fa-bell Button-icon"></i>
                                 <span class="Button-label">Notifications</span>
                             </button>
-                            <!--<div class="Dropdown-menu Dropdown-menu&#45;&#45;right">-->
-                                <!--<div class="NotificationList">-->
-                                    <!--<div class="NotificationList-header">-->
-                                        <!--<div class="App-primaryControl">-->
-                                            <!--<button class="Button Button&#45;&#45;icon Button&#45;&#45;link hasIcon" title="Mark All as Read" type="button">-->
-                                                <!--<i class="icon fa fa-fw fa-check Button-icon"></i>-->
-                                            <!--</button>-->
-                                        <!--</div>-->
-                                        <!--<h4 class="App-titleControl App-titleControl&#45;&#45;text">Notifications</h4>-->
-                                    <!--</div>-->
-                                    <!--<div class="NotificationList-content">-->
-                                        <!--<div class="NotificationGroup">-->
-                                            <!--<a class="NotificationGroup-header" href="/d/3950-testing-what-is-it">Testing What is it</a>-->
-                                            <!--<ul class="NotificationGroup-content">-->
-                                                <!--<li>-->
-                                                    <!--<a class="Notification Notification&#45;&#45;postMentioned " href="/d/3950-testing-what-is-it/2">-->
-                                                        <!--<img class="Avatar " src="https://discuss.flarum.org/assets/avatars/iyoyqwdfcqm1hvzf.jpg">-->
-                                                        <!--<i class="icon fa fa-fw fa-reply Notification-icon"></i>-->
-                                                        <!--<span class="Notification-content">-->
-                                                            <!--<span class="username">Satyajit</span>-->
-                                                            <!--replied to your post-->
-                                                        <!--</span>-->
-                                                        <!--<time pubdate="true" datetime="2016-10-11T17:20:36+08:00" title="Tuesday, October 11, 2016 5:20 PM" data-humantime="true">Oct '16</time>-->
-                                                        <!--<div class="Notification-excerpt">Testing</div>-->
-                                                    <!--</a>-->
-                                                <!--</li>-->
-                                            <!--</ul>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                            <!--</div>-->
+                            <div class="Dropdown-menu Dropdown-menu--right">
+                                <div class="NotificationList">
+                                    <div class="NotificationList-header">
+                                        <div class="App-primaryControl">
+                                            <button class="Button Button--icon Button--link hasIcon" title="Mark All as Read" type="button">
+                                                <i class="icon fa fa-fw fa-check Button-icon"></i>
+                                            </button>
+                                        </div>
+                                        <h4 class="App-titleControl App-titleControl--text">Notifications</h4>
+                                    </div>
+                                    <div class="NotificationList-content">
+                                        <div class="NotificationGroup">
+                                            <a class="NotificationGroup-header" href="/d/3950-testing-what-is-it">Testing What is it</a>
+                                            <ul class="NotificationGroup-content">
+                                                <li>
+                                                    <a class="Notification Notification--postMentioned " href="/d/3950-testing-what-is-it/2">
+                                                        <img class="Avatar " src="https://discuss.flarum.org/assets/avatars/iyoyqwdfcqm1hvzf.jpg">
+                                                        <i class="icon fa fa-fw fa-reply Notification-icon"></i>
+                                                        <span class="Notification-content">
+                                                            <span class="username">Satyajit</span>
+                                                            replied to your post
+                                                        </span>
+                                                        <time pubdate="true" datetime="2016-10-11T17:20:36+08:00" title="Tuesday, October 11, 2016 5:20 PM" data-humantime="true">Oct '16</time>
+                                                        <div class="Notification-excerpt">Testing</div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </li>
                     <li class="item-session" *ngSwitchCase="true">
-                        <div class="ButtonGroup Dropdown dropdown SessionDropdown itemCount4" *ngIf="account" [ngbCollapse]="isNavbarCollapsed" [ngSwitch]="isAuthenticated()">
+                        <div class="ButtonGroup Dropdown itemCount" *ngIf="account" [ngbCollapse]="isNavbarCollapsed">
                             <ul class="navbar-nav ml-auto">
                                 <li ngbDropdown class="nav-item dropdown pointer">
                                     <button ngbDropdownToggle class="Button Button--user Button--flat">
@@ -92,33 +115,21 @@
                                                 <span jhiTranslate="global.menu.account.logout">Sign out</span>
                                             </a>
                                         </li>
-                                        <li *ngSwitchCase="false">
-                                            <a class="dropdown-item" (click)="login()" id="login">
-                                                <i class="fa fa-fw fa-sign-in" aria-hidden="true"></i>
-                                                <span jhiTranslate="global.menu.account.login">Sign in</span>
-                                            </a>
-                                        </li>
-                                        <li *ngSwitchCase="false">
-                                            <a class="dropdown-item" routerLink="register" routerLinkActive="active" (click)="collapseNavbar()">
-                                                <i class="fa fa-fw fa-registered" aria-hidden="true"></i>
-                                                <span jhiTranslate="global.menu.account.register">Register</span>
-                                            </a>
-                                        </li>
                                     </ul>
                                 </li>
                             </ul>
                         </div>
                     </li>
                     <li class="item-signUp" *ngSwitchCase="false">
-                        <button class="Button Button--link" type="button" title="Sign Up">
-                            <span class="Button-label">
-                                <a class="alert-link" routerLink="register" jhiTranslate="global.messages.info.register.link">Register a new account</a>
+                        <button class="Button Button--link" [routerLink]="['/', {outlets: {popup: ['register']}}]" title="Sign Up">
+                            <span class="Button-label" jhiTranslate="global.messages.info.register.link">
+                                Register a new account
                             </span>
                         </button>
                     </li>
                     <li class="item-logIn" *ngSwitchCase="false" (click)="login()">
-                        <button class="Button Button--link" type="button" title="Log In">
-                            <span class="Button-label">Log In</span>
+                        <button class="Button Button--link" type="button" title="Sign In">
+                            <span class="Button-label" jhiTranslate="global.menu.account.login">Login In</span>
                         </button>
                     </li>
                 </ul>

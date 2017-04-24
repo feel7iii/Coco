@@ -8,7 +8,12 @@ import { StateStorageService } from '../auth/state-storage.service';
 
 @Component({
     selector: 'jhi-login-modal',
-    templateUrl: './login.component.html'
+    templateUrl: './login.component.html',
+    styles: [`
+        .hidden-rememberme {
+            display: none;
+        }
+    `]
 })
 export class JhiLoginModalComponent implements OnInit, AfterViewInit {
     authenticationError: boolean;
