@@ -8,14 +8,14 @@ import {
     TagsComponent,
     HomeComponent,
     JhiMainComponent,
-    mainRoute
+    mainState
 } from './';
 
 
 @NgModule({
     imports: [
         CocoSharedModule,
-        RouterModule.forRoot(mainRoute, { useHash: true })
+        RouterModule.forChild(mainState)
     ],
     declarations: [
         JhiMainComponent,
