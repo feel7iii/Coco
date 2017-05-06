@@ -1,9 +1,22 @@
-import { Route } from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
-import { NavbarComponent } from './layouts';
+import { navbarRoute, errorRoute, profileRoute, subjectRoute } from './layouts';
 
-export const navbarRoute: Route = {
-    path: '',
-    component: NavbarComponent,
-    outlet: 'navbar'
-};
+const APP_ROUTES = [
+    { path: '', redirectTo: 'main', pathMatch: 'full' },
+    navbarRoute,
+    profileRoute,
+    subjectRoute,
+    ...errorRoute
+];
+
+@NgModule({
+    imports: [
+        RouterModule.forRoot(APP_ROUTES, { useHash: true })
+    ],
+    exports: [
+        RouterModule
+    ]
+})
+export class AppRoutingModule {}

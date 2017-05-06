@@ -120,8 +120,8 @@
                             </ul>
                         </div>
                     </li>
-                    <li class="item-signUp" *ngSwitchCase="false">
-                        <button class="Button Button--link" [routerLink]="['/', {outlets: {popup: ['register']}}]" title="Sign Up">
+                    <li class="item-signUp" *ngSwitchCase="false" (click)="register()">
+                        <button class="Button Button--link" title="Sign Up">
                             <span class="Button-label" jhiTranslate="global.messages.info.register.link">
                                 Register a new account
                             </span>

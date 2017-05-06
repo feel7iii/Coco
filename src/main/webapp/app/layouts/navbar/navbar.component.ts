@@ -91,6 +91,10 @@ export class NavbarComponent implements OnInit {
         this.router.navigate(['']);
     }
 
+    register() {
+        this.router.navigate(['/register']);
+    }
+
     searchFocused() {
         this.renderer.setAttribute(this.search.nativeElement, "class", "Search open focused");
     }

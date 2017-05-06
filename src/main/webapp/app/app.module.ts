@@ -5,56 +5,36 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Ng2Webstorage } from 'ng2-webstorage';
 
 import { CocoSharedModule, UserRouteAccessService } from './shared';
-import { CocoHomeModule } from './home/home.module';
 import { CocoAdminModule } from './admin/admin.module';
 import { CocoAccountModule } from './account/account.module';
+import { CocoLayoutModule } from './layouts/layout.module';
 import { CocoEntityModule } from './entities/entity.module';
 
-import { LayoutRoutingModule } from './layouts';
+import { AppRoutingModule } from './app.route';
 import { customHttpProvider } from './blocks/interceptor/http.provider';
 import { PaginationConfig } from './blocks/config/uib-pagination.config';
 
-import {
-    JhiMainComponent,
-    NavbarComponent,
-    NoticeComponent,
-    TagsComponent,
-    SortComponent,
-    FooterComponent,
-    ProfileService,
-    PageRibbonComponent,
-    ActiveMenuDirective,
-    ErrorComponent
-} from './layouts';
+import { JhiLayoutComponent } from './app.component';
 
 @NgModule({
     imports: [
         BrowserModule,
-        LayoutRoutingModule,
+        AppRoutingModule,
         Ng2Webstorage.forRoot({ prefix: 'jhi', separator: '-'}),
         CocoSharedModule,
-        CocoHomeModule,
         CocoAdminModule,
         CocoAccountModule,
+        CocoLayoutModule,
         CocoEntityModule
     ],
     declarations: [
-        JhiMainComponent,
-        NavbarComponent,
-        NoticeComponent,
-        TagsComponent,
-        SortComponent,
-        ErrorComponent,
-        PageRibbonComponent,
-        ActiveMenuDirective,
-        FooterComponent
+        JhiLayoutComponent
     ],
     providers: [
-        ProfileService,
         customHttpProvider(),
         PaginationConfig,
         UserRouteAccessService
     ],
-    bootstrap: [ JhiMainComponent ]
+    bootstrap: [ JhiLayoutComponent ]
 })
 export class CocoAppModule {}

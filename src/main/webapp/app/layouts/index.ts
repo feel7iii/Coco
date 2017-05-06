@@ -2,12 +2,16 @@ export * from './error/error.component';
 export * from './error/error.route';
 export * from './main/main.component';
 export * from './footer/footer.component';
+export * from './navbar/navbar.route';
 export * from './navbar/navbar.component';
 export * from './navbar/active-menu.directive';
 export * from './profiles/page-ribbon.component';
 export * from './profiles/profile.service';
 export * from './profiles/profile-info.model';
-export * from './layout-routing.module';
-export * from './notice/notice.component'
-export * from './tags/tags.component';
-export * from './sort/sort.component';
+
+export * from './main/main.route';
+export * from './notice/notice.component';
+export * from './subject/subject.component';
+export * from './subject/subject.route';
+export * from './profile/profile.component';
+export * from './profile/profile.route';

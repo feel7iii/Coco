@@ -6,7 +6,6 @@ import { RegisterComponent } from './register.component';
 export const registerRoute: Route = {
   path: 'register',
   component: RegisterComponent,
-  outlet: 'popup',
   data: {
     authorities: [],
     pageTitle: 'register.title'
