@@ -33,7 +33,7 @@ export class FindLanguageFromKeyPipe implements PipeTransform {
         'th': 'ไทย',
         'tr': 'Türkçe',
         'vi': 'Tiếng Việt',
-        'zh-cn': '中文（简体）',
+        'zh-cn': '简体中文',
         'zh-tw': '繁體中文'
     };
     transform(lang: string): string {

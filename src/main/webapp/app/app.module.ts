@@ -1,6 +1,6 @@
 import './vendor.ts';
 
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Ng2Webstorage } from 'ng2-webstorage';
 
@@ -16,6 +16,8 @@ import { PaginationConfig } from './blocks/config/uib-pagination.config';
 
 import { JhiLayoutComponent } from './app.component';
 
+import { NoticeComponent } from './layouts'
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -28,13 +30,15 @@ import { JhiLayoutComponent } from './app.component';
         CocoEntityModule
     ],
     declarations: [
-        JhiLayoutComponent
+        JhiLayoutComponent,
+        NoticeComponent
     ],
     providers: [
         customHttpProvider(),
         PaginationConfig,
         UserRouteAccessService
     ],
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
     bootstrap: [ JhiLayoutComponent ]
 })
 export class CocoAppModule {}

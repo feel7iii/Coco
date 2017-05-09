@@ -31,7 +31,31 @@
                 "database": "数据库",
                 "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
             },
+            "index": {
+                "guardians": "守护者联盟",
+                "issue": "议题"
+            },
             "language": "语言"
+        },
+        "order": {
+            "latest": "最新回复",
+            "top": "置顶",
+            "newest": "最新发布",
+            "oldest": "最早发布"
+        },
+        "search": {
+            "hint.placeholder": "检索议题",
+            "discussion": "议题",
+            "user": "用户"
+        },
+        "refresh": {
+            "load": "向下滑动刷新"
+        },
+        "tags": {
+            "start": "开始议题",
+            "all": "所有议题",
+            "following": "关注议题",
+            "tags": "类目标签"
         },
         "form": {
             "username": "账号",

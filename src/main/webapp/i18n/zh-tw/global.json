@@ -31,7 +31,31 @@
                 "database": "資料庫",
                 "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
             },
+            "index": {
+                "guardians": "守護者聯盟",
+                "issue": "議題"
+            },
             "language": "語言"
+        },
+        "order": {
+            "latest": "最新回復",
+            "top": "置頂",
+            "newest": "最新發布",
+            "oldest": "最早發布"
+        },
+        "search": {
+            "hint.placeholder": "檢索議題",
+            "discussion": "議題",
+            "user": "用戶"
+        },
+        "refresh": {
+            "load": "向下滑動刷新"
+        },
+        "tags": {
+            "start": "開始議題",
+            "all": "所有議題",
+            "following": "關注議題",
+            "tags": "類目標簽"
         },
         "form": {
             "username": "帳號",

@@ -9,6 +9,6 @@ export class SortComponent {
     constructor(
         private languageService: JhiLanguageService
     ){
-        this.languageService.addLocation('home');
+        this.languageService.setLocations(['home']);
     }
 }

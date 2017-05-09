@@ -5,10 +5,8 @@ import { MainModule } from './main/main.module';
 
 import {
     ProfileComponent,
-    NoticeComponent,
     NavbarComponent,
     SubjectComponent,
-    FooterComponent,
     ProfileService,
     PageRibbonComponent,
     ActiveMenuDirective,
@@ -22,10 +20,8 @@ import {
     ],
     declarations: [
         ProfileComponent,
-        NoticeComponent,
         NavbarComponent,
         SubjectComponent,
-        FooterComponent,
         PageRibbonComponent,
         ActiveMenuDirective,
         ErrorComponent

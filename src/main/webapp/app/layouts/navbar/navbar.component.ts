@@ -1,11 +1,10 @@
-import {Component, OnInit, ElementRef, ViewChild, Renderer2} from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { EventManager, JhiLanguageService } from 'ng-jhipster';
 
 import { ProfileService } from '../profiles/profile.service';
 import { JhiLanguageHelper, Principal, LoginModalService, LoginService } from '../../shared';
-
 
 @Component({
     selector: 'jhi-navbar',
@@ -38,7 +37,6 @@ export class NavbarComponent implements OnInit {
         private profileService: ProfileService,
         private router: Router,
         private eventManager: EventManager,
-        private elementRef: ElementRef,
         private renderer: Renderer2,
     ) {
         this.isNavbarCollapsed = true;

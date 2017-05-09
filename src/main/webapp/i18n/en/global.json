@@ -31,7 +31,31 @@
                 "database": "Database",
                 "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
             },
+            "index": {
+                "guardians": "Guardians",
+                "issue": "issue"
+            },
             "language": "Language"
+        },
+        "order": {
+            "latest": "Latest",
+            "top": "Top",
+            "newest": "Newest",
+            "oldest": "Oldest"
+        },
+        "search": {
+            "hint.placeholder": "Search Issue",
+            "discussion": "Discussions",
+            "user": "Users"
+        },
+        "refresh": {
+            "load": "Load More.."
+        },
+        "tags": {
+            "start": "Start a Discussion",
+            "all ": "All Discussions",
+            "following": "Following",
+            "tags": "Tags"
         },
         "form": {
             "username": "Username",

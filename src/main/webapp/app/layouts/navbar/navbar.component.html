@@ -9,9 +9,8 @@
             </h1>
             <div class="Header-primary">
                 <ul class="Header-controls">
-                    <li><a href="#" class="Button Button--link">Home</a></li>
-                    <li><a href="#" class="Button Button--link">Guidelines</a></li>
-                    <li><a href="#" class="Button Button--link">FAQ</a></li>
+                    <li><a href="#" class="Button Button--link" jhiTranslate="global.menu.index.guardians">Guardians</a></li>
+                    <li><a href="#" class="Button Button--link" jhiTranslate="global.menu.index.issue">Issue</a></li>
                 </ul>
                 <div id="header-primary"><ul class="Header-controls"></ul></div>
             </div>
@@ -20,31 +19,11 @@
                     <li class="item-search">
                         <div #search class="Search">
                             <div class="Search-input">
-                                <input  class="FormControl" (click)="searchFocused()" (blur)="searchBlur()" placeholder="检索议题....">
+                                <input class="FormControl" (click)="searchFocused()" (blur)="searchBlur()" placeholder="{{'global.search.hint.placeholder' | translate}}">
                             </div>
                             <ul class="Dropdown-menu Search-results">
-                                <li class="Dropdown-header">Discussions</li>
-                                <li class="">
-                                    <a href="/?q=feel" active="false" class="hasIcon" title="Search all discussions for &quot;feel&quot;">
-                                        <i class="icon fa fa-fw fa-search Button-icon"></i>
-                                        <span class="Button-label">Search all discussions for "feel"</span>
-                                    </a>
-                                </li>
-                                <li class="DiscussionSearchResult" data-index="discussions1662">
-                                    <a href="/d/1662-extension-developer-first-read/23">
-                                        <div class="DiscussionSearchResult-title">Extension developer - first read</div>
-                                        <div class="DiscussionSearchResult-excerpt">
-                                            <mark>Feel</mark> free to continue tips in this addition by @issyrocks12
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="Dropdown-header">Users</li>
-                                <li class="UserSearchResult active" data-index="users7011">
-                                    <a href="/u/Feel_7">
-                                        <span class="Avatar " style="background: rgb(160, 229, 218);">F</span>
-                                        <span class="username"><mark>Feel</mark>_7</span>
-                                    </a>
-                                </li>
+                                <li class="Dropdown-header" jhiTranslate="global.search.discussion">Discussions</li>
+                                <li class="Dropdown-header" jhiTranslate="global.search.user">Users</li>
                             </ul>
                         </div>
                     </li>
@@ -69,8 +48,8 @@
                                             <a class="NotificationGroup-header" href="/d/3950-testing-what-is-it">Testing What is it</a>
                                             <ul class="NotificationGroup-content">
                                                 <li>
-                                                    <a class="Notification Notification--postMentioned " href="/d/3950-testing-what-is-it/2">
-                                                        <img class="Avatar " src="https://discuss.flarum.org/assets/avatars/iyoyqwdfcqm1hvzf.jpg">
+                                                    <a class="Notification Notification--postMentioned " href="#">
+                                                        <img class="Avatar " src="https://discuss.flarum.org/assets/avatars/tfhe6wsti8jtsjet.jpg">
                                                         <i class="icon fa fa-fw fa-reply Notification-icon"></i>
                                                         <span class="Notification-content">
                                                             <span class="username">Satyajit</span>
@@ -90,21 +69,107 @@
                     <li class="item-session" *ngSwitchCase="true">
                         <div class="ButtonGroup Dropdown itemCount" *ngIf="account" [ngbCollapse]="isNavbarCollapsed">
                             <ul class="navbar-nav ml-auto">
+                                <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer">
+                                    <button ngbDropdownToggle class="Button Button--user Button--flat" id="admin-menu">
+                                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                        <span jhiTranslate="global.menu.admin.main">Administration</span>
+                                    </button>
+                                    <ul class="Dropdown-menu dropdown-menu Dropdown-menu--right" ngbDropdownMenu>
+                                        <li>
+                                            <a class="hasIcon" routerLink="user-management" routerLinkActive="active" (click)="collapseNavbar()">
+                                                <i class="fa fa-fw fa-user" aria-hidden="true"></i>
+                                                <span jhiTranslate="global.menu.admin.userManagement">User management</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="hasIcon" routerLink="jhi-tracker" routerLinkActive="active" (click)="collapseNavbar()">
+                                                <i class="fa fa-fw fa-eye" aria-hidden="true"></i>
+                                                <span jhiTranslate="global.menu.admin.tracker">User tracker</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="hasIcon" routerLink="jhi-metrics" routerLinkActive="active" (click)="collapseNavbar()">
+                                                <i class="fa fa-fw fa-tachometer" aria-hidden="true"></i>
+                                                <span jhiTranslate="global.menu.admin.metrics">Metrics</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="hasIcon" routerLink="jhi-health" routerLinkActive="active" (click)="collapseNavbar()">
+                                                <i class="fa fa-fw fa-heart" aria-hidden="true"></i>
+                                                <span jhiTranslate="global.menu.admin.health">Health</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="hasIcon" routerLink="jhi-configuration" routerLinkActive="active" (click)="collapseNavbar()">
+                                                <i class="fa fa-fw fa-list" aria-hidden="true"></i>
+                                                <span jhiTranslate="global.menu.admin.configuration">Configuration</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="hasIcon" routerLink="audits" routerLinkActive="active" (click)="collapseNavbar()">
+                                                <i class="fa fa-fw fa-bell" aria-hidden="true"></i>
+                                                <span jhiTranslate="global.menu.admin.audits">Audits</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="hasIcon" routerLink="logs" routerLinkActive="active" (click)="collapseNavbar()">
+                                                <i class="fa fa-fw fa-tasks" aria-hidden="true"></i>
+                                                <span jhiTranslate="global.menu.admin.logs">Logs</span>
+                                            </a>
+                                        </li>
+                                        <li *ngIf="swaggerEnabled">
+                                            <a class="hasIcon" routerLink="docs" routerLinkActive="active" (click)="collapseNavbar()">
+                                                <i class="fa fa-fw fa-book" aria-hidden="true"></i>
+                                                <span jhiTranslate="global.menu.admin.apidocs">API</span>
+                                            </a>
+                                        </li>
+                                        <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
+                                        <li *ngIf="!inProduction">
+                                            <a class="hasIcon" href='/h2-console' target="_tab" (click)="collapseNavbar()">
+                                                <i class="fa fa-fw fa-hdd-o" aria-hidden="true"></i>
+                                                <span jhiTranslate="global.menu.admin.database">Database</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="item-session">
+                        <div class="ButtonGroup Dropdown itemCount">
+                            <ul class="navbar-nav ml-auto">
+                                <li ngbDropdown class="nav-item dropdown pointer" *ngIf="languages">
+                                    <button ngbDropdownToggle class="Button Button--user Button--flat" id="languagesnavBarDropdown" *ngIf="languages.length > 1">
+                                        <i class="fa fa-globe" aria-hidden="true"></i>
+                                        <span jhiTranslate="global.menu.language">Language</span>
+                                    </button>
+                                    <ul class="Dropdown-menu dropdown-menu Dropdown-menu--right" ngbDropdownMenu *ngIf="languages.length > 1">
+                                        <li *ngFor="let language of languages">
+                                            <a class="dropdown-item hasIcon" [jhiActiveMenu]="language" href="javascript:void(0);" (click)="changeLanguage(language);collapseNavbar();">{{language | findLanguageFromKey}}</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="item-session" *ngSwitchCase="true">
+                        <div class="ButtonGroup Dropdown itemCount" *ngIf="account" [ngbCollapse]="isNavbarCollapsed">
+                            <ul class="navbar-nav ml-auto">
                                 <li ngbDropdown class="nav-item dropdown pointer">
                                     <button ngbDropdownToggle class="Button Button--user Button--flat">
                                         <i class="fa fa-user" aria-hidden="true"></i>
-                                        <span class="Button-label"><span class="username"><span jhiTranslate="home.logged.message" translateValues="{username: '{{account.login}}'}">You are logged in as user "{{account.login}}"</span></span></span>
+                                        <span class="Button-label"><span class="username"><span jhiTranslate="global.menu.account.main">Account</span></span></span>
                                     </button>
                                     <ul class="Dropdown-menu dropdown-menu Dropdown-menu--right" ngbDropdownMenu>
                                         <li *ngSwitchCase="true" class="item-profile">
                                             <a class="hasIcon" routerLink="settings" routerLinkActive="active" (click)="collapseNavbar()">
-                                                <i class="fa fa-fw fa-wrench" aria-hidden="true"></i>
+                                                <i class="fa fa-cogs" aria-hidden="true"></i>
                                                 <span jhiTranslate="global.menu.account.settings">Settings</span>
                                             </a>
                                         </li>
                                         <li *ngSwitchCase="true" class="item-settings">
                                             <a class="hasIcon" routerLink="password" routerLinkActive="active" (click)="collapseNavbar()">
-                                                <i class="fa fa-fw fa-wrench" aria-hidden="true"></i>
+                                                <i class="fa fa-unlock" aria-hidden="true"></i>
                                                 <span jhiTranslate="global.menu.account.password">Password</span>
                                             </a>
                                         </li>

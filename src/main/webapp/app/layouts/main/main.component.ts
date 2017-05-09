@@ -5,7 +5,13 @@ import { JhiLanguageHelper } from '../../shared';
 
 @Component({
     selector: 'jhi-main',
-    templateUrl: './main.component.html'
+    template: `
+    <jhi-tags></jhi-tags>
+    <div class="IndexPage-results sideNavOffset">
+        <jhi-sort></jhi-sort>
+        <router-outlet></router-outlet>
+    </div>
+    `
 })
 export class JhiMainComponent implements OnInit {
 

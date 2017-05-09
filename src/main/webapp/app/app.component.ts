@@ -10,10 +10,16 @@ import { JhiLanguageHelper } from './shared';
         <router-outlet name="navbar"></router-outlet>
         <main class="App-content">
             <div id="content">
-                <router-outlet></router-outlet>
+                <div class="IndexPage">
+                    <jhi-notice></jhi-notice>
+                    <div class="container">
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
             </div>
         </main>
         <router-outlet name="popup"></router-outlet>
+        <jhi-footer></jhi-footer>
     </div>
     `
 })
