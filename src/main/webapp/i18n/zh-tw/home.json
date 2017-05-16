@@ -3,7 +3,7 @@
         "title": "Java Hipster中文社区",
         "subtitle": "這裡是您的首頁",
         "logged": {
-            "message": "您目前是用 “{{username}}” 帳號登入"
+            "message": "歡迎來到JHipster中文社區, 您目前是用 “{{username}}” 帳號登入, See More, Work Together, Then Success."
         },
         "question": "要是您對 JHipster 有任何疑問，可以到:",
         "link": {

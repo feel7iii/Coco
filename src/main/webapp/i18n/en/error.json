@@ -1,6 +1,6 @@
 {
     "error": {
-        "title": "Error page!",
+        "title": "404 Page Not Found.",
         "403": "You are not authorized to access the page."
     }
 }

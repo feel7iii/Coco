@@ -1,6 +1,6 @@
 import { Route } from '@angular/router';
 
-import { SubjectComponent } from './subject.component'
+import { SubjectComponent } from './subject.component';
 
 export const subjectRoute: Route = {
     path: 'subject',

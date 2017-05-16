@@ -16,13 +16,14 @@ import {
     PasswordResetInitComponent,
     PasswordResetFinishComponent,
     SettingsComponent,
+    ConfigureComponent,
     accountState
 } from './';
 
 @NgModule({
     imports: [
         CocoSharedModule,
-        RouterModule.forRoot(accountState, { useHash: true })
+        RouterModule.forChild(accountState)
     ],
     declarations: [
         ActivateComponent,
@@ -31,7 +32,8 @@ import {
         PasswordStrengthBarComponent,
         PasswordResetInitComponent,
         PasswordResetFinishComponent,
-        SettingsComponent
+        SettingsComponent,
+        ConfigureComponent
     ],
     providers: [
         Register,

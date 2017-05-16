@@ -8,7 +8,7 @@ import { JhiLanguageService } from 'ng-jhipster';
 export class SortComponent {
     constructor(
         private languageService: JhiLanguageService
-    ){
+    ) {
         this.languageService.setLocations(['home']);
     }
 }

@@ -1,339 +1,728 @@
-<main class="App-content">
-    <div id="content">
-        <div class="UserPage">
-            <div class="UserCard Hero UserHero" style="background-color: rgb(234, 233, 234);">
-                <div class="darkenBackground">
-                    <div class="container">
-                        <div class="UserCard-profile">
-                            <h2 class="UserCard-identity">
-                                <div class="AvatarEditor Dropdown UserCard-avatar"><img class="Avatar "
-                                                                                        src="https://discuss.flarum.org/assets/avatars/x3vijivzovpylaar.jpg"><a
-                                    class="Dropdown-toggle" title="Upload a new avatar" data-toggle="dropdown"><i
-                                    class="icon fa fa-fw fa-pencil "></i></a>
-                                    <ul class="Dropdown-menu Menu">
-                                        <li class="item-upload">
-                                            <button class=" hasIcon" type="button" title="Upload"><i
-                                                class="icon fa fa-fw fa-upload Button-icon"></i><span
-                                                class="Button-label">Upload</span></button>
-                                        </li>
-                                        <li class="item-remove">
-                                            <button class=" hasIcon" type="button" title="Remove"><i
-                                                class="icon fa fa-fw fa-times Button-icon"></i><span
-                                                class="Button-label">Remove</span></button>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <span class="username">Feel_7</span></h2>
-                            <ul class="UserCard-info">
-                                <li class="item-bio">
-                                    <div class="UserBio editable">
-                                        <div class="UserBio-content"><p>come and go</p></div>
-                                    </div>
-                                </li>
-                                <li class="item-lastSeen"><span class="UserCard-lastSeen online"><i
-                                    class="icon fa fa-fw fa-circle "></i> Online</span></li>
-                                <li class="item-joined">Joined Oct '16</li>
-                            </ul>
+<div class="UserPage">
+    <div class="container">
+        <div class="contentpanel">
+            <div class="row">
+                <div class="col-sm-3">
+                    <img src="../../../content/images/logoc.png" class="img-region Avatar" alt="">
+                    <div class="mb5"></div>
+                    <div class="settings">
+                        <a>
+                            <i class="fa fa-fw fa-cog Button-icon"></i>
+                            <span class="Button-label">Settings</span>
+                        </a>
+                    </div>
+                    <div class="mb20"></div>
+                    <h5 class="subtitle">About</h5>
+                    <p class="mb20">
+                        Let's build a better Enterprise.
+                        Spring helps development teams everywhere build simple, portable,
+                        fast and flexible JVM-based systems and applications....
+                        <a href="">Show More</a>
+                    </p>
+                    <h5 class="subtitle">Content</h5>
+                    <ul class="profile-social-list">
+                        <li><i class="fa fa-twitter"></i><a href="">twitter.com/Feel7_i</a></li>
+                        <li><i class="fa fa-facebook"></i><a href="">facebook.com/Feel7_i</a></li>
+                        <li><i class="fa fa-youtube"></i><a href="">youtube.com/Feel7_i</a></li>
+                        <li><i class="fa fa-linkedin"></i><a href="">linkedin.com/Feel7_i</a></li>
+                        <li><i class="fa fa-pinterest"></i><a href="">pinterest.com/Feel7_i</a></li>
+                        <li><i class="fa fa-instagram"></i><a href="">instagram.com/Feel7_i</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-9">
+                    <div class="profile-header">
+                        <h2 class="profile-name">Feel7_i</h2>
+                        <div class="profile-location">
+                            <i class="fa fa-map-marker"></i>
+                            HaiDian, PeKing, China
                         </div>
+                        <div class="profile-position">
+                            <i class="fa fa-briefcase"></i>
+                            Software Engineer at
+                            <a href="">SC, Inc.</a>
+                        </div>
+                        <button class="btn btn-success"><i class="fa fa-user"></i> Follow</button>
+                        <button class="btn btn-white"><i class="fa fa-envelope-o"></i> Message</button>
                     </div>
-                </div>
-            </div>
-            <div class="container">
-                <nav class="sideNav UserPage-nav">
-                    <ul class="affix-top">
-                        <li class="item-nav">
-                            <div class="ButtonGroup Dropdown dropdown App-titleControl Dropdown--select itemCount5">
-                                <button class="Dropdown-toggle Button" data-toggle="dropdown"><span
-                                    class="Button-label">Posts</span><i class="icon fa fa-fw fa-sort Button-caret"></i>
-                                </button>
-                                <ul class="Dropdown-menu dropdown-menu ">
-                                    <li class="item-posts active"><a href="/u/Feel_7" active="true" class=" hasIcon"
-                                                                     type="button" title="Posts3"><i
-                                        class="icon fa fa-fw fa-comment-o Button-icon"></i><span class="Button-label">Posts<span
-                                        class="Button-badge">3</span></span></a></li>
-                                    <li class="item-discussions"><a href="/u/Feel_7/discussions" active="false"
-                                                                    class=" hasIcon" type="button" title="Discussions2"><i
-                                        class="icon fa fa-fw fa-reorder Button-icon"></i><span class="Button-label">Discussions<span
-                                        class="Button-badge">2</span></span></a></li>
-                                    <li class="item-mentions"><a href="/u/Feel_7/mentions" name="mentions"
-                                                                 active="false" class=" hasIcon" type="button"
-                                                                 title="Mentions"><i
-                                        class="icon fa fa-fw fa-at Button-icon"></i><span
-                                        class="Button-label">Mentions</span></a></li>
-                                    <li class="Dropdown-separator"></li>
-                                    <li class="item-settings"><a href="/settings" active="false" class=" hasIcon"
-                                                                 type="button" title="Settings"><i
-                                        class="icon fa fa-fw fa-cog Button-icon"></i><span
-                                        class="Button-label">Settings</span></a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="sideNavOffset UserPage-content">
-                    <div class="PostsUserPage">
-                        <ul class="PostsUserPage-list">
-                            <li>
-                                <div class="PostsUserPage-discussion">In <a href="/d/5518-now-test">NOW TEST</a></div>
-                                <article class="Post undefined CommentPost">
-                                    <div>
-                                        <header class="Post-header">
-                                            <ul>
-                                                <li class="item-user">
-                                                    <div class="PostUser"><span class="UserOnline"><i
-                                                        class="icon fa fa-fw fa-circle "></i></span>
-                                                        <h3><a href="/u/Feel_7"><img class="Avatar PostUser-avatar"
-                                                                                     src="https://discuss.flarum.org/assets/avatars/x3vijivzovpylaar.jpg">
-                                                            <span class="username">Feel_7</span></a></h3>
-                                                        <ul class="PostUser-badges badges"></ul>
+                    <ngb-tabset>
+                        <ngb-tab>
+                            <template ngbTabTitle>
+                                <i class="fa fa-fw fa-comment-o Button-icon"></i>
+                                <span class="Button-label">Posts</span>
+                            </template>
+                            <template ngbTabContent>
+                                <div class="DiscussionsUserPage">
+                                    <div class="DiscussionList">
+                                        <ul class="DiscussionList-discussions">
+                                            <li>
+                                                <div class="PostsUserPage-discussion">
+                                                    <a href="#">Flagrow Ads, bombarding your users with ads everywhere, if you want..</a>
+                                                </div>
+                                                <article class="Post undefined CommentPost">
+                                                    <div>
+                                                        <header class="Post-header">
+                                                            <ul>
+                                                                <li class="item-user">
+                                                                    <div class="PostUser">
+                                                                        <h3>
+                                                                            <a href="/u/luceos">
+                                                                                <img class="Avatar PostUser-avatar" src="">
+                                                                                <span class="username">luceos</span>
+                                                                            </a>
+                                                                        </h3>
+                                                                        <ul class="PostUser-badges badges">
+                                                                            <li class="item-group4">
+                                    <span class="Badge" title="" style="background-color: rgb(128, 52, 158);">
+                                        <i class="icon fa fa-fw fa-bolt Badge-icon"></i>
+                                    </span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="item-meta">
+                                                                    <div class="Dropdown PostMeta"><a class="Dropdown-toggle" data-toggle="dropdown">
+                                                                        <time title="">2 days ago</time>
+                                                                    </a>
+                                                                        <div class="Dropdown-menu dropdown-menu">
+                                                                            <span class="PostMeta-number">Post #51</span>
+                                                                            <span class="PostMeta-time">
+                                    <time>Sunday, May 14, 2017 6:40 PM</time>
+                                </span>
+                                                                            <span class="PostMeta-ip"></span>
+                                                                            <input class="FormControl PostMeta-permalink">
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </header>
+                                                        <div class="Post-body">
+                                                            <p>
+                                                                Good point, feel free to open an
+                                                                <a href="#" target="_blank" rel="nofollow noreferrer">issue on github</a>
+                                                                <a href="https://discuss.flarum.org/d/4785/50" class="PostMention" data-id="44897">spiridon</a>
+                                                            </p>
+                                                        </div>
+                                                        <aside class="Post-actions">
+                                                            <ul>
+                                                                <li class="item-like">
+                                                                    <button class="Button Button--link" type="button" title="Like">
+                                                                        <span class="Button-label">Like</span>
+                                                                    </button>
+                                                                </li>
+                                                                <li class="item-reply">
+                                                                    <button class="Button Button--link" type="button" title="Reply">
+                                                                        <span class="Button-label">Reply</span>
+                                                                    </button>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="ButtonGroup Dropdown dropdown Post-controls itemCount1">
+                                                                        <button class="Dropdown-toggle Button Button--icon Button--flat" data-toggle="dropdown">
+                                                                            <i class="icon fa fa-fw fa-ellipsis-h Button-icon"></i>
+                                                                            <span class="Button-label"></span>
+                                                                            <i class="icon fa fa-fw fa-caret-down Button-caret"></i>
+                                                                        </button>
+                                                                        <ul class="Dropdown-menu dropdown-menu Dropdown-menu--right">
+                                                                            <li class="item-flag">
+                                                                                <button class=" hasIcon" type="button" title="Flag">
+                                                                                    <i class="icon fa fa-fw fa-flag Button-icon"></i>
+                                                                                    <span class="Button-label">Flag</span>
+                                                                                </button>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </aside>
                                                     </div>
-                                                </li>
-                                                <li class="item-meta">
-                                                    <div class="Dropdown PostMeta"><a class="Dropdown-toggle"
-                                                                                      data-toggle="dropdown">
-                                                        <time pubdate="true" datetime="2017-04-18T01:31:21+08:00"
-                                                              title="Tuesday, April 18, 2017 1:31 AM"
-                                                              data-humantime="true">14 days ago
-                                                        </time>
-                                                    </a>
-                                                        <div class="Dropdown-menu dropdown-menu"><span
-                                                            class="PostMeta-number">Post #1</span> <span
-                                                            class="PostMeta-time"><time pubdate="true"
-                                                                                        datetime="2017-04-18T01:31:21+08:00">Tuesday, April 18, 2017 1:31 AM</time></span>
-                                                            <span class="PostMeta-ip"></span><input
-                                                                class="FormControl PostMeta-permalink"></div>
+                                                    <ul class="Dropdown-menu PostMention-preview fade"></ul>
+                                                </article>
+                                                <div class="Post-quoteButtonContainer"></div>
+                                            </li>
+                                            <li>
+                                                <div class="PostsUserPage-discussion">
+                                                    <a href="#">Flagrow Ads, bombarding your users with ads everywhere, if you want..</a>
+                                                </div>
+                                                <article class="Post undefined CommentPost">
+                                                    <div>
+                                                        <header class="Post-header">
+                                                            <ul>
+                                                                <li class="item-user">
+                                                                    <div class="PostUser">
+                                                                        <h3>
+                                                                            <a href="/u/luceos">
+                                                                                <img class="Avatar PostUser-avatar" src="">
+                                                                                <span class="username">luceos</span>
+                                                                            </a>
+                                                                        </h3>
+                                                                        <ul class="PostUser-badges badges">
+                                                                            <li class="item-group4">
+                                    <span class="Badge" title="" style="background-color: rgb(128, 52, 158);">
+                                        <i class="icon fa fa-fw fa-bolt Badge-icon"></i>
+                                    </span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="item-meta">
+                                                                    <div class="Dropdown PostMeta"><a class="Dropdown-toggle" data-toggle="dropdown">
+                                                                        <time title="">2 days ago</time>
+                                                                    </a>
+                                                                        <div class="Dropdown-menu dropdown-menu">
+                                                                            <span class="PostMeta-number">Post #51</span>
+                                                                            <span class="PostMeta-time">
+                                    <time>Sunday, May 14, 2017 6:40 PM</time>
+                                </span>
+                                                                            <span class="PostMeta-ip"></span>
+                                                                            <input class="FormControl PostMeta-permalink">
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </header>
+                                                        <div class="Post-body">
+                                                            <p>
+                                                                Good point, feel free to open an
+                                                                <a href="#" target="_blank" rel="nofollow noreferrer">issue on github</a>
+                                                                <a href="https://discuss.flarum.org/d/4785/50" class="PostMention" data-id="44897">spiridon</a>
+                                                            </p>
+                                                        </div>
+                                                        <aside class="Post-actions">
+                                                            <ul>
+                                                                <li class="item-like">
+                                                                    <button class="Button Button--link" type="button" title="Like">
+                                                                        <span class="Button-label">Like</span>
+                                                                    </button>
+                                                                </li>
+                                                                <li class="item-reply">
+                                                                    <button class="Button Button--link" type="button" title="Reply">
+                                                                        <span class="Button-label">Reply</span>
+                                                                    </button>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="ButtonGroup Dropdown dropdown Post-controls itemCount1">
+                                                                        <button class="Dropdown-toggle Button Button--icon Button--flat" data-toggle="dropdown">
+                                                                            <i class="icon fa fa-fw fa-ellipsis-h Button-icon"></i>
+                                                                            <span class="Button-label"></span>
+                                                                            <i class="icon fa fa-fw fa-caret-down Button-caret"></i>
+                                                                        </button>
+                                                                        <ul class="Dropdown-menu dropdown-menu Dropdown-menu--right">
+                                                                            <li class="item-flag">
+                                                                                <button class=" hasIcon" type="button" title="Flag">
+                                                                                    <i class="icon fa fa-fw fa-flag Button-icon"></i>
+                                                                                    <span class="Button-label">Flag</span>
+                                                                                </button>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </aside>
                                                     </div>
-                                                </li>
-                                            </ul>
-                                        </header>
-                                        <div class="Post-body"><p>test something</p></div>
-                                        <aside class="Post-actions">
-                                            <ul>
-                                                <li class="item-like">
-                                                    <button class="Button Button--link" type="button" title="Like"><span
-                                                        class="Button-label">Like</span></button>
-                                                </li>
-                                                <li class="item-reply">
-                                                    <button class="Button Button--link" type="button" title="Reply">
-                                                        <span class="Button-label">Reply</span></button>
-                                                </li>
-                                                <li>
-                                                    <div class="ButtonGroup Dropdown dropdown Post-controls itemCount3">
-                                                        <button class="Dropdown-toggle Button Button--icon Button--flat"
-                                                                data-toggle="dropdown"><i
-                                                            class="icon fa fa-fw fa-ellipsis-h Button-icon"></i><span
-                                                            class="Button-label"></span><i
-                                                            class="icon fa fa-fw fa-caret-down Button-caret"></i>
+                                                    <ul class="Dropdown-menu PostMention-preview fade"></ul>
+                                                </article>
+                                                <div class="Post-quoteButtonContainer"></div>
+                                            </li>
+                                            <li>
+                                                <div class="PostsUserPage-discussion">
+                                                    <a href="#">Flagrow Ads, bombarding your users with ads everywhere, if you want..</a>
+                                                </div>
+                                                <article class="Post undefined CommentPost">
+                                                    <div>
+                                                        <header class="Post-header">
+                                                            <ul>
+                                                                <li class="item-user">
+                                                                    <div class="PostUser">
+                                                                        <h3>
+                                                                            <a href="/u/luceos">
+                                                                                <img class="Avatar PostUser-avatar" src="">
+                                                                                <span class="username">luceos</span>
+                                                                            </a>
+                                                                        </h3>
+                                                                        <ul class="PostUser-badges badges">
+                                                                            <li class="item-group4">
+                                    <span class="Badge" title="" style="background-color: rgb(128, 52, 158);">
+                                        <i class="icon fa fa-fw fa-bolt Badge-icon"></i>
+                                    </span>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="item-meta">
+                                                                    <div class="Dropdown PostMeta"><a class="Dropdown-toggle" data-toggle="dropdown">
+                                                                        <time title="">2 days ago</time>
+                                                                    </a>
+                                                                        <div class="Dropdown-menu dropdown-menu">
+                                                                            <span class="PostMeta-number">Post #51</span>
+                                                                            <span class="PostMeta-time">
+                                    <time>Sunday, May 14, 2017 6:40 PM</time>
+                                </span>
+                                                                            <span class="PostMeta-ip"></span>
+                                                                            <input class="FormControl PostMeta-permalink">
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </header>
+                                                        <div class="Post-body">
+                                                            <p>
+                                                                Good point, feel free to open an
+                                                                <a href="#" target="_blank" rel="nofollow noreferrer">issue on github</a>
+                                                                <a href="https://discuss.flarum.org/d/4785/50" class="PostMention" data-id="44897">spiridon</a>
+                                                            </p>
+                                                        </div>
+                                                        <aside class="Post-actions">
+                                                            <ul>
+                                                                <li class="item-like">
+                                                                    <button class="Button Button--link" type="button" title="Like">
+                                                                        <span class="Button-label">Like</span>
+                                                                    </button>
+                                                                </li>
+                                                                <li class="item-reply">
+                                                                    <button class="Button Button--link" type="button" title="Reply">
+                                                                        <span class="Button-label">Reply</span>
+                                                                    </button>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="ButtonGroup Dropdown dropdown Post-controls itemCount1">
+                                                                        <button class="Dropdown-toggle Button Button--icon Button--flat" data-toggle="dropdown">
+                                                                            <i class="icon fa fa-fw fa-ellipsis-h Button-icon"></i>
+                                                                            <span class="Button-label"></span>
+                                                                            <i class="icon fa fa-fw fa-caret-down Button-caret"></i>
+                                                                        </button>
+                                                                        <ul class="Dropdown-menu dropdown-menu Dropdown-menu--right">
+                                                                            <li class="item-flag">
+                                                                                <button class=" hasIcon" type="button" title="Flag">
+                                                                                    <i class="icon fa fa-fw fa-flag Button-icon"></i>
+                                                                                    <span class="Button-label">Flag</span>
+                                                                                </button>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </aside>
+                                                    </div>
+                                                    <ul class="Dropdown-menu PostMention-preview fade"></ul>
+                                                </article>
+                                                <div class="Post-quoteButtonContainer"></div>
+                                            </li>
+                                        </ul>
+                                        <div class="DiscussionList-loadMore">
+                                            <button class="Button" type="button" title="Load More">
+                                                <span class="Button-label">Load More</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                        </ngb-tab>
+                        <ngb-tab>
+                            <template ngbTabTitle>
+                                <i class="fa fa-fw fa-reorder Button-icon"></i>
+                                <span class="Button-label">Discussions</span>
+                            </template>
+                            <template ngbTabContent>
+                                <div class="DiscussionsUserPage">
+                                    <div class="DiscussionList">
+                                        <ul class="DiscussionList-discussions">
+                                            <li data-id="4762">
+                                                <div class="DiscussionListItem">
+                                                    <div class="ButtonGroup Dropdown dropdown DiscussionListItem-controls itemCount1">
+                                                        <button class="Dropdown-toggle Button Button--icon Button--flat Slidable-underneath" data-toggle="dropdown">
+                                                            <i class="fa fa-fw fa-ellipsis-v Button-icon"></i>
+                                                            <span class="Button-label"></span>
+                                                            <i class="icon fa fa-fw fa-caret-down Button-caret"></i>
                                                         </button>
-                                                        <ul class="Dropdown-menu dropdown-menu Dropdown-menu--right">
-                                                            <li class="item-edit">
-                                                                <button class=" hasIcon" type="button" title="Edit"><i
-                                                                    class="icon fa fa-fw fa-pencil Button-icon"></i><span
-                                                                    class="Button-label">Edit</span></button>
-                                                            </li>
-                                                            <li class="Dropdown-separator"></li>
-                                                            <li class="item-hide">
-                                                                <button class=" hasIcon" type="button" title="Delete"><i
-                                                                    class="icon fa fa-fw fa-trash-o Button-icon"></i><span
-                                                                    class="Button-label">Delete</span></button>
+                                                        <ul class="Dropdown-menu dropdown-menu ">
+                                                            <li class="item-subscription">
+                                                                <button class="hasIcon" type="button" title="Follow">
+                                                                    <i class="fa fa-fw fa-star Button-icon"></i><span>Follow</span>
+                                                                </button>
                                                             </li>
                                                         </ul>
                                                     </div>
-                                                </li>
-                                            </ul>
-                                        </aside>
-                                        <footer class="Post-footer">
-                                            <ul></ul>
-                                        </footer>
-                                    </div>
-                                </article>
-                                <div class="Post-quoteButtonContainer"></div>
-                            </li>
-                            <li>
-                                <div class="PostsUserPage-discussion">In <a href="/d/3950-testing-what-is-it">Testing
-                                    What is it</a></div>
-                                <article class="Post undefined CommentPost">
-                                    <div>
-                                        <header class="Post-header">
-                                            <ul>
-                                                <li class="item-user">
-                                                    <div class="PostUser"><span class="UserOnline"><i
-                                                        class="icon fa fa-fw fa-circle "></i></span>
-                                                        <h3><a href="/u/Feel_7"><img class="Avatar PostUser-avatar"
-                                                                                     src="https://discuss.flarum.org/assets/avatars/x3vijivzovpylaar.jpg">
-                                                            <span class="username">Feel_7</span></a></h3>
-                                                        <ul class="PostUser-badges badges"></ul>
-                                                    </div>
-                                                </li>
-                                                <li class="item-meta">
-                                                    <div class="Dropdown PostMeta"><a class="Dropdown-toggle"
-                                                                                      data-toggle="dropdown">
-                                                        <time pubdate="true" datetime="2016-10-11T17:19:15+08:00"
-                                                              title="Tuesday, October 11, 2016 5:19 PM"
-                                                              data-humantime="true">Oct '16
-                                                        </time>
+                                                    <a class="Slidable-underneath Slidable-underneath--left">
+                                                        <i class="fa fa-fw fa-check "></i>
                                                     </a>
-                                                        <div class="Dropdown-menu dropdown-menu"><span
-                                                            class="PostMeta-number">Post #1</span> <span
-                                                            class="PostMeta-time"><time pubdate="true"
-                                                                                        datetime="2016-10-11T17:19:15+08:00">Tuesday, October 11, 2016 5:19 PM</time></span>
-                                                            <span class="PostMeta-ip"></span><input
-                                                                class="FormControl PostMeta-permalink"></div>
+                                                    <div class="DiscussionListItem-content">
+                                                        <a href="/u/luceos" class="DiscussionListItem-author" title="" title="">
+                                                            <img class="Avatar " src="https://discuss.flarum.org/assets/avatars/tfhe6wsti8jtsjet.jpg">
+                                                        </a>
+                                                        <ul class="DiscussionListItem-badges badges"></ul>
+                                                        <a href="#" class="DiscussionListItem-main">
+                                                            <h3 class="DiscussionListItem-title">
+                                                                Flagrow byōbu, well integrated, advanced private discussions
+                                                            </h3>
+                                                            <ul class="DiscussionListItem-info">
+                                                                <li class="item-tags">
+                                                                    <span class="TagLabel" style="color: rgb(72, 191, 131); background-color: rgb(72, 191, 131);">
+                                                                        <span class="TagLabel-text">Extensions</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li class="item-terminalPost">
+                                                                    <i class="icon fa fa-fw fa-reply "></i>
+                                                                    <span class="username">luceos replied
+                                                                    <time title="">12 hours ago</time>
+                                                                </span>
+                                                                </li>
+                                                            </ul>
+                                                        </a>
+                                                        <span class="DiscussionListItem-count" title="Mark as Read">180</span>
                                                     </div>
-                                                </li>
-                                            </ul>
-                                        </header>
-                                        <div class="Post-body"><p>Testing</p></div>
-                                        <aside class="Post-actions">
-                                            <ul>
-                                                <li class="item-like">
-                                                    <button class="Button Button--link" type="button" title="Like"><span
-                                                        class="Button-label">Like</span></button>
-                                                </li>
-                                                <li class="item-reply">
-                                                    <button class="Button Button--link" type="button" title="Reply">
-                                                        <span class="Button-label">Reply</span></button>
-                                                </li>
-                                                <li>
-                                                    <div class="ButtonGroup Dropdown dropdown Post-controls itemCount3">
-                                                        <button class="Dropdown-toggle Button Button--icon Button--flat"
-                                                                data-toggle="dropdown"><i
-                                                            class="icon fa fa-fw fa-ellipsis-h Button-icon"></i><span
-                                                            class="Button-label"></span><i
-                                                            class="icon fa fa-fw fa-caret-down Button-caret"></i>
+                                                </div>
+                                            </li>
+                                            <li data-id="4762">
+                                                <div class="DiscussionListItem">
+                                                    <div class="ButtonGroup Dropdown dropdown DiscussionListItem-controls itemCount1">
+                                                        <button class="Dropdown-toggle Button Button--icon Button--flat Slidable-underneath" data-toggle="dropdown">
+                                                            <i class="fa fa-fw fa-ellipsis-v Button-icon"></i>
+                                                            <span class="Button-label"></span>
+                                                            <i class="icon fa fa-fw fa-caret-down Button-caret"></i>
                                                         </button>
-                                                        <ul class="Dropdown-menu dropdown-menu Dropdown-menu--right">
-                                                            <li class="item-edit">
-                                                                <button class=" hasIcon" type="button" title="Edit"><i
-                                                                    class="icon fa fa-fw fa-pencil Button-icon"></i><span
-                                                                    class="Button-label">Edit</span></button>
-                                                            </li>
-                                                            <li class="Dropdown-separator"></li>
-                                                            <li class="item-hide">
-                                                                <button class=" hasIcon" type="button" title="Delete"><i
-                                                                    class="icon fa fa-fw fa-trash-o Button-icon"></i><span
-                                                                    class="Button-label">Delete</span></button>
+                                                        <ul class="Dropdown-menu dropdown-menu ">
+                                                            <li class="item-subscription">
+                                                                <button class="hasIcon" type="button" title="Follow">
+                                                                    <i class="fa fa-fw fa-star Button-icon"></i><span>Follow</span>
+                                                                </button>
                                                             </li>
                                                         </ul>
                                                     </div>
-                                                </li>
-                                            </ul>
-                                        </aside>
-                                        <footer class="Post-footer">
-                                            <ul></ul>
-                                        </footer>
-                                    </div>
-                                </article>
-                                <div class="Post-quoteButtonContainer"></div>
-                            </li>
-                            <li>
-                                <div class="PostsUserPage-discussion">In <a
-                                    href="/d/3807-community-update-september-2016/15">Community Update - September
-                                    2016</a></div>
-                                <article class="Post undefined CommentPost">
-                                    <div>
-                                        <header class="Post-header">
-                                            <ul>
-                                                <li class="item-user">
-                                                    <div class="PostUser"><span class="UserOnline"><i
-                                                        class="icon fa fa-fw fa-circle "></i></span>
-                                                        <h3><a href="/u/Feel_7"><img class="Avatar PostUser-avatar"
-                                                                                     src="https://discuss.flarum.org/assets/avatars/x3vijivzovpylaar.jpg">
-                                                            <span class="username">Feel_7</span></a></h3>
-                                                        <ul class="PostUser-badges badges"></ul>
-                                                    </div>
-                                                </li>
-                                                <li class="item-meta">
-                                                    <div class="Dropdown PostMeta"><a class="Dropdown-toggle"
-                                                                                      data-toggle="dropdown">
-                                                        <time pubdate="true" datetime="2016-10-11T15:37:56+08:00"
-                                                              title="Tuesday, October 11, 2016 3:37 PM"
-                                                              data-humantime="true">Oct '16
-                                                        </time>
+                                                    <a class="Slidable-underneath Slidable-underneath--left">
+                                                        <i class="fa fa-fw fa-check "></i>
                                                     </a>
-                                                        <div class="Dropdown-menu dropdown-menu"><span
-                                                            class="PostMeta-number">Post #15</span> <span
-                                                            class="PostMeta-time"><time pubdate="true"
-                                                                                        datetime="2016-10-11T15:37:56+08:00">Tuesday, October 11, 2016 3:37 PM</time></span>
-                                                            <span class="PostMeta-ip"></span><input
-                                                                class="FormControl PostMeta-permalink"></div>
+                                                    <div class="DiscussionListItem-content">
+                                                        <a href="/u/luceos" class="DiscussionListItem-author" title="" title="">
+                                                            <img class="Avatar " src="https://discuss.flarum.org/assets/avatars/tfhe6wsti8jtsjet.jpg">
+                                                        </a>
+                                                        <ul class="DiscussionListItem-badges badges"></ul>
+                                                        <a href="#" class="DiscussionListItem-main">
+                                                            <h3 class="DiscussionListItem-title">
+                                                                Flagrow byōbu, well integrated, advanced private discussions
+                                                            </h3>
+                                                            <ul class="DiscussionListItem-info">
+                                                                <li class="item-tags">
+                                                                    <span class="TagLabel" style="color: rgb(72, 191, 131); background-color: rgb(72, 191, 131);">
+                                                                        <span class="TagLabel-text">Extensions</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li class="item-terminalPost">
+                                                                    <i class="icon fa fa-fw fa-reply "></i>
+                                                                    <span class="username">luceos replied
+                                                                    <time title="">12 hours ago</time>
+                                                                </span>
+                                                                </li>
+                                                            </ul>
+                                                        </a>
+                                                        <span class="DiscussionListItem-count" title="Mark as Read">180</span>
                                                     </div>
-                                                </li>
-                                            </ul>
-                                        </header>
-                                        <div class="Post-body"><p>Nice Work!</p></div>
-                                        <aside class="Post-actions">
-                                            <ul>
-                                                <li class="item-like">
-                                                    <button class="Button Button--link" type="button" title="Like"><span
-                                                        class="Button-label">Like</span></button>
-                                                </li>
-                                                <li class="item-reply">
-                                                    <button class="Button Button--link" type="button" title="Reply">
-                                                        <span class="Button-label">Reply</span></button>
-                                                </li>
-                                                <li>
-                                                    <div class="ButtonGroup Dropdown dropdown Post-controls itemCount3">
-                                                        <button class="Dropdown-toggle Button Button--icon Button--flat"
-                                                                data-toggle="dropdown"><i
-                                                            class="icon fa fa-fw fa-ellipsis-h Button-icon"></i><span
-                                                            class="Button-label"></span><i
-                                                            class="icon fa fa-fw fa-caret-down Button-caret"></i>
+                                                </div>
+                                            </li>
+                                            <li data-id="4762">
+                                                <div class="DiscussionListItem">
+                                                    <div class="ButtonGroup Dropdown dropdown DiscussionListItem-controls itemCount1">
+                                                        <button class="Dropdown-toggle Button Button--icon Button--flat Slidable-underneath" data-toggle="dropdown">
+                                                            <i class="fa fa-fw fa-ellipsis-v Button-icon"></i>
+                                                            <span class="Button-label"></span>
+                                                            <i class="icon fa fa-fw fa-caret-down Button-caret"></i>
                                                         </button>
-                                                        <ul class="Dropdown-menu dropdown-menu Dropdown-menu--right">
-                                                            <li class="item-edit">
-                                                                <button class=" hasIcon" type="button" title="Edit"><i
-                                                                    class="icon fa fa-fw fa-pencil Button-icon"></i><span
-                                                                    class="Button-label">Edit</span></button>
-                                                            </li>
-                                                            <li class="Dropdown-separator"></li>
-                                                            <li class="item-hide">
-                                                                <button class=" hasIcon" type="button" title="Delete"><i
-                                                                    class="icon fa fa-fw fa-trash-o Button-icon"></i><span
-                                                                    class="Button-label">Delete</span></button>
+                                                        <ul class="Dropdown-menu dropdown-menu ">
+                                                            <li class="item-subscription">
+                                                                <button class="hasIcon" type="button" title="Follow">
+                                                                    <i class="fa fa-fw fa-star Button-icon"></i><span>Follow</span>
+                                                                </button>
                                                             </li>
                                                         </ul>
                                                     </div>
-                                                </li>
-                                            </ul>
-                                        </aside>
-                                        <footer class="Post-footer">
-                                            <ul></ul>
-                                        </footer>
+                                                    <a class="Slidable-underneath Slidable-underneath--left">
+                                                        <i class="fa fa-fw fa-check "></i>
+                                                    </a>
+                                                    <div class="DiscussionListItem-content">
+                                                        <a href="/u/luceos" class="DiscussionListItem-author" title="" title="">
+                                                            <img class="Avatar " src="https://discuss.flarum.org/assets/avatars/tfhe6wsti8jtsjet.jpg">
+                                                        </a>
+                                                        <ul class="DiscussionListItem-badges badges"></ul>
+                                                        <a href="#" class="DiscussionListItem-main">
+                                                            <h3 class="DiscussionListItem-title">
+                                                                Flagrow byōbu, well integrated, advanced private discussions
+                                                            </h3>
+                                                            <ul class="DiscussionListItem-info">
+                                                                <li class="item-tags">
+                                                                    <span class="TagLabel" style="color: rgb(72, 191, 131); background-color: rgb(72, 191, 131);">
+                                                                        <span class="TagLabel-text">Extensions</span>
+                                                                    </span>
+                                                                </li>
+                                                                <li class="item-terminalPost">
+                                                                    <i class="icon fa fa-fw fa-reply "></i>
+                                                                    <span class="username">luceos replied
+                                                                    <time title="">12 hours ago</time>
+                                                                </span>
+                                                                </li>
+                                                            </ul>
+                                                        </a>
+                                                        <span class="DiscussionListItem-count" title="Mark as Read">180</span>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <div class="DiscussionList-loadMore">
+                                            <button class="Button" type="button" title="Load More">
+                                                <span class="Button-label">Load More</span>
+                                            </button>
+                                        </div>
                                     </div>
-                                </article>
-                                <div class="Post-quoteButtonContainer"></div>
-                            </li>
-                        </ul>
-                    </div>
+                                </div>
+                            </template>
+                        </ngb-tab>
+                        <ngb-tab>
+                            <template ngbTabTitle>
+                                <i class="fa fa-fw fa-at Button-icon"></i>
+                                <span class="Button-label">Mentions</span>
+                            </template>
+                            <template ngbTabContent>
+                                <div class="DiscussionsUserPage">
+                                    <div class="DiscussionList">
+                                        <ul class="DiscussionList-discussions">
+                                            <li>
+                                                <div class="PostsUserPage-discussion">
+                                                    <a href="#">Flagrow bazaar, the extension marketplace</a>
+                                                </div>
+                                                <article class="Post undefined CommentPost">
+                                                    <div>
+                                                        <header class="Post-header">
+                                                            <ul>
+                                                                <li class="item-user">
+                                                                    <div class="PostUser">
+                                                                        <h3>
+                                                                            <a href="/u/ibrahimk157">
+                                                                                <span class="Avatar PostUser-avatar" tyle="background: rgb(201, 160, 229);">I</span>
+                                                                                <span class="username">ibrahimk157</span>
+                                                                            </a>
+                                                                        </h3>
+                                                                        <ul class="PostUser-badges badges"></ul>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="item-meta">
+                                                                    <div class="Dropdown PostMeta"><a class="Dropdown-toggle" data-toggle="dropdown">
+                                                                        <time title="">25 days ago</time>
+                                                                    </a>
+                                                                        <div class="Dropdown-menu dropdown-menu">
+                                                                            <span class="PostMeta-number">Post #78</span>
+                                                                            <span class="PostMeta-time"><time>Friday, April 21, 2017 5:06 PM</time></span>
+                                                                            <span class="PostMeta-ip"></span>
+                                                                            <input class="FormControl PostMeta-permalink">
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </header>
+                                                        <div class="Post-body">
+                                                            <p>
+                                                                <a href="https://discuss.flarum.org/u/luceos" class="UserMention">@luceos</a>
+                                                                I just got time to test out flagrow.io and it's really cool.... but won't it allow us to
+                                                                install/remove/update extensions remotely in the future? Since that's what I thought it does until I
+                                                                tried it
+                                                            </p>
+                                                        </div>
+                                                        <aside class="Post-actions">
+                                                            <ul>
+                                                                <li class="item-like">
+                                                                    <button class="Button Button--link" type="button" title="Like">
+                                                                        <span class="Button-label">Like</span>
+                                                                    </button>
+                                                                </li>
+                                                                <li class="item-reply">
+                                                                    <button class="Button Button--link" type="button" title="Reply">
+                                                                        <span class="Button-label">Reply</span>
+                                                                    </button>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="ButtonGroup Dropdown dropdown Post-controls itemCount1">
+                                                                        <button class="Dropdown-toggle Button Button--icon Button--flat" data-toggle="dropdown">
+                                                                            <i class="icon fa fa-fw fa-ellipsis-h Button-icon"></i>
+                                                                            <span class="Button-label"></span>
+                                                                            <i class="icon fa fa-fw fa-caret-down Button-caret"></i>
+                                                                        </button>
+                                                                        <ul class="Dropdown-menu dropdown-menu Dropdown-menu--right">
+                                                                            <li class="item-flag">
+                                                                                <button class=" hasIcon" type="button" title="Flag">
+                                                                                    <i class="icon fa fa-fw fa-flag Button-icon"></i>
+                                                                                    <span class="Button-label">Flag</span>
+                                                                                </button>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </aside>
+                                                    </div>
+                                                </article>
+                                                <div class="Post-quoteButtonContainer"></div>
+                                            </li>
+                                            <li>
+                                                <div class="PostsUserPage-discussion">
+                                                    <a href="#">Flagrow bazaar, the extension marketplace</a>
+                                                </div>
+                                                <article class="Post undefined CommentPost">
+                                                    <div>
+                                                        <header class="Post-header">
+                                                            <ul>
+                                                                <li class="item-user">
+                                                                    <div class="PostUser">
+                                                                        <h3>
+                                                                            <a href="/u/ibrahimk157">
+                                                                                <span class="Avatar PostUser-avatar" tyle="background: rgb(201, 160, 229);">I</span>
+                                                                                <span class="username">ibrahimk157</span>
+                                                                            </a>
+                                                                        </h3>
+                                                                        <ul class="PostUser-badges badges"></ul>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="item-meta">
+                                                                    <div class="Dropdown PostMeta"><a class="Dropdown-toggle" data-toggle="dropdown">
+                                                                        <time title="">25 days ago</time>
+                                                                    </a>
+                                                                        <div class="Dropdown-menu dropdown-menu">
+                                                                            <span class="PostMeta-number">Post #78</span>
+                                                                            <span class="PostMeta-time"><time>Friday, April 21, 2017 5:06 PM</time></span>
+                                                                            <span class="PostMeta-ip"></span>
+                                                                            <input class="FormControl PostMeta-permalink">
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </header>
+                                                        <div class="Post-body">
+                                                            <p>
+                                                                <a href="https://discuss.flarum.org/u/luceos" class="UserMention">@luceos</a>
+                                                                I just got time to test out flagrow.io and it's really cool.... but won't it allow us to
+                                                                install/remove/update extensions remotely in the future? Since that's what I thought it does until I
+                                                                tried it
+                                                            </p>
+                                                        </div>
+                                                        <aside class="Post-actions">
+                                                            <ul>
+                                                                <li class="item-like">
+                                                                    <button class="Button Button--link" type="button" title="Like">
+                                                                        <span class="Button-label">Like</span>
+                                                                    </button>
+                                                                </li>
+                                                                <li class="item-reply">
+                                                                    <button class="Button Button--link" type="button" title="Reply">
+                                                                        <span class="Button-label">Reply</span>
+                                                                    </button>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="ButtonGroup Dropdown dropdown Post-controls itemCount1">
+                                                                        <button class="Dropdown-toggle Button Button--icon Button--flat" data-toggle="dropdown">
+                                                                            <i class="icon fa fa-fw fa-ellipsis-h Button-icon"></i>
+                                                                            <span class="Button-label"></span>
+                                                                            <i class="icon fa fa-fw fa-caret-down Button-caret"></i>
+                                                                        </button>
+                                                                        <ul class="Dropdown-menu dropdown-menu Dropdown-menu--right">
+                                                                            <li class="item-flag">
+                                                                                <button class=" hasIcon" type="button" title="Flag">
+                                                                                    <i class="icon fa fa-fw fa-flag Button-icon"></i>
+                                                                                    <span class="Button-label">Flag</span>
+                                                                                </button>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </aside>
+                                                    </div>
+                                                </article>
+                                                <div class="Post-quoteButtonContainer"></div>
+                                            </li>
+                                            <li>
+                                                <div class="PostsUserPage-discussion">
+                                                    <a href="#">Flagrow bazaar, the extension marketplace</a>
+                                                </div>
+                                                <article class="Post undefined CommentPost">
+                                                    <div>
+                                                        <header class="Post-header">
+                                                            <ul>
+                                                                <li class="item-user">
+                                                                    <div class="PostUser">
+                                                                        <h3>
+                                                                            <a href="/u/ibrahimk157">
+                                                                                <span class="Avatar PostUser-avatar" tyle="background: rgb(201, 160, 229);">I</span>
+                                                                                <span class="username">ibrahimk157</span>
+                                                                            </a>
+                                                                        </h3>
+                                                                        <ul class="PostUser-badges badges"></ul>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="item-meta">
+                                                                    <div class="Dropdown PostMeta"><a class="Dropdown-toggle" data-toggle="dropdown">
+                                                                        <time title="">25 days ago</time>
+                                                                    </a>
+                                                                        <div class="Dropdown-menu dropdown-menu">
+                                                                            <span class="PostMeta-number">Post #78</span>
+                                                                            <span class="PostMeta-time"><time>Friday, April 21, 2017 5:06 PM</time></span>
+                                                                            <span class="PostMeta-ip"></span>
+                                                                            <input class="FormControl PostMeta-permalink">
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </header>
+                                                        <div class="Post-body">
+                                                            <p>
+                                                                <a href="https://discuss.flarum.org/u/luceos" class="UserMention">@luceos</a>
+                                                                I just got time to test out flagrow.io and it's really cool.... but won't it allow us to
+                                                                install/remove/update extensions remotely in the future? Since that's what I thought it does until I
+                                                                tried it
+                                                            </p>
+                                                        </div>
+                                                        <aside class="Post-actions">
+                                                            <ul>
+                                                                <li class="item-like">
+                                                                    <button class="Button Button--link" type="button" title="Like">
+                                                                        <span class="Button-label">Like</span>
+                                                                    </button>
+                                                                </li>
+                                                                <li class="item-reply">
+                                                                    <button class="Button Button--link" type="button" title="Reply">
+                                                                        <span class="Button-label">Reply</span>
+                                                                    </button>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="ButtonGroup Dropdown dropdown Post-controls itemCount1">
+                                                                        <button class="Dropdown-toggle Button Button--icon Button--flat" data-toggle="dropdown">
+                                                                            <i class="icon fa fa-fw fa-ellipsis-h Button-icon"></i>
+                                                                            <span class="Button-label"></span>
+                                                                            <i class="icon fa fa-fw fa-caret-down Button-caret"></i>
+                                                                        </button>
+                                                                        <ul class="Dropdown-menu dropdown-menu Dropdown-menu--right">
+                                                                            <li class="item-flag">
+                                                                                <button class=" hasIcon" type="button" title="Flag">
+                                                                                    <i class="icon fa fa-fw fa-flag Button-icon"></i>
+                                                                                    <span class="Button-label">Flag</span>
+                                                                                </button>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </aside>
+                                                    </div>
+                                                </article>
+                                                <div class="Post-quoteButtonContainer"></div>
+                                            </li>
+                                        </ul>
+                                        <div class="DiscussionList-loadMore">
+                                            <button class="Button" type="button" title="Load More">
+                                                <span class="Button-label">Load More</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </template>
+                        </ngb-tab>
+                    </ngb-tabset>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="App-composer">
-        <div class="container">
-            <div id="composer">
-                <div class="Composer " style="display: none; bottom: -300px; height: 300px;">
-                    <div class="Composer-handle" style="cursor: row-resize;"></div>
-                    <ul class="Composer-controls">
-                        <li class="item-minimize App-backControl">
-                            <button title="Minimize" itemclassname="App-backControl"
-                                    class="Button Button--icon Button--link hasIcon" type="button"><i
-                                class="icon fa fa-fw fa-minus minimize Button-icon"></i></button>
-                        </li>
-                        <li class="item-fullScreen">
-                            <button title="Full Screen" class="Button Button--icon Button--link hasIcon" type="button">
-                                <i class="icon fa fa-fw fa-expand Button-icon"></i></button>
-                        </li>
-                        <li class="item-close">
-                            <button title="Close" class="Button Button--icon Button--link hasIcon" type="button"><i
-                                class="icon fa fa-fw fa-times Button-icon"></i></button>
-                        </li>
-                    </ul>
-                    <div class="Composer-content"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
+</div>

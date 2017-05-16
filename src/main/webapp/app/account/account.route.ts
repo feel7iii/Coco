@@ -6,19 +6,22 @@ import {
     passwordResetFinishRoute,
     passwordResetInitRoute,
     registerRoute,
-    settingsRoute
+    settingsRoute,
+    configureRoute
 } from './';
 
 const ACCOUNT_ROUTES = [
+   { path: '', redirectTo: 'settings', pathMatch: 'full' },
    activateRoute,
    passwordRoute,
    passwordResetFinishRoute,
    passwordResetInitRoute,
    registerRoute,
-   settingsRoute
+   settingsRoute,
+   configureRoute
 ];
 
 export const accountState: Routes = [{
-    path: '',
+    path: 'account',
     children: ACCOUNT_ROUTES
 }];

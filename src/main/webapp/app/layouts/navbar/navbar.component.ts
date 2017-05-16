@@ -3,8 +3,10 @@ import { Router } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { EventManager, JhiLanguageService } from 'ng-jhipster';
 
+import { Subscription } from 'rxjs/Subscription';
+
 import { ProfileService } from '../profiles/profile.service';
-import { JhiLanguageHelper, Principal, LoginModalService, LoginService } from '../../shared';
+import { JhiLanguageHelper, Principal, LoginModalService, LoginService, MissionService } from '../../shared';
 
 @Component({
     selector: 'jhi-navbar',
@@ -16,7 +18,12 @@ import { JhiLanguageHelper, Principal, LoginModalService, LoginService } from '.
     `]
 })
 export class NavbarComponent implements OnInit {
-
+    stickyFlag = true;
+    hasPane = 'hasPane';
+    showPane: boolean;
+    paneShowingx = 'hasPane paneShowing';
+    stickyPanex = 'hasPane paneShowing panePinned';
+    subscription: Subscription;
     @ViewChild('search') search: ElementRef;
     @ViewChild('info') info: ElementRef;
 
@@ -38,9 +45,14 @@ export class NavbarComponent implements OnInit {
         private router: Router,
         private eventManager: EventManager,
         private renderer: Renderer2,
+        private missionService: MissionService
     ) {
         this.isNavbarCollapsed = true;
         this.languageService.addLocation('home');
+        this.subscription = missionService.missionAnnounced$.subscribe(
+            (showPane) => showPane ? this.showPane = true : this.showPane = false
+        );
+        missionService.missionConfirmed$.subscribe();
     }
 
     ngOnInit() {
@@ -90,23 +102,51 @@ export class NavbarComponent implements OnInit {
     }
 
     register() {
-        this.router.navigate(['/register']);
+        this.router.navigate(['/account/register']);
     }
 
     searchFocused() {
-        this.renderer.setAttribute(this.search.nativeElement, "class", "Search open focused");
+        this.renderer.setAttribute(this.search.nativeElement, 'class', 'Search open focused');
     }
 
     searchBlur() {
-        this.renderer.setAttribute(this.search.nativeElement, "class", "Search");
+        this.renderer.setAttribute(this.search.nativeElement, 'class', 'Search');
     }
 
     showInfo() {
-        this.renderer.setAttribute(this.info.nativeElement, "class", "ButtonGroup Dropdown NotificationsDropdown itemCount open");
+        this.renderer.setAttribute(this.info.nativeElement, 'class', 'ButtonGroup Dropdown NotificationsDropdown itemCount open');
     }
 
     hiddenInfo() {
-        this.renderer.setAttribute(this.info.nativeElement, "class", "ButtonGroup Dropdown NotificationsDropdown itemCount");
+        this.renderer.setAttribute(this.info.nativeElement, 'class', 'ButtonGroup Dropdown NotificationsDropdown itemCount');
     }
 
+    paneShowing() {
+        const appStyle = this.paneShowingx;
+        const stickyFlag = this.stickyFlag;
+        if (stickyFlag) {
+            this.missionService.announceMission(appStyle);
+        }
+    }
+
+    stickyPane() {
+        const appStyle = this.stickyPanex;
+        const hasPane = this.hasPane;
+        const stickyFlag = this.stickyFlag;
+        if (stickyFlag) {
+            this.missionService.announceMission(appStyle);
+            this.stickyFlag = false;
+        } else {
+            this.missionService.announceMission(hasPane);
+            this.stickyFlag = true;
+        }
+    }
+
+    hiddenPane() {
+        const stickyFlag = this.stickyFlag;
+        const hasPane = this.hasPane;
+        if (stickyFlag) {
+            this.missionService.announceMission(hasPane);
+        }
+    }
 }

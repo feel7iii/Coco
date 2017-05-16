@@ -11,6 +11,8 @@
             },
             "account": {
                 "main": "账号",
+                "configure": "配置",
+                "profile": "简介",
                 "settings": "设置",
                 "password": "密码",
                 "sessions": "会话",
@@ -56,6 +58,10 @@
             "all": "所有议题",
             "following": "关注议题",
             "tags": "类目标签"
+        },
+        "notifications": {
+          "title": "通知",
+          "replied": "回复你的帖子"
         },
         "form": {
             "username": "账号",

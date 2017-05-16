@@ -1,12 +1,15 @@
 import { Route } from '@angular/router';
 
-import { ProfileComponent } from './profile.component'
+import { UserRouteAccessService } from '../../shared';
+
+import { ProfileComponent } from './profile.component';
 
 export const profileRoute: Route = {
     path: 'profile',
     component: ProfileComponent,
     data: {
-        authorities: [],
+        authorities: ['USER_ROLE'],
         pageTitle: 'home.title'
-    }
+    },
+    canActivate: [UserRouteAccessService]
 };

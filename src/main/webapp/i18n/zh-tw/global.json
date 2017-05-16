@@ -11,6 +11,8 @@
             },
             "account": {
                 "main": "帳號",
+                "configure": "配置",
+                "profile": "簡介",
                 "settings": "設定",
                 "password": "密碼",
                 "sessions": "工作階段",
@@ -56,6 +58,10 @@
             "all": "所有議題",
             "following": "關注議題",
             "tags": "類目標簽"
+        },
+        "notifications": {
+            "title": "通知",
+            "replied": "回複妳的帖子"
         },
         "form": {
             "username": "帳號",

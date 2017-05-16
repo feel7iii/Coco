@@ -1,34 +1,51 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { Router, ActivatedRouteSnapshot, NavigationEnd } from '@angular/router';
 
-import { JhiLanguageHelper } from './shared';
+import { Subscription } from 'rxjs/Subscription';
+
+import { JhiLanguageHelper, MissionService } from './shared';
 
 @Component({
     selector: 'jhi-index',
     template: `
-    <div id="app" class="App panePinned App--index affix">
-        <router-outlet name="navbar"></router-outlet>
-        <main class="App-content">
-            <div id="content">
-                <div class="IndexPage">
-                    <jhi-notice></jhi-notice>
-                    <div class="container">
-                        <router-outlet></router-outlet>
-                    </div>
-                </div>
+    <div id='app' #app class='App App--index affix'>
+        <router-outlet name='navbar'></router-outlet>
+        <main class='App-content'>
+            <div id='content'>
+                <router-outlet></router-outlet>
             </div>
         </main>
-        <router-outlet name="popup"></router-outlet>
-        <jhi-footer></jhi-footer>
+        <router-outlet name='popup'></router-outlet>
     </div>
     `
 })
-export class JhiLayoutComponent implements OnInit {
+export class JhiLayoutComponent implements OnInit, OnDestroy {
+    appStyle: string;
+    subscription: Subscription;
+
+    @ViewChild('app') app: ElementRef;
 
     constructor(
         private jhiLanguageHelper: JhiLanguageHelper,
         private router: Router,
-    ) {}
+        private renderer2: Renderer2,
+        private missionService: MissionService
+    ) {
+        this.subscription = missionService.missionAnnounced$.subscribe(
+            (changeAppStyle) => {
+                this.appStyle = changeAppStyle;
+                this.renderer2.setAttribute(this.app.nativeElement, 'class', 'App affix ' + this.appStyle + ' App--discussion' );
+            }
+        );
+    }
+
+    ngOnInit() {
+        this.router.events.subscribe((event) => {
+            if (event instanceof NavigationEnd) {
+                this.jhiLanguageHelper.updateTitle(this.getPageTitle(this.router.routerState.snapshot.root));
+            }
+        });
+    }
 
     private getPageTitle(routeSnapshot: ActivatedRouteSnapshot) {
         let title: string = (routeSnapshot.data && routeSnapshot.data['pageTitle']) ? routeSnapshot.data['pageTitle'] : 'cocoApp';
@@ -38,11 +55,7 @@ export class JhiLayoutComponent implements OnInit {
         return title;
     }
 
-    ngOnInit() {
-        this.router.events.subscribe((event) => {
-            if (event instanceof NavigationEnd) {
-                this.jhiLanguageHelper.updateTitle(this.getPageTitle(this.router.routerState.snapshot.root));
-            }
-        });
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
     }
 }

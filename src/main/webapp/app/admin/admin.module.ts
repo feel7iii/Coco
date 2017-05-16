@@ -34,7 +34,7 @@ import {
 @NgModule({
     imports: [
         CocoSharedModule,
-        RouterModule.forRoot(adminState, { useHash: true })
+        RouterModule.forChild(adminState)
     ],
     declarations: [
         AuditsComponent,

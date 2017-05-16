@@ -16,7 +16,9 @@ import { PaginationConfig } from './blocks/config/uib-pagination.config';
 
 import { JhiLayoutComponent } from './app.component';
 
-import { NoticeComponent } from './layouts'
+import { NavbarComponent, ActiveMenuDirective } from './layouts';
+
+import { MissionService } from './shared';
 
 @NgModule({
     imports: [
@@ -31,12 +33,14 @@ import { NoticeComponent } from './layouts'
     ],
     declarations: [
         JhiLayoutComponent,
-        NoticeComponent
+        NavbarComponent,
+        ActiveMenuDirective,
     ],
     providers: [
         customHttpProvider(),
         PaginationConfig,
-        UserRouteAccessService
+        UserRouteAccessService,
+        MissionService
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     bootstrap: [ JhiLayoutComponent ]

@@ -8,7 +8,7 @@ import { JhiLanguageService } from 'ng-jhipster';
 export class TagsComponent {
     constructor(
         private languageService: JhiLanguageService
-    ){
+    ) {
         this.languageService.setLocations(['home']);
     }
 }

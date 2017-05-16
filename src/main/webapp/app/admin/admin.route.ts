@@ -15,6 +15,7 @@ import {
 import { UserRouteAccessService } from '../shared';
 
 const ADMIN_ROUTES = [
+    { path: '', redirectTo: 'jhi-metrics', pathMatch: 'full' },
     auditsRoute,
     configurationRoute,
     docsRoute,
@@ -26,7 +27,7 @@ const ADMIN_ROUTES = [
 ];
 
 export const adminState: Routes = [{
-    path: '',
+    path: 'admin',
     data: {
         authorities: ['ROLE_ADMIN']
     },

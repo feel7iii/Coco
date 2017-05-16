@@ -11,6 +11,8 @@
             },
             "account": {
                 "main": "Account",
+                "configure": "configure",
+                "profile": "Profile",
                 "settings": "Settings",
                 "password": "Password",
                 "sessions": "Sessions",
@@ -53,9 +55,13 @@
         },
         "tags": {
             "start": "Start a Discussion",
-            "all ": "All Discussions",
+            "all": "All Discussions",
             "following": "Following",
             "tags": "Tags"
+        },
+        "notifications": {
+            "title": "Notifications",
+            "replied": "Replied to your post"
         },
         "form": {
             "username": "Username",

@@ -1,16 +1,17 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import {RouterModule} from "@angular/router";
+import {RouterModule} from '@angular/router';
 
-import { CocoSharedModule } from '../../shared/shared.module'
+import { CocoSharedModule } from '../../shared';
 
 import {
+    JhiMainComponent,
+    NoticeComponent,
     SortComponent,
     TagsComponent,
     HomeComponent,
-    JhiMainComponent,
+    FollowingComponent,
     mainState
 } from './';
-
 
 @NgModule({
     imports: [
@@ -19,9 +20,11 @@ import {
     ],
     declarations: [
         JhiMainComponent,
+        NoticeComponent,
         SortComponent,
         TagsComponent,
-        HomeComponent
+        HomeComponent,
+        FollowingComponent
     ],
     providers: [
     ],

@@ -5,25 +5,23 @@ import { MainModule } from './main/main.module';
 
 import {
     ProfileComponent,
-    NavbarComponent,
     SubjectComponent,
+    DiscussionComponent,
     ProfileService,
     PageRibbonComponent,
-    ActiveMenuDirective,
     ErrorComponent
-} from './'
+} from './';
 
 @NgModule({
     imports: [
         CocoSharedModule,
-        MainModule,
+        MainModule
     ],
     declarations: [
         ProfileComponent,
-        NavbarComponent,
         SubjectComponent,
+        DiscussionComponent,
         PageRibbonComponent,
-        ActiveMenuDirective,
         ErrorComponent
     ],
     providers: [
