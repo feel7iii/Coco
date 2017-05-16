@@ -18,4 +18,5 @@ export * from './settings/settings.component';
 export * from './settings/settings.route';
 export * from './configure/configure.component';
 export * from './configure/configure.route';
+export * from './account.component';
 export * from './account.route';

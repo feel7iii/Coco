@@ -1,0 +1,29 @@
+<div class="UserPage">
+    <div class="container">
+        <nav class="sideNav UserPage-nav">
+            <ul class="affix-top">
+                <li class="item-nav">
+                    <div class="ButtonGroup Dropdown dropdown App-titleControl Dropdown--select">
+                        <div class="list-group">
+                            <a routerLink='./configure' routerLinkActive='true' class="list-group-item">
+                                <i class="icon fa fa-fw fa-cog Button-icon"></i>
+                                <span class="Button-label">Configure</span>
+                            </a>
+                            <a routerLink="./settings" routerLinkActive='true' class="list-group-item">
+                                <i class="icon fa fa-fw fa-reorder Button-icon"></i>
+                                <span class="Button-label">Settings</span>
+                            </a>
+                            <a routerLink="./password" routerLinkActive='true' class="list-group-item">
+                                <i class="icon fa fa-unlock-alt Button-icon"></i>
+                                <span class="Button-label">Password</span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div class="sideNavOffset UserPage-content">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
