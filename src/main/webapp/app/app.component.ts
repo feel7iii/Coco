@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { JhiLanguageHelper, MissionService } from './shared';
 
+import * as $ from 'jquery';
+
 @Component({
     selector: 'jhi-index',
     template: `
@@ -37,7 +39,18 @@ export class JhiLayoutComponent implements OnInit, OnDestroy {
                 this.renderer2.setAttribute(this.app.nativeElement, 'class', 'App affix ' + this.appStyle + ' App--discussion' );
             }
         );
+
+        window.addEventListener('scroll', function () {
+            $('#app').addClass('scrolled');
+        });
+
+        $(window).bind('scroll', function(){
+            if ($(document).scrollTop() == 0) {
+                $('#app').removeClass('scrolled');
+            }
+        });
     }
+
 
     ngOnInit() {
         this.router.events.subscribe((event) => {
@@ -58,4 +71,5 @@ export class JhiLayoutComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
         this.subscription.unsubscribe();
     }
+
 }

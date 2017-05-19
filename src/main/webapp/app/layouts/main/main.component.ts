@@ -8,7 +8,7 @@ import { JhiLanguageHelper, MissionService } from '../../shared';
     template: `
     <div class="IndexPage">
         <jhi-notice></jhi-notice>
-        <div class="container" (scroll)="onScroll()">
+        <div class="container">
             <jhi-tags></jhi-tags>
             <div class="IndexPage-results sideNavOffset">
                 <jhi-sort></jhi-sort>
@@ -19,8 +19,6 @@ import { JhiLanguageHelper, MissionService } from '../../shared';
     `
 })
 export class JhiMainComponent implements OnInit {
-
-    scrollScreen: string = 'scrolled';
 
     constructor(
         private jhiLanguageHelper: JhiLanguageHelper,
@@ -44,11 +42,5 @@ export class JhiMainComponent implements OnInit {
                 this.jhiLanguageHelper.updateTitle(this.getPageTitle(this.router.routerState.snapshot.root));
             }
         });
-    }
-
-    onScroll() {
-        alert(1122222222);
-        let scrolled = this.scrollScreen;
-        this.missionService.announceMission(scrolled);
     }
 }
