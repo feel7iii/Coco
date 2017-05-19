@@ -11,6 +11,7 @@
             },
             "account": {
                 "main": "Account",
+                "help": "Help",
                 "configure": "configure",
                 "profile": "Profile",
                 "settings": "Settings",

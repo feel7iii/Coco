@@ -229,6 +229,6 @@ paginate ScUsers with pager
 
 service ScUsers, ScPosts, ScDiscussions, ScTags with serviceClass
 
-skipClient for ScAccessTokens, ScAuthTokens, ScDiscussionsTags, ScEmailTokens, ScMentionsUserPosts, ScPasswordTokens, ScPermissions, ScSettings, ScUsersDiscussions, ScUsersGroups, ScUsersTags
+//skipClient for ScAccessTokens, ScAuthTokens, ScDiscussionsTags, ScEmailTokens, ScMentionsUserPosts, ScPasswordTokens, ScPermissions, ScSettings, ScUsersDiscussions, ScUsersGroups, ScUsersTags
 
-skipServer for ScAccessTokens, ScAuthTokens, ScDiscussionsTags, ScEmailTokens, ScMentionsUserPosts, ScPasswordTokens, ScPermissions, ScSettings, ScUsersDiscussions, ScUsersGroups, ScUsersTags
+//skipServer for ScAccessTokens, ScAuthTokens, ScDiscussionsTags, ScEmailTokens, ScMentionsUserPosts, ScPasswordTokens, ScPermissions, ScSettings, ScUsersDiscussions, ScUsersGroups, ScUsersTags

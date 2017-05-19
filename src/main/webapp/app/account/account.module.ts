@@ -17,6 +17,7 @@ import {
     PasswordResetFinishComponent,
     SettingsComponent,
     AcountComponent,
+    HelpComponent,
     ConfigureComponent,
     accountState
 } from './';
@@ -35,6 +36,7 @@ import {
         PasswordResetFinishComponent,
         SettingsComponent,
         AcountComponent,
+        HelpComponent,
         ConfigureComponent
     ],
     providers: [

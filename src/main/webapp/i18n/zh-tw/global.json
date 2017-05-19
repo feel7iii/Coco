@@ -11,6 +11,7 @@
             },
             "account": {
                 "main": "帳號",
+                "help": "幫助",
                 "configure": "配置",
                 "profile": "簡介",
                 "settings": "設定",
