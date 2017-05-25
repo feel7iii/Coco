@@ -18,7 +18,6 @@ export class DiscussionComponent implements OnInit, OnDestroy {
         this.subscription = communicationService.communicationAnnounced$.subscribe(
             (paneWord) => this.paneWord = paneWord
         );
-        communicationService.communicationConfirmed$.subscribe();
     }
 
     ngOnInit() {
@@ -38,5 +37,6 @@ export class DiscussionComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
         const appStyle = '';
         this.communicationService.announceCommunication(appStyle);
+        this.subscription.unsubscribe();
     }
 }

@@ -1,4 +1,4 @@
-<div id="drawer" class="App-drawer">
+<div class="App-drawer" *ngIf="isNavHideOrShow">
     <header id="header" class="App-header">
         <div id="header-navigation" class="Header-navigation" *ngIf="showPane">
             <div class="Navigation ButtonGroup">
@@ -214,4 +214,7 @@
             </div>
         </div>
     </header>
+</div>
+<div *ngIf="!isNavHideOrShow">
+    <h1>SHOWADMINSTRATOR</h1>
 </div>

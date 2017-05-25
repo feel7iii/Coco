@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, Renderer2 } from '@angular/core';
+import {Component, OnInit, ElementRef, ViewChild, Renderer2, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { EventManager, JhiLanguageService } from 'ng-jhipster';
@@ -22,7 +22,8 @@ import {
         }
     `]
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
+    isNavHideOrShow: boolean;
     stickyFlag = true;
     hasPane = 'hasPane';
     showPane: boolean;
@@ -51,10 +52,17 @@ export class NavbarComponent implements OnInit {
         private renderer: Renderer2,
         private communicationService: CommunicationService
     ) {
+        this.isNavHideOrShow = true;
         this.isNavbarCollapsed = true;
         this.languageService.addLocation('home');
         this.subscription = communicationService.communicationAnnounced$.subscribe(
-            (showPane) => showPane ? this.showPane = true : this.showPane = false
+            (showPane) => {
+                if (typeof showPane === 'string') {
+                    showPane ? this.showPane = true : this.showPane = false;
+                } else if (typeof showPane === 'boolean') {
+                    return this.isNavHideOrShow = showPane;
+                }
+            }
         );
     }
 
@@ -146,5 +154,9 @@ export class NavbarComponent implements OnInit {
         if (stickyFlag) {
             this.communicationService.announceCommunication(hasPane);
         }
+    }
+
+    ngOnDestroy() {
+        this.subscription.unsubscribe();
     }
 }

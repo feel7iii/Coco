@@ -5,19 +5,19 @@ import { Subject } from 'rxjs/Subject';
 export class CommunicationService {
 
     // Observable string sources
-    private communicationAnnouncedSource = new Subject<string>();
-    private communicationConfirmedSource = new Subject<string>();
+    private communicationAnnouncedSource = new Subject<any>();
+    private communicationConfirmedSource = new Subject<any>();
 
     // Observable string streams
     communicationAnnounced$ = this.communicationAnnouncedSource.asObservable();
     communicationConfirmed$ = this.communicationConfirmedSource.asObservable();
 
     // Service message commands
-    announceCommunication(mission: string) {
+    announceCommunication(mission: any) {
         this.communicationAnnouncedSource.next(mission);
     }
 
-    confirmCommunication(astronaut: string) {
+    confirmCommunication(astronaut: any) {
         this.communicationConfirmedSource.next(astronaut);
     }
 }
