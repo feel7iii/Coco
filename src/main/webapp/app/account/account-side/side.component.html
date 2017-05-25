@@ -1,0 +1,26 @@
+<nav class="sideNav UserPage-nav">
+    <ul class="affix-top">
+        <li class="item-nav">
+            <div class="ButtonGroup Dropdown dropdown App-titleControl Dropdown--select">
+                <div id="groupPane" class="list-group">
+                    <a id="tab_1x" routerLink='./configure' routerLinkActive='true' class="list-group-item active" (click)="switchPane($event.target.id)">
+                        <i class="icon fa fa-fw fa-cog Button-icon"></i>
+                        <span class="Button-label">Configure</span>
+                    </a>
+                    <a id="tab_2x" routerLink="./settings" routerLinkActive='true' class="list-group-item" (click)="switchPane($event.target.id)">
+                        <i class="icon fa fa-fw fa-reorder Button-icon"></i>
+                        <span class="Button-label">Settings</span>
+                    </a>
+                    <a id="tab_3x" routerLink="./password" routerLinkActive='true' class="list-group-item" (click)="switchPane($event.target.id)">
+                        <i class="icon fa fa-unlock-alt Button-icon"></i>
+                        <span class="Button-label">Password</span>
+                    </a>
+                    <a id="tab_4x" routerLink="./help" routerLinkActive='true' class="list-group-item" (click)="switchPane($event.target.id)">
+                        <i class="icon fa fa fa-question-circle Button-icon"></i>
+                        <span class="Button-label">Help</span>
+                    </a>
+                </div>
+            </div>
+        </li>
+    </ul>
+</nav>

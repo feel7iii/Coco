@@ -5,8 +5,13 @@ import { EventManager, JhiLanguageService } from 'ng-jhipster';
 
 import { Subscription } from 'rxjs/Subscription';
 
-import { ProfileService } from '../profiles/profile.service';
-import { JhiLanguageHelper, Principal, LoginModalService, LoginService, MissionService } from '../../shared';
+import {
+    JhiLanguageHelper,
+    Principal,
+    LoginModalService,
+    LoginService,
+    CommunicationService
+} from '../../shared';
 
 @Component({
     selector: 'jhi-navbar',
@@ -21,8 +26,8 @@ export class NavbarComponent implements OnInit {
     stickyFlag = true;
     hasPane = 'hasPane';
     showPane: boolean;
-    paneShowingx = 'hasPane paneShowing';
-    stickyPanex = 'hasPane paneShowing panePinned';
+    paneShowingClass = 'hasPane paneShowing';
+    stickyPaneClass = 'hasPane paneShowing panePinned';
     subscription: Subscription;
     @ViewChild('search') search: ElementRef;
     @ViewChild('info') info: ElementRef;
@@ -41,28 +46,21 @@ export class NavbarComponent implements OnInit {
         private languageService: JhiLanguageService,
         private principal: Principal,
         private loginModalService: LoginModalService,
-        private profileService: ProfileService,
         private router: Router,
         private eventManager: EventManager,
         private renderer: Renderer2,
-        private missionService: MissionService
+        private communicationService: CommunicationService
     ) {
         this.isNavbarCollapsed = true;
         this.languageService.addLocation('home');
-        this.subscription = missionService.missionAnnounced$.subscribe(
+        this.subscription = communicationService.communicationAnnounced$.subscribe(
             (showPane) => showPane ? this.showPane = true : this.showPane = false
         );
-        missionService.missionConfirmed$.subscribe();
     }
 
     ngOnInit() {
         this.languageHelper.getAll().then((languages) => {
             this.languages = languages;
-        });
-
-        this.profileService.getProfileInfo().subscribe((profileInfo) => {
-            this.inProduction = profileInfo.inProduction;
-            this.swaggerEnabled = profileInfo.swaggerEnabled;
         });
 
         this.principal.identity().then((account) => {
@@ -122,22 +120,22 @@ export class NavbarComponent implements OnInit {
     }
 
     paneShowing() {
-        const appStyle = this.paneShowingx;
+        const appStyle = this.paneShowingClass;
         const stickyFlag = this.stickyFlag;
         if (stickyFlag) {
-            this.missionService.announceMission(appStyle);
+            this.communicationService.announceCommunication(appStyle);
         }
     }
 
     stickyPane() {
-        const appStyle = this.stickyPanex;
+        const appStyle = this.stickyPaneClass;
         const hasPane = this.hasPane;
         const stickyFlag = this.stickyFlag;
         if (stickyFlag) {
-            this.missionService.announceMission(appStyle);
+            this.communicationService.announceCommunication(appStyle);
             this.stickyFlag = false;
         } else {
-            this.missionService.announceMission(hasPane);
+            this.communicationService.announceCommunication(hasPane);
             this.stickyFlag = true;
         }
     }
@@ -146,7 +144,7 @@ export class NavbarComponent implements OnInit {
         const stickyFlag = this.stickyFlag;
         const hasPane = this.hasPane;
         if (stickyFlag) {
-            this.missionService.announceMission(hasPane);
+            this.communicationService.announceCommunication(hasPane);
         }
     }
 }

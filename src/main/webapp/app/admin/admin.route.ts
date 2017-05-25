@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 
+import { UserRouteAccessService } from '../shared';
+
 import {
     auditsRoute,
     configurationRoute,
@@ -9,30 +11,31 @@ import {
     metricsRoute,
     trackerRoute,
     userMgmtRoute,
-    userDialogRoute
+    userDialogRoute,
+    AdminComponent
 } from './';
 
-import { UserRouteAccessService } from '../shared';
-
 const ADMIN_ROUTES = [
-    { path: '', redirectTo: 'jhi-metrics', pathMatch: 'full' },
+    { path: '', redirectTo: 'metrics', pathMatch: 'full' },
     auditsRoute,
     configurationRoute,
     docsRoute,
     healthRoute,
     logsRoute,
     trackerRoute,
-    ...userMgmtRoute,
-    metricsRoute
+    metricsRoute,
+    ...userMgmtRoute
 ];
 
-export const adminState: Routes = [{
-    path: 'admin',
-    data: {
-        authorities: ['ROLE_ADMIN']
+export const adminState: Routes = [
+    {
+        path: 'admin',
+        component: AdminComponent,
+        data: {
+            authorities: ['ROLE_ADMIN']
+        },
+        canActivate: [UserRouteAccessService],
+        children: ADMIN_ROUTES
     },
-    canActivate: [UserRouteAccessService],
-    children: ADMIN_ROUTES
-},
     ...userDialogRoute
 ];

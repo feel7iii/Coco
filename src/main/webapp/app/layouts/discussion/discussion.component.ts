@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { Subscription } from 'rxjs/Subscription';
 
-import { MissionService } from '../../shared';
+import { CommunicationService } from '../../shared';
 
 @Component({
     selector: 'jhi-discussion',
@@ -14,16 +14,16 @@ export class DiscussionComponent implements OnInit, OnDestroy {
     paneWord: string;
     subscription: Subscription;
 
-    constructor(private missionService: MissionService) {
-        this.subscription = missionService.missionAnnounced$.subscribe(
+    constructor(private communicationService: CommunicationService) {
+        this.subscription = communicationService.communicationAnnounced$.subscribe(
             (paneWord) => this.paneWord = paneWord
         );
-        missionService.missionConfirmed$.subscribe();
+        communicationService.communicationConfirmed$.subscribe();
     }
 
     ngOnInit() {
         const appStyle = this.changeAppStyle;
-        this.missionService.announceMission(appStyle);
+        this.communicationService.announceCommunication(appStyle);
     }
 
     hiddenPane() {
@@ -31,12 +31,12 @@ export class DiscussionComponent implements OnInit, OnDestroy {
         const paneShowingAndPinned = this.paneShowingAndPinned;
         const paneWord = this.paneWord;
         if (paneWord !== paneShowingAndPinned) {
-            this.missionService.announceMission(appStyle);
+            this.communicationService.announceCommunication(appStyle);
         }
     }
 
     ngOnDestroy() {
         const appStyle = '';
-        this.missionService.announceMission(appStyle);
+        this.communicationService.announceCommunication(appStyle);
     }
 }

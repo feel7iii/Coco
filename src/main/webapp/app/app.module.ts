@@ -18,7 +18,7 @@ import { JhiLayoutComponent } from './app.component';
 
 import { NavbarComponent, ActiveMenuDirective } from './layouts';
 
-import { MissionService } from './shared';
+import { CommunicationService } from './shared';
 
 @NgModule({
     imports: [
@@ -40,7 +40,7 @@ import { MissionService } from './shared';
         customHttpProvider(),
         PaginationConfig,
         UserRouteAccessService,
-        MissionService
+        CommunicationService
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     bootstrap: [ JhiLayoutComponent ]

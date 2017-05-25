@@ -3,7 +3,7 @@ import { Router, ActivatedRouteSnapshot, NavigationEnd } from '@angular/router';
 
 import { Subscription } from 'rxjs/Subscription';
 
-import { JhiLanguageHelper, MissionService } from './shared';
+import { JhiLanguageHelper, CommunicationService } from './shared';
 
 import * as $ from 'jquery';
 
@@ -31,26 +31,25 @@ export class JhiLayoutComponent implements OnInit, OnDestroy {
         private jhiLanguageHelper: JhiLanguageHelper,
         private router: Router,
         private renderer2: Renderer2,
-        private missionService: MissionService
+        private communicationService: CommunicationService
     ) {
-        this.subscription = missionService.missionAnnounced$.subscribe(
+        this.subscription = communicationService.communicationAnnounced$.subscribe(
             (changeAppStyle) => {
                 this.appStyle = changeAppStyle;
                 this.renderer2.setAttribute(this.app.nativeElement, 'class', 'App affix ' + this.appStyle + ' App--discussion' );
             }
         );
 
-        window.addEventListener('scroll', function () {
+        window.addEventListener('scroll', function() {
             $('#app').addClass('scrolled');
         });
 
         $(window).bind('scroll', function(){
-            if ($(document).scrollTop() == 0) {
+            if ($(document).scrollTop() === 0) {
                 $('#app').removeClass('scrolled');
             }
         });
     }
-
 
     ngOnInit() {
         this.router.events.subscribe((event) => {

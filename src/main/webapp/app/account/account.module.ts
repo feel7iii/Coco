@@ -16,7 +16,8 @@ import {
     PasswordResetInitComponent,
     PasswordResetFinishComponent,
     SettingsComponent,
-    AcountComponent,
+    AccountComponent,
+    AccountSideComponent,
     HelpComponent,
     ConfigureComponent,
     accountState
@@ -35,7 +36,8 @@ import {
         PasswordResetInitComponent,
         PasswordResetFinishComponent,
         SettingsComponent,
-        AcountComponent,
+        AccountComponent,
+        AccountSideComponent,
         HelpComponent,
         ConfigureComponent
     ],

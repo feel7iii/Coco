@@ -20,5 +20,6 @@ export * from './configure/configure.component';
 export * from './configure/configure.route';
 export * from './help/help.component';
 export * from './help/help.route';
+export * from './account-side/side.component';
 export * from './account.component';
 export * from './account.route';

@@ -1,9 +1,10 @@
 import { Routes } from '@angular/router';
 
-import { JhiMainComponent } from './main.component';
-
-import { homeRoute } from './home/home.route';
-import { followingRoute } from './following/following.route';
+import {
+    homeRoute,
+    followingRoute,
+    JhiMainComponent
+} from './';
 
 const MAIN_ROUTES = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },

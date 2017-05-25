@@ -28,4 +28,6 @@ export * from './user-management/user-management-detail.component';
 export * from './user-management/user-management.component';
 export * from './user-management/user-management.route';
 export * from './user-management/user-modal.service';
-export * from './admin.route';
+export * from './admin-side/side.component';
+export * from './admin.component';
+export * from './admin.route'

@@ -1,9 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { JhiTrackerService } from './../shared/tracker/tracker.service';
 
-import { CocoSharedModule } from '../shared';
-
+import { CocoSharedModule, JhiTrackerService } from '../shared';
 import {
     adminState,
     AuditsComponent,
@@ -28,7 +26,9 @@ import {
     LogsService,
     UserResolvePagingParams,
     UserResolve,
-    UserModalService
+    UserModalService,
+    AdminComponent,
+    AdminSideComponent
 } from './';
 
 @NgModule({
@@ -51,13 +51,15 @@ import {
         JhiDocsComponent,
         JhiTrackerComponent,
         JhiMetricsMonitoringComponent,
-        JhiMetricsMonitoringModalComponent
+        JhiMetricsMonitoringModalComponent,
+        AdminComponent,
+        AdminSideComponent
     ],
     entryComponents: [
         UserMgmtDialogComponent,
         UserMgmtDeleteDialogComponent,
         JhiHealthModalComponent,
-        JhiMetricsMonitoringModalComponent,
+        JhiMetricsMonitoringModalComponent
     ],
     providers: [
         AuditsService,

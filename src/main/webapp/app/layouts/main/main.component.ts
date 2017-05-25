@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRouteSnapshot, NavigationEnd } from '@angular/router';
 
-import { JhiLanguageHelper, MissionService } from '../../shared';
+import { JhiLanguageHelper, CommunicationService } from '../../shared';
 
 @Component({
     selector: 'jhi-main',
@@ -23,9 +23,9 @@ export class JhiMainComponent implements OnInit {
     constructor(
         private jhiLanguageHelper: JhiLanguageHelper,
         private router: Router,
-        private missionService: MissionService
+        private communicationService: CommunicationService
     ) {
-        missionService.missionConfirmed$.subscribe();
+        communicationService.communicationConfirmed$.subscribe();
     }
 
     private getPageTitle(routeSnapshot: ActivatedRouteSnapshot) {

@@ -7,8 +7,6 @@ import {
     ProfileComponent,
     SubjectComponent,
     DiscussionComponent,
-    ProfileService,
-    PageRibbonComponent,
     ErrorComponent
 } from './';
 
@@ -21,11 +19,9 @@ import {
         ProfileComponent,
         SubjectComponent,
         DiscussionComponent,
-        PageRibbonComponent,
         ErrorComponent
     ],
     providers: [
-        ProfileService
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

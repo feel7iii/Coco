@@ -9,7 +9,7 @@ import {
     settingsRoute,
     helpRoute,
     configureRoute,
-    AcountComponent
+    AccountComponent
 } from './';
 
 const ACCOUNT_ROUTES = [
@@ -26,6 +26,6 @@ const ACCOUNT_ROUTES = [
 
 export const accountState: Routes = [{
     path: 'account',
-    component: AcountComponent,
+    component: AccountComponent,
     children: ACCOUNT_ROUTES
 }];
