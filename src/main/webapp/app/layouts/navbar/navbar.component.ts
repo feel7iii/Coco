@@ -31,6 +31,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     stickyPaneClass = 'hasPane paneShowing panePinned';
     subscription: Subscription;
     @ViewChild('search') search: ElementRef;
+    @ViewChild('sysInfo') sysInfo: ElementRef;
     @ViewChild('info') info: ElementRef;
 
     account: Account;
@@ -60,6 +61,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
                 if (typeof showPane === 'string') {
                     showPane ? this.showPane = true : this.showPane = false;
                 } else if (typeof showPane === 'boolean') {
+                    alert(showPane);
                     return this.isNavHideOrShow = showPane;
                 }
             }
@@ -120,11 +122,19 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
 
     showInfo() {
-        this.renderer.setAttribute(this.info.nativeElement, 'class', 'ButtonGroup Dropdown NotificationsDropdown itemCount open');
+        this.renderer.setAttribute(this.info.nativeElement, 'class', 'ButtonGroup Dropdown NotificationsDropdown open');
     }
 
-    hiddenInfo() {
-        this.renderer.setAttribute(this.info.nativeElement, 'class', 'ButtonGroup Dropdown NotificationsDropdown itemCount');
+    hideInfo() {
+        this.renderer.setAttribute(this.info.nativeElement, 'class', 'ButtonGroup Dropdown NotificationsDropdown');
+    }
+
+    showSysInfo() {
+        this.renderer.setAttribute(this.sysInfo.nativeElement, 'class', 'ButtonGroup Dropdown NotificationsDropdown open');
+    }
+
+    hideSysInfo() {
+        this.renderer.setAttribute(this.sysInfo.nativeElement, 'class', 'ButtonGroup Dropdown NotificationsDropdown');
     }
 
     paneShowing() {

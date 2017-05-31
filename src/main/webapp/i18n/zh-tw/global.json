@@ -60,6 +60,10 @@
             "following": "關注議題",
             "tags": "類目標簽"
         },
+        "sys-notifications": {
+            "title": "系統消息",
+            "replied": "發布的帖子"
+        },
         "notifications": {
             "title": "通知",
             "replied": "回複妳的帖子"

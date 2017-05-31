@@ -36,7 +36,11 @@ export class JhiLayoutComponent implements OnInit, OnDestroy {
         this.subscription = communicationService.communicationAnnounced$.subscribe(
             (changeAppStyle) => {
                 this.appStyle = changeAppStyle;
-                this.renderer2.setAttribute(this.app.nativeElement, 'class', 'App affix ' + this.appStyle + ' App--discussion' );
+                if (typeof changeAppStyle === 'string') {
+                    this.renderer2.setAttribute(this.app.nativeElement, 'class', 'App affix ' + this.appStyle);
+                } else if (typeof changeAppStyle === 'boolean') {
+                    // do nothing
+                }
             }
         );
 

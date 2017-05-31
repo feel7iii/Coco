@@ -39,10 +39,49 @@
                             </ul>
                         </div>
                     </li>
+                    <li *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                        <div #sysInfo class="ButtonGroup Dropdown NotificationsDropdown itemCount">
+                            <button class="Dropdown-toggle Button Button--flat" title="系统信息" aria-expanded="true" (click)="showSysInfo()" (blur)="hideSysInfo()">
+                                <i class="icon fa fa-fw fa-bell Button-icon"></i>
+                                <span class="Button-label">Notifications</span>
+                            </button>
+                            <div class="Dropdown-menu Dropdown-menu--right">
+                                <div class="NotificationList">
+                                    <div class="NotificationList-header">
+                                        <div class="App-primaryControl">
+                                            <button class="Button Button--icon Button--link hasIcon" title="Mark All as Read" type="button">
+                                                <i class="icon fa fa-fw fa-check Button-icon"></i>
+                                            </button>
+                                        </div>
+                                        <h4 class="App-titleControl App-titleControl--text" jhiTranslate="global.sys-notifications.title">Sys_Notifications</h4>
+                                    </div>
+                                    <div class="NotificationList-content">
+                                        <div class="NotificationGroup">
+                                            <a class="NotificationGroup-header" href="#">Testing What is it!</a>
+                                            <ul class="NotificationGroup-content">
+                                                <li>
+                                                    <a class="Notification Notification--postMentioned " href="#">
+                                                        <img class="Avatar " src="https://discuss.flarum.org/assets/avatars/tfhe6wsti8jtsjet.jpg">
+                                                        <i class="icon fa fa-fw fa-reply Notification-icon"></i>
+                                                        <span class="Notification-content">
+                                                            <span class="username">Say Hi</span>
+                                                            <span jhiTranslate="global.notifications.replied">Replied</span>
+                                                        </span>
+                                                        <time>Oct '16</time>
+                                                        <div class="Notification-excerpt">Testing</div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
                     <li *ngSwitchCase="true">
                         <div #info class="ButtonGroup Dropdown NotificationsDropdown itemCount">
-                            <button class="Dropdown-toggle Button Button--flat" title="消息" aria-expanded="true" (click)="showInfo()" (blur)="hiddenInfo()">
-                                <i class="icon fa fa-fw fa-bell Button-icon"></i>
+                            <button class="Dropdown-toggle Button Button--flat" title="消息" aria-expanded="true" (click)="showInfo()" (blur)="hideInfo()">
+                                <i class="icon fa fa-fw fa-comments Button-icon"></i>
                                 <span class="Button-label">Notifications</span>
                             </button>
                             <div class="Dropdown-menu Dropdown-menu--right">
@@ -78,74 +117,6 @@
                             </div>
                         </div>
                     </li>
-                    <li *ngSwitchCase="true">
-                        <div class="ButtonGroup Dropdown itemCount" *ngIf="account" [ngbCollapse]="isNavbarCollapsed">
-                            <ul class="navbar-nav ml-auto">
-                                <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer">
-                                    <button ngbDropdownToggle class="Button Button--user Button--flat" id="admin-menu">
-                                        <i class="fa fa-user-plus" aria-hidden="true"></i>
-                                        <span jhiTranslate="global.menu.admin.main">Administration</span>
-                                    </button>
-                                    <ul class="Dropdown-menu dropdown-menu Dropdown-menu--right" ngbDropdownMenu>
-                                        <li>
-                                            <a class="hasIcon" routerLink="/admin/user-management" routerLinkActive="active" (click)="collapseNavbar()">
-                                                <i class="fa fa-fw fa-users" aria-hidden="true"></i>
-                                                <span jhiTranslate="global.menu.admin.userManagement">User management</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="hasIcon" routerLink="/admin/jhi-tracker" routerLinkActive="active" (click)="collapseNavbar()">
-                                                <i class="fa fa-fw fa-eye" aria-hidden="true"></i>
-                                                <span jhiTranslate="global.menu.admin.tracker">User tracker</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="hasIcon" routerLink="/admin/metrics" routerLinkActive="active" (click)="collapseNavbar()">
-                                                <i class="fa fa-fw fa-tachometer" aria-hidden="true"></i>
-                                                <span jhiTranslate="global.menu.admin.metrics">Metrics</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="hasIcon" routerLink="/admin/jhi-health" routerLinkActive="active" (click)="collapseNavbar()">
-                                                <i class="fa fa-fw fa-heart" aria-hidden="true"></i>
-                                                <span jhiTranslate="global.menu.admin.health">Health</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="hasIcon" routerLink="/admin/jhi-configuration" routerLinkActive="active" (click)="collapseNavbar()">
-                                                <i class="fa fa-fw fa-list" aria-hidden="true"></i>
-                                                <span jhiTranslate="global.menu.admin.configuration">Configuration</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="hasIcon" routerLink="/admin/audits" routerLinkActive="active" (click)="collapseNavbar()">
-                                                <i class="fa fa-fw fa-bell" aria-hidden="true"></i>
-                                                <span jhiTranslate="global.menu.admin.audits">Audits</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="hasIcon" routerLink="/admin/logs" routerLinkActive="active" (click)="collapseNavbar()">
-                                                <i class="fa fa-fw fa-tasks" aria-hidden="true"></i>
-                                                <span jhiTranslate="global.menu.admin.logs">Logs</span>
-                                            </a>
-                                        </li>
-                                        <li *ngIf="swaggerEnabled">
-                                            <a class="hasIcon" routerLink="/admin/docs" routerLinkActive="active" (click)="collapseNavbar()">
-                                                <i class="fa fa-fw fa-book" aria-hidden="true"></i>
-                                                <span jhiTranslate="global.menu.admin.apidocs">API</span>
-                                            </a>
-                                        </li>
-                                        <li *ngIf="!inProduction">
-                                            <a class="hasIcon" href='/h2-console' target="_tab" (click)="collapseNavbar()">
-                                                <i class="fa fa-fw fa-hdd-o" aria-hidden="true"></i>
-                                                <span jhiTranslate="global.menu.admin.database">Database</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
                     <li>
                         <div class="ButtonGroup Dropdown itemCount">
                             <ul class="navbar-nav ml-auto">
@@ -174,16 +145,22 @@
                                         </span>
                                     </button>
                                     <ul class="Dropdown-menu dropdown-menu Dropdown-menu--right" ngbDropdownMenu>
-                                        <li *ngSwitchCase="true" class="item-profile">
+                                        <li class="item-profile">
                                             <a class="hasIcon" routerLink="/profile" routerLinkActive="active" (click)="collapseNavbar()">
                                                 <i class="fa fa-address-card" aria-hidden="true"></i>
                                                 <span jhiTranslate="global.menu.account.profile">Profile</span>
                                             </a>
                                         </li>
-                                        <li *ngSwitchCase="true" class="item-settings">
+                                        <li class="item-settings">
                                             <a class="hasIcon" routerLink="/account/password" routerLinkActive="active" (click)="collapseNavbar()">
                                                 <i class="fa fa-cogs" aria-hidden="true"></i>
                                                 <span jhiTranslate="global.menu.account.settings">Settings</span>
+                                            </a>
+                                        </li>
+                                        <li *jhiHasAnyAuthority="'ROLE_ADMIN'" class="item-settings">
+                                            <a class="hasIcon" routerLink="/admin" routerLinkActive="active" (click)="collapseNavbar()">
+                                                <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                                <span jhiTranslate="global.menu.admin.main">Administration</span>
                                             </a>
                                         </li>
                                         <li class="Dropdown-separator"></li>
@@ -214,7 +191,4 @@
             </div>
         </div>
     </header>
-</div>
-<div *ngIf="!isNavHideOrShow">
-    <h1>SHOWADMINSTRATOR</h1>
 </div>

@@ -60,6 +60,10 @@
             "following": "Following",
             "tags": "Tags"
         },
+        "sys-notifications": {
+            "title": "Sys Notifications",
+            "replied": "Flagged Post"
+        },
         "notifications": {
             "title": "Notifications",
             "replied": "Replied to your post"

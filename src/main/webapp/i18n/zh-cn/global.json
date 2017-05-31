@@ -60,6 +60,10 @@
             "following": "关注议题",
             "tags": "类目标签"
         },
+        "sys-notifications": {
+            "title": "系统消息",
+            "replied": "发布的帖子"
+        },
         "notifications": {
           "title": "通知",
           "replied": "回复你的帖子"
