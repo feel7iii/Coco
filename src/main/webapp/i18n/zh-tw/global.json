@@ -22,7 +22,8 @@
                 "register": "註冊"
             },
             "admin": {
-                "main": "管理",
+                "configure": "系統監測",
+                "main": "系統管理",
                 "userManagement": "使用者管理",
                 "tracker": "使用者追蹤",
                 "metrics": "資源監控",

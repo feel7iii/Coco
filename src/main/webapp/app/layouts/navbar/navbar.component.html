@@ -146,21 +146,27 @@
                                     </button>
                                     <ul class="Dropdown-menu dropdown-menu Dropdown-menu--right" ngbDropdownMenu>
                                         <li class="item-profile">
-                                            <a class="hasIcon" routerLink="/profile" routerLinkActive="active" (click)="collapseNavbar()">
+                                            <a class="hasIcon" routerLink="/profile" routerLinkActive="active">
                                                 <i class="fa fa-address-card" aria-hidden="true"></i>
                                                 <span jhiTranslate="global.menu.account.profile">Profile</span>
                                             </a>
                                         </li>
                                         <li class="item-settings">
-                                            <a class="hasIcon" routerLink="/account/password" routerLinkActive="active" (click)="collapseNavbar()">
+                                            <a class="hasIcon" routerLink="/account/password" routerLinkActive="active">
                                                 <i class="fa fa-cogs" aria-hidden="true"></i>
                                                 <span jhiTranslate="global.menu.account.settings">Settings</span>
                                             </a>
                                         </li>
                                         <li *jhiHasAnyAuthority="'ROLE_ADMIN'" class="item-settings">
-                                            <a class="hasIcon" routerLink="/admin" routerLinkActive="active" (click)="collapseNavbar()">
+                                            <a class="hasIcon" routerLink="/sys-manage" routerLinkActive="active">
                                                 <i class="fa fa-user-plus" aria-hidden="true"></i>
                                                 <span jhiTranslate="global.menu.admin.main">Administration</span>
+                                            </a>
+                                        </li>
+                                        <li *jhiHasAnyAuthority="'ROLE_ADMIN'" class="item-settings">
+                                            <a class="hasIcon" routerLink="/admin" routerLinkActive="active">
+                                                <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                                <span jhiTranslate="global.menu.admin.configure">SYS CONFIGURE</span>
                                             </a>
                                         </li>
                                         <li class="Dropdown-separator"></li>

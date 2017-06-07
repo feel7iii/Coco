@@ -22,6 +22,7 @@
                 "register": "Register"
             },
             "admin": {
+                "configure": "Sys-Configure",
                 "main": "Administration",
                 "userManagement": "User management",
                 "tracker": "User tracker",

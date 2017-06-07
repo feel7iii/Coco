@@ -6,11 +6,16 @@ import { JhiLanguageHelper } from '../../shared';
 
 @Component({
     selector: 'jhi-admin-side',
-    templateUrl: './side.component.html'
+    templateUrl: './side.component.html',
+    styles: [`
+    `]
 })
 export class AdminSideComponent implements OnInit {
     languages: any[];
-    navOpen: true;
+    navOpen = false;
+
+    inProduction = true;
+    swaggerEnabled = true;
 
     constructor(
         private languageHelper: JhiLanguageHelper,
@@ -26,5 +31,18 @@ export class AdminSideComponent implements OnInit {
     }
 
     openNav() {
+        this.navOpen = !this.navOpen;
+    }
+
+    switchLi(e) {
+        const groupLi: any = $('#sidebar-wrapper ul li');
+        console.log(e);
+        for (const navLi of groupLi) {
+            // if (navLi.id === pageDivId) {
+            //     $('#' + divA.id).addClass('active');
+            // } else {
+            //     $('#' + divA.id).removeClass('active');
+            // }
+        }
     }
 }
