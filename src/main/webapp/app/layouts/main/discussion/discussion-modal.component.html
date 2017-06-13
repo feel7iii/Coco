@@ -1,0 +1,41 @@
+<div #startDiscussion>
+    <div class="ModalManager modal fade in" style="display: block;">
+        <div class="Modal modal-dialog TagDiscussionModal">
+            <div class="Modal-content">
+                <div class="Modal-close App-backControl">
+                    <button (click)="closeModal()" class="Button Button--icon Button--link hasIcon" type="button">
+                        <i class="icon fa fa-fw fa-times Button-icon"></i>
+                    </button>
+                </div>
+                <form>
+                    <div class="Modal-header"><h3 class="App-titleControl App-titleControl--text">Choose Tags for Your Discussion</h3></div>
+                    <div class="Modal-alert"></div>
+                    <div class="Modal-body">
+                        <div class="TagDiscussionModal-form">
+                            <div class="TagDiscussionModal-form-input">
+                                <div class="TagsInput FormControl "><span class="TagsInput-selected"></span><input class="FormControl" placeholder="Choose a primary tag"></div>
+                            </div>
+                            <div class="TagDiscussionModal-form-submit App-primaryControl">
+                                <button type="submit" class="Button Button--primary hasIcon disabled" title="OK" disabled=""><i class="icon fa fa-fw fa-check Button-icon"></i><span
+                                    class="Button-label">OK</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Modal-footer">
+                        <ul class="TagDiscussionModal-list SelectTagList">
+                            <li class="pinned colored" style="color: rgb(181, 158, 140);">
+                                <span class="icon TagIcon " style="background-color: rgb(181, 158, 140);"></span>
+                                <span class="SelectTagListItem-name">Post tests here</span>
+                                <span class="SelectTagListItem-description">
+                                    Test out Flarum in this tag. Discussions in this tag will be deleted every so often.
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div #backShadow class="modal-backdrop fade in"></div>

@@ -1,14 +1,16 @@
 import { Routes } from '@angular/router';
 
 import {
-    homeRoute,
+    discussionRoute,
+    discussionTagsPopupRoute,
     followingRoute,
     JhiMainComponent
 } from './';
 
 const MAIN_ROUTES = [
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
-    homeRoute,
+    { path: '', redirectTo: 'discussion', pathMatch: 'full' },
+    discussionRoute,
+    ...discussionTagsPopupRoute,
     followingRoute
 ];
 

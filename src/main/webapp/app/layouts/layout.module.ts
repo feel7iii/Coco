@@ -6,7 +6,7 @@ import { MainModule } from './main/main.module';
 import {
     ProfileComponent,
     SubjectComponent,
-    DiscussionComponent,
+    DiscussionPostComponent,
     ErrorComponent
 } from './';
 
@@ -18,7 +18,7 @@ import {
     declarations: [
         ProfileComponent,
         SubjectComponent,
-        DiscussionComponent,
+        DiscussionPostComponent,
         ErrorComponent
     ],
     providers: [

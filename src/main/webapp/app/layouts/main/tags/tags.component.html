@@ -1,7 +1,7 @@
 <nav class="IndexPage-nav sideNav">
     <ul>
         <li class="item-newDiscussion App-primaryControl">
-            <button class="Button Button--primary IndexPage-newDiscussion hasIcon" itemclassname="App-primaryControl" type="button" title="Start a Discussion" style="background-color: rgb(75, 147, 209);">
+            <button (click)="startDiscussion()" class="Button Button--primary IndexPage-newDiscussion hasIcon" type="button" title="Start a Discussion" style="background-color: rgb(75, 147, 209);">
                 <i class="icon fa fa-fw fa-edit Button-icon"></i>
                 <span class="Button-label" jhiTranslate="global.tags.start">Start a Discussion</span>
             </button>

@@ -8,7 +8,7 @@ import { CommunicationService } from '../../shared';
     selector: 'jhi-discussion',
     templateUrl: './discussion.component.html'
 })
-export class DiscussionComponent implements OnInit, OnDestroy {
+export class DiscussionPostComponent implements OnInit, OnDestroy {
     paneShowingAndPinned = 'hasPane paneShowing panePinned';
     changeAppStyle = 'hasPane';
     paneWord: string;

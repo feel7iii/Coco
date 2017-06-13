@@ -15,6 +15,7 @@ import { JhiLanguageHelper, CommunicationService } from '../../shared';
                 <router-outlet></router-outlet>
             </div>
         </div>
+        <router-outlet name='discussionTags'></router-outlet>
     </div>
     `
 })

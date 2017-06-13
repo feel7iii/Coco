@@ -1,4 +1,4 @@
-import {Component, OnInit, ElementRef, ViewChild, Renderer2, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ElementRef, ViewChild, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { EventManager, JhiLanguageService } from 'ng-jhipster';
@@ -57,12 +57,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.isNavbarCollapsed = true;
         this.languageService.addLocation('home');
         this.subscription = communicationService.communicationAnnounced$.subscribe(
-            (showPane) => {
-                if (typeof showPane === 'string') {
-                    showPane ? this.showPane = true : this.showPane = false;
-                } else if (typeof showPane === 'boolean') {
-                    alert(showPane);
-                    return this.isNavHideOrShow = showPane;
+            (kewWord) => {
+                if (typeof kewWord === 'string') {
+                    if ('hasPane' === kewWord) { // Get into discussion-post router will show Pane
+                        kewWord ? this.showPane = true : this.showPane = false;
+                    }
+                } else if (typeof kewWord === 'boolean') {
+                    return this.isNavHideOrShow = kewWord;
                 }
             }
         );

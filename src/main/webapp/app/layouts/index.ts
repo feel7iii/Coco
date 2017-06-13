@@ -9,5 +9,5 @@ export * from './subject/subject.component';
 export * from './subject/subject.route';
 export * from './profile/profile.component';
 export * from './profile/profile.route';
-export * from './discussion/discussion.component';
-export * from './discussion/discussion.route';
+export * from './discussion-post/discussion.component';
+export * from './discussion-post/discussion.route';

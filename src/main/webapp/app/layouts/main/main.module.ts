@@ -8,7 +8,8 @@ import {
     NoticeComponent,
     SortComponent,
     TagsComponent,
-    HomeComponent,
+    DiscussionComponent,
+    DiscussionModalComponent,
     FollowingComponent,
     mainState
 } from './';
@@ -23,7 +24,8 @@ import {
         NoticeComponent,
         SortComponent,
         TagsComponent,
-        HomeComponent,
+        DiscussionComponent,
+        DiscussionModalComponent,
         FollowingComponent
     ],
     providers: [
