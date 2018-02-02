@@ -1,0 +1,152 @@
+
+DEFAULT_MIN_LENGTH = 1
+DEFAULT_MAX_LENGTH = 64
+DEFAULT_MIN_BYTES = 20
+DEFAULT_MAX_BYTES = 40
+DEFAULT_MIN = 0
+DEFAULT_MAX = 64
+
+//entity ScUsers {
+//	email String required minlength(DEFAULT_MIN_LENGTH) maxlength(DEFAULT_MAX_LENGTH),
+//	isActivated Integer,
+//	bio Blob,
+//	avatarPath String,
+//	preferences Blob,
+//	joinTime ZonedDateTime,
+//	lastSeenTime ZonedDateTime,
+//	readTime ZonedDateTime,
+//	notificationsReadTime ZonedDateTime,
+//	discussionsCount Integer,
+//	commentsCount Integer,
+//	flagsReadTime ZonedDateTime,
+//	suspendUntil ZonedDateTime
+//}
+
+entity ScTags {
+	name String required minlength(DEFAULT_MIN_LENGTH) maxlength(DEFAULT_MAX_LENGTH),
+	slug String,
+	description Blob,
+	color String,
+	backgroundPath String,
+	backgroundMode String,
+	position Integer,
+	parentId Integer,
+	defaultSort String,
+	isRestricted Integer,
+	isHidden Integer,
+	discussionsCount Integer,
+	lastTime ZonedDateTime,
+	lastDiscussionId Integer
+}
+
+entity ScDiscussions {
+	title String required minlength(DEFAULT_MIN_LENGTH) maxlength(DEFAULT_MAX_LENGTH),
+	commentsCount Integer,
+	participantsCount Integer,
+	numberIndex Integer,
+	startTime ZonedDateTime,
+	startUserId Integer,
+	startPostId Integer,
+	lastTime ZonedDateTime,
+	lastUserId Integer,
+	lastPostId Integer,
+	lastPostNumber Integer,
+	hideTime ZonedDateTime,
+	hideUserId Integer,
+	isApproved Integer,
+	isLocked Integer,
+	isSticky Integer
+}
+
+entity ScPosts {
+	number Integer,
+	time ZonedDateTime,
+	userId Integer,
+	type String,
+	content Blob,
+	editTime ZonedDateTime,
+	editUserId Integer,
+	hideTime ZonedDateTime,
+	hideUserId Integer,
+	ipAddress String,
+	isApproved Integer,
+	isSpam Integer
+}
+
+entity ScFlags {
+	type String,
+	reason String required minlength(DEFAULT_MIN_LENGTH) maxlength(DEFAULT_MAX_LENGTH),
+	reasonDetail String required minlength(DEFAULT_MIN_LENGTH) maxlength(DEFAULT_MAX_LENGTH),
+	time ZonedDateTime
+}
+
+entity ScPostsMentions {
+	senderId Integer,
+	data Blob
+	time ZonedDateTime,
+	isRead Integer
+}
+
+entity ScUsersDiscussions {
+	readTime ZonedDateTime,
+	readNumber Integer,
+	scSubscription ScSubscription
+}
+
+enum ScSubscription {
+	FOLLOW,
+    IGNORE
+}
+
+entity ScGroups {
+	nameSingular String,
+	namePlural String,
+	color String,
+	icon String
+}
+
+entity ScSettings {
+	key String,
+	value Blob
+}
+
+entity ScMessagings {
+	senderId Integer,
+	subjectType String, 
+	subjectId Integer,
+	data Blob
+	time ZonedDateTime,
+	isRead Integer,
+	isDeleted Integer
+}
+
+//relationship OneToOne {
+//	ScUsers{user(login)} to User
+//}
+
+relationship OneToMany {
+    ScDiscussions{scUsersDiscussions} to ScUsersDiscussions{scDiscussions},
+    ScDiscussions{scPosts} to ScPosts{scDiscussions},
+    ScPosts{scFlags} to ScFlags{scPosts},
+    ScPosts{scPostsMentions} to ScPostsMentions{scPosts}
+}
+
+relationship ManyToOne {
+	ScUsersDiscussions{user(login)} to User{scUsersDiscussions},
+    ScPostsMentions{user(login)} to User{scPostsMentions},
+    ScMessagings{user(login)} to User{scPostsMentions},
+    ScFlags{user(login)} to User{scFlags},
+	ScSettings{user(login)} to User{scSettings},
+    ScTags{user(login)} to User{scTags},
+    ScTags{scTags(parentId)} to ScTags
+}
+
+relationship ManyToMany {
+	ScDiscussions{scTags} to ScTags{scDiscussions},
+    ScGroups{user(login)} to User,
+   	ScPosts{user(login)}  to User
+}
+
+paginate ScDiscussions with infinite-scroll
+
+service ScPosts, ScDiscussions, ScTags with serviceClass

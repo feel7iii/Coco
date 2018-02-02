@@ -1,0 +1,194 @@
+
+ DEFAULT_MIN_LENGTH = 1
+ DEFAULT_MAX_LENGTH = 64
+ DEFAULT_MIN_BYTES = 20
+ DEFAULT_MAX_BYTES = 40
+ DEFAULT_MIN = 0
+ DEFAULT_MAX = 64
+ 
+ entity ScUsers {
+ 	email String required minlength(DEFAULT_MIN_LENGTH) maxlength(DEFAULT_MAX_LENGTH),
+ 	isActivated Integer,
+ 	bio Blob,
+ 	avatarPath String,
+ 	preferences Blob,
+ 	joinTime ZonedDateTime,
+ 	lastSeenTime ZonedDateTime,
+ 	readTime ZonedDateTime,
+ 	notificationsReadTime ZonedDateTime,
+ 	discussionsCount Integer,
+ 	commentsCount Integer,
+ 	flagsReadTime ZonedDateTime,
+ 	suspendUntil ZonedDateTime
+ }
+ 
+ entity ScTags {
+ 	name String required minlength(DEFAULT_MIN_LENGTH) maxlength(DEFAULT_MAX_LENGTH),
+ 	slug String,
+ 	description Blob,
+ 	color String,
+ 	backgroundPath String,
+ 	backgroundMode String,
+ 	position Integer,
+ 	parentId Integer,
+ 	defaultSort String,
+ 	isRestricted Integer,
+ 	isHidden Integer,
+ 	discussionsCount Integer,
+ 	lastTime ZonedDateTime,
+ 	lastDiscussionId Integer
+ }
+ 
+ entity ScPosts {
+ 	discussionId Integer,
+ 	number Integer,
+ 	time ZonedDateTime,
+ 	userId Integer,
+ 	type String,
+ 	content Blob,
+ 	editTime ZonedDateTime,
+ 	editUserId Integer,
+ 	hideTime ZonedDateTime,
+ 	hideUserId Integer,
+ 	ipAddress String,
+ 	isApproved Integer,
+ 	isSpam Integer
+ }
+ 
+ entity ScDiscussions {
+ 	title String required minlength(DEFAULT_MIN_LENGTH) maxlength(DEFAULT_MAX_LENGTH),
+ 	commentsCount Integer,
+ 	participantsCount Integer,
+ 	numberIndex Integer,
+ 	startTime ZonedDateTime,
+ 	startUserId Integer,
+ 	startPostId Integer,
+ 	lastTime ZonedDateTime,
+ 	lastUserId Integer,
+ 	lastPostId Integer,
+ 	lastPostNumber Integer,
+ 	hideTime ZonedDateTime,
+ 	hideUserId Integer,
+ 	isApproved Integer,
+ 	isLocked Integer,
+ 	isSticky Integer
+ }
+ 
+ entity ScFlags {
+ 	postId Integer,
+ 	type String,
+ 	userId Integer,
+ 	reason String required minlength(DEFAULT_MIN_LENGTH) maxlength(DEFAULT_MAX_LENGTH),
+ 	reasonDetail String required minlength(DEFAULT_MIN_LENGTH) maxlength(DEFAULT_MAX_LENGTH),
+ 	time ZonedDateTime
+ }
+ 
+ entity ScGroups {
+ 	nameSingular String,
+ 	namePlural String,
+ 	color String,
+ 	icon String
+ }
+ 
+ entity ScMentionsUsersOrPosts {
+ 	postId Integer,
+ 	metionId Integer,
+ 	type Integer
+ }
+ 
+ entity ScNotifications {
+ 	userId Integer,
+ 	senderId Integer,
+ 	type String,
+ 	subjectType String, 
+ 	subjectId Integer,
+ 	data Blob
+ 	time ZonedDateTime,
+ 	isRead Integer,
+ 	isDeleted Integer
+ }
+ 
+ entity ScPermissions {
+ 	groupId Integer,
+ 	permission String
+ }
+ 
+ entity ScPostsLikes {
+ 	postId Integer,
+ 	userId Integer
+ }
+ 
+ entity ScSettings {
+ 	key String,
+ 	value Blob
+ }
+ 
+ entity ScUsersDiscussions {
+ 	userId Long,
+ 	discussionId Integer,
+ 	readTime ZonedDateTime,
+ 	readNumber Integer,
+ 	Subscription Subscription
+ }
+ 
+ enum Subscription {
+ 	FOLLOW,
+     IGNORE
+ }
+ 
+ entity ScUsersGroups {
+ 	userId Integer,
+ 	groupId Integer
+ }
+ 
+ entity ScUsersTags {
+ 	user_id Integer,
+ 	tag_id Integer,
+ 	read_time ZonedDateTime,
+ 	is_hidden Integer
+ }
+ 
+ relationship OneToOne {
+ 	ScUsers{user(login)} to User,
+ 	ScUsers{scSettings} to ScSettings
+ }
+ 
+ relationship OneToMany {
+     ScUsers{scUsersGroups(userId)} to ScUsersGroups{scUsers},
+     ScGroups{ScUsersGroups(groupId)} to ScUsersGroups{scGroups},
+     ScGroups{scPermissions(groupId)} to ScPermissions{scGroups},
+     
+ 	ScUsers{scNotifications(userId)} to ScNotifications{scUsers},
+     
+     ScUsers{scUsersTags(userId)} to ScUsersTags{scUsers},
+ 	ScTags{scUserTags(tagId)} to ScUsersTags{scTags},
+     
+     ScUsers{scUsersDiscussions(userId)} to ScUsersDiscussions{scUsers},
+     ScDiscussions{scUsersDiscussions(discussionId)} to ScUsersDiscussions,
+     ScDiscussions{scPosts(discussionId)} to ScPosts{scDiscussions},
+     
+ 	ScUsers{scFlags(userId)} to ScFlags{scUsers},
+     ScPosts{scFlags(postId)} to ScFlags{scPosts},
+     
+     ScUsers{scPostsLikes(userId)} to ScPostsLikes{scUsers},
+     ScPosts{scPostsLikes(postId)} to ScPostsLikes{scPosts},
+     
+     ScUsers{scMentionsUsersOrPosts(userId)} to ScMentionsUsersOrPosts{scUsers},
+     ScPosts{scMentionsUsersOrPosts(postId)} to ScMentionsUsersOrPosts{scPosts}
+ }
+ 
+ relationship ManyToOne {
+ 	ScTags{pScTag} to ScTags
+ }
+ 
+ relationship ManyToMany {
+ 	ScDiscussions{scTags(discussionId)} to ScTags{scDiscussions(tagId)}
+ }
+ 
+ paginate ScDiscussions with infinitescroll
+ 
+ paginate ScUsers, ScTags with pagination
+ 
+ service ScUsers, ScPosts, ScDiscussions, ScTags with serviceClass
+ 
+ //skipClient for ScGroups, ScMentionsUsersOrPosts, ScPermissions, ScPostsLikes, ScSettings, ScUsersDiscussions, ScUsersGroups, ScUsersTags
