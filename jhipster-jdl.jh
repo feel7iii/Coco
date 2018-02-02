@@ -61,7 +61,6 @@ entity ScDiscussions {
 entity ScPosts {
 	number Integer,
 	time ZonedDateTime,
-	userId Integer,
 	type String,
 	content Blob,
 	editTime ZonedDateTime,
@@ -120,10 +119,6 @@ entity ScMessagings {
 	isDeleted Integer
 }
 
-//relationship OneToOne {
-//	ScUsers{user(login)} to User
-//}
-
 relationship OneToMany {
     ScDiscussions{scUsersDiscussions} to ScUsersDiscussions{scDiscussions},
     ScDiscussions{scPosts} to ScPosts{scDiscussions},
@@ -132,19 +127,20 @@ relationship OneToMany {
 }
 
 relationship ManyToOne {
-	ScUsersDiscussions{user(login)} to User{scUsersDiscussions},
-    ScPostsMentions{user(login)} to User{scPostsMentions},
-    ScMessagings{user(login)} to User{scPostsMentions},
-    ScFlags{user(login)} to User{scFlags},
-	ScSettings{user(login)} to User{scSettings},
-    ScTags{user(login)} to User{scTags},
+	ScUsersDiscussions{user(login)} to User,
+    ScPostsMentions{user(login)} to User,
+    ScMessagings{user(login)} to User,
+    ScFlags{user(login)} to User,
+	ScSettings{user(login)} to User,
+	ScPosts{user(login)}  to User,
+    ScTags{user(login)} to User,
     ScTags{scTags(parentId)} to ScTags
+	
 }
 
 relationship ManyToMany {
 	ScDiscussions{scTags} to ScTags{scDiscussions},
-    ScGroups{user(login)} to User,
-   	ScPosts{user(login)}  to User
+    ScGroups{user(login)} to User
 }
 
 paginate ScDiscussions with infinite-scroll
