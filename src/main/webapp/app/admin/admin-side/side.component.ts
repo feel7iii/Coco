@@ -4,6 +4,8 @@ import { JhiLanguageService } from 'ng-jhipster';
 
 import { JhiLanguageHelper } from '../../shared';
 
+import * as $ from 'jquery';
+
 @Component({
     selector: 'jhi-admin-side',
     templateUrl: './side.component.html',
