@@ -1,0 +1,53 @@
+
+<div *ngIf="scMessagings">
+    <h2><span jhiTranslate="cocoApp.scMessagings.detail.title">Sc Messagings</span> {{scMessagings.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="cocoApp.scMessagings.senderId">Sender Id</span></dt>
+        <dd>
+            <span>{{scMessagings.senderId}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scMessagings.subjectType">Subject Type</span></dt>
+        <dd>
+            <span>{{scMessagings.subjectType}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scMessagings.subjectId">Subject Id</span></dt>
+        <dd>
+            <span>{{scMessagings.subjectId}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scMessagings.data">Data</span></dt>
+        <dd>
+            <span>{{scMessagings.data}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scMessagings.time">Time</span></dt>
+        <dd>
+            <span>{{scMessagings.time | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scMessagings.isRead">Is Read</span></dt>
+        <dd>
+            <span>{{scMessagings.isRead}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scMessagings.isDeleted">Is Deleted</span></dt>
+        <dd>
+            <span>{{scMessagings.isDeleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scMessagings.user">User</span></dt>
+        <dd>
+            {{scMessagings.user?.login}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'sc-messagings/'+ scMessagings.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

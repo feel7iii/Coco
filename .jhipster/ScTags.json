@@ -1,0 +1,94 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "scTags",
+            "otherEntityName": "scTags",
+            "otherEntityField": "parentId"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "scDiscussions",
+            "otherEntityName": "scDiscussions",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "scTags"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": 1,
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "slug",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "byte[]"
+        },
+        {
+            "fieldName": "color",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "backgroundPath",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "backgroundMode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "position",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "parentId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "defaultSort",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isRestricted",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "isHidden",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "discussionsCount",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "lastTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "lastDiscussionId",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20180209070024",
+    "entityTableName": "sc_tags",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceClass"
+}

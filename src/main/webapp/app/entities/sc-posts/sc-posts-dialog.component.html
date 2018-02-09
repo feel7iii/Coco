@@ -1,0 +1,120 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myScPostsLabel" jhiTranslate="cocoApp.scPosts.home.createOrEditLabel">Create or edit a Sc Posts</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!scPosts.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="scPosts.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scPosts.number" for="field_number">Number</label>
+            <input type="number" class="form-control" name="number" id="field_number"
+                [(ngModel)]="scPosts.number"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scPosts.time" for="field_time">Time</label>
+            <div class="d-flex">
+                <input id="field_time" type="datetime-local" class="form-control" name="time" [(ngModel)]="scPosts.time"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scPosts.type" for="field_type">Type</label>
+            <input type="text" class="form-control" name="type" id="field_type"
+                [(ngModel)]="scPosts.type"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scPosts.content" for="field_content">Content</label>
+            <div>
+                <div *ngIf="scPosts.content" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{scPosts.contentContentType}}, {{byteSize(scPosts.content)}}</span>
+                    <button type="button" (click)="scPosts.content=null;scPosts.contentContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" (change)="setFileData($event, scPosts, 'content', false)" jhiTranslate="entity.action.addblob"/>
+            </div>
+            <input type="hidden" class="form-control" name="content" id="field_content"
+                [(ngModel)]="scPosts.content"
+             />
+            <input type="hidden" class="form-control" name="contentContentType" id="field_contentContentType"
+                [(ngModel)]="scPosts.contentContentType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scPosts.editTime" for="field_editTime">Edit Time</label>
+            <div class="d-flex">
+                <input id="field_editTime" type="datetime-local" class="form-control" name="editTime" [(ngModel)]="scPosts.editTime"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scPosts.editUserId" for="field_editUserId">Edit User Id</label>
+            <input type="number" class="form-control" name="editUserId" id="field_editUserId"
+                [(ngModel)]="scPosts.editUserId"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scPosts.hideTime" for="field_hideTime">Hide Time</label>
+            <div class="d-flex">
+                <input id="field_hideTime" type="datetime-local" class="form-control" name="hideTime" [(ngModel)]="scPosts.hideTime"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scPosts.hideUserId" for="field_hideUserId">Hide User Id</label>
+            <input type="number" class="form-control" name="hideUserId" id="field_hideUserId"
+                [(ngModel)]="scPosts.hideUserId"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scPosts.ipAddress" for="field_ipAddress">Ip Address</label>
+            <input type="text" class="form-control" name="ipAddress" id="field_ipAddress"
+                [(ngModel)]="scPosts.ipAddress"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scPosts.isApproved" for="field_isApproved">Is Approved</label>
+            <input type="number" class="form-control" name="isApproved" id="field_isApproved"
+                [(ngModel)]="scPosts.isApproved"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scPosts.isSpam" for="field_isSpam">Is Spam</label>
+            <input type="number" class="form-control" name="isSpam" id="field_isSpam"
+                [(ngModel)]="scPosts.isSpam"
+             />
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="cocoApp.scPosts.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" [(ngModel)]="scPosts.user" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="userOption.id === scPosts.user?.id ? scPosts.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="cocoApp.scPosts.scDiscussions" for="field_scDiscussions">Sc Discussions</label>
+            <select class="form-control" id="field_scDiscussions" name="scDiscussions" [(ngModel)]="scPosts.scDiscussions" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="scDiscussionsOption.id === scPosts.scDiscussions?.id ? scPosts.scDiscussions : scDiscussionsOption" *ngFor="let scDiscussionsOption of scdiscussions; trackBy: trackScDiscussionsById">{{scDiscussionsOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,150 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myScTagsLabel" jhiTranslate="cocoApp.scTags.home.createOrEditLabel">Create or edit a Sc Tags</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!scTags.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="scTags.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scTags.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="scTags.name"
+            required minlength="1" maxlength="64" />
+            <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 1 }">
+                   This field is required to be at least 1 characters.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 64 }">
+                   This field cannot be longer than 64 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scTags.slug" for="field_slug">Slug</label>
+            <input type="text" class="form-control" name="slug" id="field_slug"
+                [(ngModel)]="scTags.slug"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scTags.description" for="field_description">Description</label>
+            <div>
+                <div *ngIf="scTags.description" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{scTags.descriptionContentType}}, {{byteSize(scTags.description)}}</span>
+                    <button type="button" (click)="scTags.description=null;scTags.descriptionContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" (change)="setFileData($event, scTags, 'description', false)" jhiTranslate="entity.action.addblob"/>
+            </div>
+            <input type="hidden" class="form-control" name="description" id="field_description"
+                [(ngModel)]="scTags.description"
+             />
+            <input type="hidden" class="form-control" name="descriptionContentType" id="field_descriptionContentType"
+                [(ngModel)]="scTags.descriptionContentType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scTags.color" for="field_color">Color</label>
+            <input type="text" class="form-control" name="color" id="field_color"
+                [(ngModel)]="scTags.color"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scTags.backgroundPath" for="field_backgroundPath">Background Path</label>
+            <input type="text" class="form-control" name="backgroundPath" id="field_backgroundPath"
+                [(ngModel)]="scTags.backgroundPath"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scTags.backgroundMode" for="field_backgroundMode">Background Mode</label>
+            <input type="text" class="form-control" name="backgroundMode" id="field_backgroundMode"
+                [(ngModel)]="scTags.backgroundMode"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scTags.position" for="field_position">Position</label>
+            <input type="number" class="form-control" name="position" id="field_position"
+                [(ngModel)]="scTags.position"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scTags.parentId" for="field_parentId">Parent Id</label>
+            <input type="number" class="form-control" name="parentId" id="field_parentId"
+                [(ngModel)]="scTags.parentId"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scTags.defaultSort" for="field_defaultSort">Default Sort</label>
+            <input type="text" class="form-control" name="defaultSort" id="field_defaultSort"
+                [(ngModel)]="scTags.defaultSort"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scTags.isRestricted" for="field_isRestricted">Is Restricted</label>
+            <input type="number" class="form-control" name="isRestricted" id="field_isRestricted"
+                [(ngModel)]="scTags.isRestricted"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scTags.isHidden" for="field_isHidden">Is Hidden</label>
+            <input type="number" class="form-control" name="isHidden" id="field_isHidden"
+                [(ngModel)]="scTags.isHidden"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scTags.discussionsCount" for="field_discussionsCount">Discussions Count</label>
+            <input type="number" class="form-control" name="discussionsCount" id="field_discussionsCount"
+                [(ngModel)]="scTags.discussionsCount"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scTags.lastTime" for="field_lastTime">Last Time</label>
+            <div class="d-flex">
+                <input id="field_lastTime" type="datetime-local" class="form-control" name="lastTime" [(ngModel)]="scTags.lastTime"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scTags.lastDiscussionId" for="field_lastDiscussionId">Last Discussion Id</label>
+            <input type="number" class="form-control" name="lastDiscussionId" id="field_lastDiscussionId"
+                [(ngModel)]="scTags.lastDiscussionId"
+             />
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="cocoApp.scTags.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" [(ngModel)]="scTags.user" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="userOption.id === scTags.user?.id ? scTags.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="cocoApp.scTags.scTags" for="field_scTags">Sc Tags</label>
+            <select class="form-control" id="field_scTags" name="scTags" [(ngModel)]="scTags.scTags" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="scTagsOption.id === scTags.scTags?.id ? scTags.scTags : scTagsOption" *ngFor="let scTagsOption of sctags; trackBy: trackScTagsById">{{scTagsOption.parentId}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

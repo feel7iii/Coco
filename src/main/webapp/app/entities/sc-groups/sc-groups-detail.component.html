@@ -1,0 +1,43 @@
+
+<div *ngIf="scGroups">
+    <h2><span jhiTranslate="cocoApp.scGroups.detail.title">Sc Groups</span> {{scGroups.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="cocoApp.scGroups.nameSingular">Name Singular</span></dt>
+        <dd>
+            <span>{{scGroups.nameSingular}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scGroups.namePlural">Name Plural</span></dt>
+        <dd>
+            <span>{{scGroups.namePlural}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scGroups.color">Color</span></dt>
+        <dd>
+            <span>{{scGroups.color}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scGroups.icon">Icon</span></dt>
+        <dd>
+            <span>{{scGroups.icon}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scGroups.user">User</span></dt>
+        <dd>
+            <span *ngFor="let user of scGroups.users; let last = last">
+                {{user.login}}{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'sc-groups/'+ scGroups.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

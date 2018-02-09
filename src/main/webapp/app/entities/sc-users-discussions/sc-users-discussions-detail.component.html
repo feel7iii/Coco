@@ -1,0 +1,43 @@
+
+<div *ngIf="scUsersDiscussions">
+    <h2><span jhiTranslate="cocoApp.scUsersDiscussions.detail.title">Sc Users Discussions</span> {{scUsersDiscussions.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="cocoApp.scUsersDiscussions.readTime">Read Time</span></dt>
+        <dd>
+            <span>{{scUsersDiscussions.readTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scUsersDiscussions.readNumber">Read Number</span></dt>
+        <dd>
+            <span>{{scUsersDiscussions.readNumber}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scUsersDiscussions.scSubscription">Sc Subscription</span></dt>
+        <dd>
+            <span jhiTranslate="{{'cocoApp.ScSubscription.' + scUsersDiscussions.scSubscription}}">{{scUsersDiscussions.scSubscription}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scUsersDiscussions.user">User</span></dt>
+        <dd>
+            {{scUsersDiscussions.user?.login}}
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scUsersDiscussions.scDiscussions">Sc Discussions</span></dt>
+        <dd>
+            <div *ngIf="scUsersDiscussions.scDiscussions">
+                <a [routerLink]="['/sc-discussions', scUsersDiscussions.scDiscussions?.id]">{{scUsersDiscussions.scDiscussions?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'sc-users-discussions/'+ scUsersDiscussions.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

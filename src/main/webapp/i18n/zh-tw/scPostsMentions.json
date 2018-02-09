@@ -1,0 +1,27 @@
+{
+    "cocoApp": {
+        "scPostsMentions" : {
+            "home": {
+                "title": "Sc Posts Mentions",
+                "createLabel": "建立一筆新的 Sc Posts Mentions",
+                "createOrEditLabel": "建立或編輯 Sc Posts Mentions",
+                "search": "搜尋 Sc Posts Mentions"
+            },
+            "created": "新的 Sc Posts Mentions 建立成功，識別碼為 {{ param }}",
+            "updated": "識別碼為 {{ param }} 的 Sc Posts Mentions 更新成功",
+            "deleted": "識別碼為 {{ param }} 的 Sc Posts Mentions 刪除成功",
+            "delete": {
+                "question": "您確定要刪除 Sc Posts Mentions {{ id }} 嗎?"
+            },
+            "detail": {
+                "title": "Sc Posts Mentions"
+            },
+            "senderId": "Sender Id",
+            "data": "Data",
+            "time": "Time",
+            "isRead": "Is Read",
+            "user": "User",
+            "scPosts": "Sc Posts"
+        }
+    }
+}

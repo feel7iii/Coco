@@ -1,0 +1,47 @@
+
+<div *ngIf="scFlags">
+    <h2><span jhiTranslate="cocoApp.scFlags.detail.title">Sc Flags</span> {{scFlags.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="cocoApp.scFlags.type">Type</span></dt>
+        <dd>
+            <span>{{scFlags.type}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scFlags.reason">Reason</span></dt>
+        <dd>
+            <span>{{scFlags.reason}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scFlags.reasonDetail">Reason Detail</span></dt>
+        <dd>
+            <span>{{scFlags.reasonDetail}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scFlags.time">Time</span></dt>
+        <dd>
+            <span>{{scFlags.time | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scFlags.user">User</span></dt>
+        <dd>
+            {{scFlags.user?.login}}
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scFlags.scPosts">Sc Posts</span></dt>
+        <dd>
+            <div *ngIf="scFlags.scPosts">
+                <a [routerLink]="['/sc-posts', scFlags.scPosts?.id]">{{scFlags.scPosts?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'sc-flags/'+ scFlags.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

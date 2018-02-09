@@ -1,0 +1,105 @@
+<div>
+    <h2>
+        <span jhiTranslate="cocoApp.scTags.home.title">Sc Tags</span>
+        <button class="btn btn-primary float-right create-sc-tags" [routerLink]="['/', { outlets: { popup: ['sc-tags-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="cocoApp.scTags.home.createLabel">
+            Create new Sc Tags
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12 no-padding-right">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'cocoApp.scTags.home.search' | translate }}">
+                    <button class="input-group-addon btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-addon btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="scTags">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="cocoApp.scTags.name">Name</span></th>
+            <th><span jhiTranslate="cocoApp.scTags.slug">Slug</span></th>
+            <th><span jhiTranslate="cocoApp.scTags.description">Description</span></th>
+            <th><span jhiTranslate="cocoApp.scTags.color">Color</span></th>
+            <th><span jhiTranslate="cocoApp.scTags.backgroundPath">Background Path</span></th>
+            <th><span jhiTranslate="cocoApp.scTags.backgroundMode">Background Mode</span></th>
+            <th><span jhiTranslate="cocoApp.scTags.position">Position</span></th>
+            <th><span jhiTranslate="cocoApp.scTags.parentId">Parent Id</span></th>
+            <th><span jhiTranslate="cocoApp.scTags.defaultSort">Default Sort</span></th>
+            <th><span jhiTranslate="cocoApp.scTags.isRestricted">Is Restricted</span></th>
+            <th><span jhiTranslate="cocoApp.scTags.isHidden">Is Hidden</span></th>
+            <th><span jhiTranslate="cocoApp.scTags.discussionsCount">Discussions Count</span></th>
+            <th><span jhiTranslate="cocoApp.scTags.lastTime">Last Time</span></th>
+            <th><span jhiTranslate="cocoApp.scTags.lastDiscussionId">Last Discussion Id</span></th>
+            <th><span jhiTranslate="cocoApp.scTags.user">User</span></th>
+            <th><span jhiTranslate="cocoApp.scTags.scTags">Sc Tags</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let scTags of scTags ;trackBy: trackId">
+                <td><a [routerLink]="['../sc-tags', scTags.id ]">{{scTags.id}}</a></td>
+                <td>{{scTags.name}}</td>
+                <td>{{scTags.slug}}</td>
+                <td>{{scTags.description}}</td>
+                <td>{{scTags.color}}</td>
+                <td>{{scTags.backgroundPath}}</td>
+                <td>{{scTags.backgroundMode}}</td>
+                <td>{{scTags.position}}</td>
+                <td>{{scTags.parentId}}</td>
+                <td>{{scTags.defaultSort}}</td>
+                <td>{{scTags.isRestricted}}</td>
+                <td>{{scTags.isHidden}}</td>
+                <td>{{scTags.discussionsCount}}</td>
+                <td>{{scTags.lastTime | date:'medium'}}</td>
+                <td>{{scTags.lastDiscussionId}}</td>
+                <td>
+                    {{scTags.user?.login}}
+                </td>
+                <td>
+                    <div *ngIf="scTags.scTags">
+                        <a [routerLink]="['../sc-tags', scTags.scTags?.id ]" >{{scTags.scTags?.parentId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../sc-tags', scTags.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'sc-tags/'+ scTags.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'sc-tags/'+ scTags.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

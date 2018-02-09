@@ -1,0 +1,144 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myScDiscussionsLabel" jhiTranslate="cocoApp.scDiscussions.home.createOrEditLabel">Create or edit a Sc Discussions</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!scDiscussions.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="scDiscussions.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scDiscussions.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                [(ngModel)]="scDiscussions.title"
+            required minlength="1" maxlength="64" />
+            <div [hidden]="!(editForm.controls.title?.dirty && editForm.controls.title?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.title?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.title?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 1 }">
+                   This field is required to be at least 1 characters.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.title?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 64 }">
+                   This field cannot be longer than 64 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scDiscussions.commentsCount" for="field_commentsCount">Comments Count</label>
+            <input type="number" class="form-control" name="commentsCount" id="field_commentsCount"
+                [(ngModel)]="scDiscussions.commentsCount"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scDiscussions.participantsCount" for="field_participantsCount">Participants Count</label>
+            <input type="number" class="form-control" name="participantsCount" id="field_participantsCount"
+                [(ngModel)]="scDiscussions.participantsCount"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scDiscussions.numberIndex" for="field_numberIndex">Number Index</label>
+            <input type="number" class="form-control" name="numberIndex" id="field_numberIndex"
+                [(ngModel)]="scDiscussions.numberIndex"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scDiscussions.startTime" for="field_startTime">Start Time</label>
+            <div class="d-flex">
+                <input id="field_startTime" type="datetime-local" class="form-control" name="startTime" [(ngModel)]="scDiscussions.startTime"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scDiscussions.startUserId" for="field_startUserId">Start User Id</label>
+            <input type="number" class="form-control" name="startUserId" id="field_startUserId"
+                [(ngModel)]="scDiscussions.startUserId"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scDiscussions.startPostId" for="field_startPostId">Start Post Id</label>
+            <input type="number" class="form-control" name="startPostId" id="field_startPostId"
+                [(ngModel)]="scDiscussions.startPostId"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scDiscussions.lastTime" for="field_lastTime">Last Time</label>
+            <div class="d-flex">
+                <input id="field_lastTime" type="datetime-local" class="form-control" name="lastTime" [(ngModel)]="scDiscussions.lastTime"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scDiscussions.lastUserId" for="field_lastUserId">Last User Id</label>
+            <input type="number" class="form-control" name="lastUserId" id="field_lastUserId"
+                [(ngModel)]="scDiscussions.lastUserId"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scDiscussions.lastPostId" for="field_lastPostId">Last Post Id</label>
+            <input type="number" class="form-control" name="lastPostId" id="field_lastPostId"
+                [(ngModel)]="scDiscussions.lastPostId"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scDiscussions.lastPostNumber" for="field_lastPostNumber">Last Post Number</label>
+            <input type="number" class="form-control" name="lastPostNumber" id="field_lastPostNumber"
+                [(ngModel)]="scDiscussions.lastPostNumber"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scDiscussions.hideTime" for="field_hideTime">Hide Time</label>
+            <div class="d-flex">
+                <input id="field_hideTime" type="datetime-local" class="form-control" name="hideTime" [(ngModel)]="scDiscussions.hideTime"
+                  />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scDiscussions.hideUserId" for="field_hideUserId">Hide User Id</label>
+            <input type="number" class="form-control" name="hideUserId" id="field_hideUserId"
+                [(ngModel)]="scDiscussions.hideUserId"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scDiscussions.isApproved" for="field_isApproved">Is Approved</label>
+            <input type="number" class="form-control" name="isApproved" id="field_isApproved"
+                [(ngModel)]="scDiscussions.isApproved"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scDiscussions.isLocked" for="field_isLocked">Is Locked</label>
+            <input type="number" class="form-control" name="isLocked" id="field_isLocked"
+                [(ngModel)]="scDiscussions.isLocked"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scDiscussions.isSticky" for="field_isSticky">Is Sticky</label>
+            <input type="number" class="form-control" name="isSticky" id="field_isSticky"
+                [(ngModel)]="scDiscussions.isSticky"
+             />
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="cocoApp.scDiscussions.scTags" for="field_scTags">Sc Tags</label>
+            <select class="form-control" id="field_scTags" multiple name="scTags" [(ngModel)]="scDiscussions.scTags">
+                <option [ngValue]="getSelected(scDiscussions.scTags, scTagsOption)" *ngFor="let scTagsOption of sctags; trackBy: trackScTagsById">{{scTagsOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

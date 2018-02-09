@@ -1,0 +1,9 @@
+{
+    "cocoApp": {
+        "ScSubscription" : {
+            "null": "",
+            "FOLLOW": "FOLLOW",
+            "IGNORE": "IGNORE"
+        }
+    }
+}

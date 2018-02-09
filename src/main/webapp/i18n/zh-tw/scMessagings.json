@@ -1,0 +1,29 @@
+{
+    "cocoApp": {
+        "scMessagings" : {
+            "home": {
+                "title": "Sc Messagings",
+                "createLabel": "建立一筆新的 Sc Messagings",
+                "createOrEditLabel": "建立或編輯 Sc Messagings",
+                "search": "搜尋 Sc Messagings"
+            },
+            "created": "新的 Sc Messagings 建立成功，識別碼為 {{ param }}",
+            "updated": "識別碼為 {{ param }} 的 Sc Messagings 更新成功",
+            "deleted": "識別碼為 {{ param }} 的 Sc Messagings 刪除成功",
+            "delete": {
+                "question": "您確定要刪除 Sc Messagings {{ id }} 嗎?"
+            },
+            "detail": {
+                "title": "Sc Messagings"
+            },
+            "senderId": "Sender Id",
+            "subjectType": "Subject Type",
+            "subjectId": "Subject Id",
+            "data": "Data",
+            "time": "Time",
+            "isRead": "Is Read",
+            "isDeleted": "Is Deleted",
+            "user": "User"
+        }
+    }
+}

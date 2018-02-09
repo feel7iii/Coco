@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity ScDiscussions.
+    -->
+    <changeSet id="20180209070025-1" author="jhipster">
+        <createTable tableName="sc_discussions">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="title" type="varchar(64)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="comments_count" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="participants_count" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="number_index" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="start_time" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="start_user_id" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="start_post_id" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="last_time" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="last_user_id" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="last_post_id" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="last_post_number" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="hide_time" type="timestamp">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="hide_user_id" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="is_approved" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="is_locked" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="is_sticky" type="integer">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <dropDefaultValue tableName="sc_discussions" columnName="start_time" columnDataType="datetime"/>
+        <dropDefaultValue tableName="sc_discussions" columnName="last_time" columnDataType="datetime"/>
+        <dropDefaultValue tableName="sc_discussions" columnName="hide_time" columnDataType="datetime"/>
+        
+        <createTable tableName="sc_discussions_sc_tags">
+            <column name="sc_tags_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sc_discussions_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="sc_discussions_id, sc_tags_id" tableName="sc_discussions_sc_tags"/>
+        
+    </changeSet>
+</databaseChangeLog>

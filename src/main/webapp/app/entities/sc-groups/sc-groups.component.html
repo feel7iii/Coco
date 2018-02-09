@@ -1,0 +1,81 @@
+<div>
+    <h2>
+        <span jhiTranslate="cocoApp.scGroups.home.title">Sc Groups</span>
+        <button class="btn btn-primary float-right create-sc-groups" [routerLink]="['/', { outlets: { popup: ['sc-groups-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="cocoApp.scGroups.home.createLabel">
+            Create new Sc Groups
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12 no-padding-right">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'cocoApp.scGroups.home.search' | translate }}">
+                    <button class="input-group-addon btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-addon btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="scGroups">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="cocoApp.scGroups.nameSingular">Name Singular</span></th>
+            <th><span jhiTranslate="cocoApp.scGroups.namePlural">Name Plural</span></th>
+            <th><span jhiTranslate="cocoApp.scGroups.color">Color</span></th>
+            <th><span jhiTranslate="cocoApp.scGroups.icon">Icon</span></th>
+            <th><span jhiTranslate="cocoApp.scGroups.user">User</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let scGroups of scGroups ;trackBy: trackId">
+                <td><a [routerLink]="['../sc-groups', scGroups.id ]">{{scGroups.id}}</a></td>
+                <td>{{scGroups.nameSingular}}</td>
+                <td>{{scGroups.namePlural}}</td>
+                <td>{{scGroups.color}}</td>
+                <td>{{scGroups.icon}}</td>
+                <td>
+                    <span *ngFor="let user of scGroups.users; let last = last">
+                            {{user.login}}{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../sc-groups', scGroups.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'sc-groups/'+ scGroups.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'sc-groups/'+ scGroups.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

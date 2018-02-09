@@ -1,0 +1,99 @@
+<div>
+    <h2>
+        <span jhiTranslate="cocoApp.scDiscussions.home.title">Sc Discussions</span>
+        <button class="btn btn-primary float-right create-sc-discussions" [routerLink]="['/', { outlets: { popup: ['sc-discussions-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="cocoApp.scDiscussions.home.createLabel">
+            Create new Sc Discussions
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12 no-padding-right">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'cocoApp.scDiscussions.home.search' | translate }}">
+                    <button class="input-group-addon btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-addon btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="scDiscussions">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="title"><span jhiTranslate="cocoApp.scDiscussions.title">Title</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="commentsCount"><span jhiTranslate="cocoApp.scDiscussions.commentsCount">Comments Count</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="participantsCount"><span jhiTranslate="cocoApp.scDiscussions.participantsCount">Participants Count</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="numberIndex"><span jhiTranslate="cocoApp.scDiscussions.numberIndex">Number Index</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="startTime"><span jhiTranslate="cocoApp.scDiscussions.startTime">Start Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="startUserId"><span jhiTranslate="cocoApp.scDiscussions.startUserId">Start User Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="startPostId"><span jhiTranslate="cocoApp.scDiscussions.startPostId">Start Post Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="lastTime"><span jhiTranslate="cocoApp.scDiscussions.lastTime">Last Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="lastUserId"><span jhiTranslate="cocoApp.scDiscussions.lastUserId">Last User Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="lastPostId"><span jhiTranslate="cocoApp.scDiscussions.lastPostId">Last Post Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="lastPostNumber"><span jhiTranslate="cocoApp.scDiscussions.lastPostNumber">Last Post Number</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="hideTime"><span jhiTranslate="cocoApp.scDiscussions.hideTime">Hide Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="hideUserId"><span jhiTranslate="cocoApp.scDiscussions.hideUserId">Hide User Id</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="isApproved"><span jhiTranslate="cocoApp.scDiscussions.isApproved">Is Approved</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="isLocked"><span jhiTranslate="cocoApp.scDiscussions.isLocked">Is Locked</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="isSticky"><span jhiTranslate="cocoApp.scDiscussions.isSticky">Is Sticky</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let scDiscussions of scDiscussions ;trackBy: trackId">
+                <td><a [routerLink]="['../sc-discussions', scDiscussions.id ]">{{scDiscussions.id}}</a></td>
+                <td>{{scDiscussions.title}}</td>
+                <td>{{scDiscussions.commentsCount}}</td>
+                <td>{{scDiscussions.participantsCount}}</td>
+                <td>{{scDiscussions.numberIndex}}</td>
+                <td>{{scDiscussions.startTime | date:'medium'}}</td>
+                <td>{{scDiscussions.startUserId}}</td>
+                <td>{{scDiscussions.startPostId}}</td>
+                <td>{{scDiscussions.lastTime | date:'medium'}}</td>
+                <td>{{scDiscussions.lastUserId}}</td>
+                <td>{{scDiscussions.lastPostId}}</td>
+                <td>{{scDiscussions.lastPostNumber}}</td>
+                <td>{{scDiscussions.hideTime | date:'medium'}}</td>
+                <td>{{scDiscussions.hideUserId}}</td>
+                <td>{{scDiscussions.isApproved}}</td>
+                <td>{{scDiscussions.isLocked}}</td>
+                <td>{{scDiscussions.isSticky}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../sc-discussions', scDiscussions.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'sc-discussions/'+ scDiscussions.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'sc-discussions/'+ scDiscussions.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

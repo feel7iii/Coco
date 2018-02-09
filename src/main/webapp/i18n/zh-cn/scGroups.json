@@ -1,0 +1,26 @@
+{
+    "cocoApp": {
+        "scGroups" : {
+            "home": {
+                "title": "Sc Groups",
+                "createLabel": "Create a new Sc Groups",
+                "createOrEditLabel": "Create or edit a Sc Groups",
+                "search": "Search for Sc Groups"
+            },
+            "created": "A new Sc Groups is created with identifier {{ param }}",
+            "updated": "A Sc Groups is updated with identifier {{ param }}",
+            "deleted": "A Sc Groups is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sc Groups {{ id }}?"
+            },
+            "detail": {
+                "title": "Sc Groups"
+            },
+            "nameSingular": "Name Singular",
+            "namePlural": "Name Plural",
+            "color": "Color",
+            "icon": "Icon",
+            "user": "User"
+        }
+    }
+}

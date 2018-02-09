@@ -1,0 +1,38 @@
+{
+    "cocoApp": {
+        "scTags" : {
+            "home": {
+                "title": "Sc Tags",
+                "createLabel": "建立一筆新的 Sc Tags",
+                "createOrEditLabel": "建立或編輯 Sc Tags",
+                "search": "搜尋 Sc Tags"
+            },
+            "created": "新的 Sc Tags 建立成功，識別碼為 {{ param }}",
+            "updated": "識別碼為 {{ param }} 的 Sc Tags 更新成功",
+            "deleted": "識別碼為 {{ param }} 的 Sc Tags 刪除成功",
+            "delete": {
+                "question": "您確定要刪除 Sc Tags {{ id }} 嗎?"
+            },
+            "detail": {
+                "title": "Sc Tags"
+            },
+            "name": "Name",
+            "slug": "Slug",
+            "description": "Description",
+            "color": "Color",
+            "backgroundPath": "Background Path",
+            "backgroundMode": "Background Mode",
+            "position": "Position",
+            "parentId": "Parent Id",
+            "defaultSort": "Default Sort",
+            "isRestricted": "Is Restricted",
+            "isHidden": "Is Hidden",
+            "discussionsCount": "Discussions Count",
+            "lastTime": "Last Time",
+            "lastDiscussionId": "Last Discussion Id",
+            "user": "User",
+            "scTags": "Sc Tags",
+            "scDiscussions": "Sc Discussions"
+        }
+    }
+}

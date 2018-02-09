@@ -1,0 +1,24 @@
+{
+    "cocoApp": {
+        "scSettings" : {
+            "home": {
+                "title": "Sc Settings",
+                "createLabel": "建立一筆新的 Sc Settings",
+                "createOrEditLabel": "建立或編輯 Sc Settings",
+                "search": "搜尋 Sc Settings"
+            },
+            "created": "新的 Sc Settings 建立成功，識別碼為 {{ param }}",
+            "updated": "識別碼為 {{ param }} 的 Sc Settings 更新成功",
+            "deleted": "識別碼為 {{ param }} 的 Sc Settings 刪除成功",
+            "delete": {
+                "question": "您確定要刪除 Sc Settings {{ id }} 嗎?"
+            },
+            "detail": {
+                "title": "Sc Settings"
+            },
+            "key": "Key",
+            "value": "Value",
+            "user": "User"
+        }
+    }
+}

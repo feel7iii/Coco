@@ -1,0 +1,26 @@
+{
+    "cocoApp": {
+        "scGroups" : {
+            "home": {
+                "title": "Sc Groups",
+                "createLabel": "建立一筆新的 Sc Groups",
+                "createOrEditLabel": "建立或編輯 Sc Groups",
+                "search": "搜尋 Sc Groups"
+            },
+            "created": "新的 Sc Groups 建立成功，識別碼為 {{ param }}",
+            "updated": "識別碼為 {{ param }} 的 Sc Groups 更新成功",
+            "deleted": "識別碼為 {{ param }} 的 Sc Groups 刪除成功",
+            "delete": {
+                "question": "您確定要刪除 Sc Groups {{ id }} 嗎?"
+            },
+            "detail": {
+                "title": "Sc Groups"
+            },
+            "nameSingular": "Name Singular",
+            "namePlural": "Name Plural",
+            "color": "Color",
+            "icon": "Icon",
+            "user": "User"
+        }
+    }
+}

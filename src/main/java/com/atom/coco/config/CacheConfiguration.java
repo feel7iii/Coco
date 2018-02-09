@@ -40,6 +40,22 @@ public class CacheConfiguration {
             cm.createCache(com.atom.coco.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.atom.coco.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.atom.coco.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.atom.coco.domain.ScTags.class.getName(), jcacheConfiguration);
+            cm.createCache(com.atom.coco.domain.ScTags.class.getName() + ".scDiscussions", jcacheConfiguration);
+            cm.createCache(com.atom.coco.domain.ScDiscussions.class.getName(), jcacheConfiguration);
+            cm.createCache(com.atom.coco.domain.ScDiscussions.class.getName() + ".scUsersDiscussions", jcacheConfiguration);
+            cm.createCache(com.atom.coco.domain.ScDiscussions.class.getName() + ".scPosts", jcacheConfiguration);
+            cm.createCache(com.atom.coco.domain.ScDiscussions.class.getName() + ".scTags", jcacheConfiguration);
+            cm.createCache(com.atom.coco.domain.ScPosts.class.getName(), jcacheConfiguration);
+            cm.createCache(com.atom.coco.domain.ScPosts.class.getName() + ".scFlags", jcacheConfiguration);
+            cm.createCache(com.atom.coco.domain.ScPosts.class.getName() + ".scPostsMentions", jcacheConfiguration);
+            cm.createCache(com.atom.coco.domain.ScFlags.class.getName(), jcacheConfiguration);
+            cm.createCache(com.atom.coco.domain.ScPostsMentions.class.getName(), jcacheConfiguration);
+            cm.createCache(com.atom.coco.domain.ScUsersDiscussions.class.getName(), jcacheConfiguration);
+            cm.createCache(com.atom.coco.domain.ScGroups.class.getName(), jcacheConfiguration);
+            cm.createCache(com.atom.coco.domain.ScGroups.class.getName() + ".users", jcacheConfiguration);
+            cm.createCache(com.atom.coco.domain.ScSettings.class.getName(), jcacheConfiguration);
+            cm.createCache(com.atom.coco.domain.ScMessagings.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

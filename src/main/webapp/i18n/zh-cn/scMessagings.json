@@ -1,0 +1,29 @@
+{
+    "cocoApp": {
+        "scMessagings" : {
+            "home": {
+                "title": "Sc Messagings",
+                "createLabel": "Create a new Sc Messagings",
+                "createOrEditLabel": "Create or edit a Sc Messagings",
+                "search": "Search for Sc Messagings"
+            },
+            "created": "A new Sc Messagings is created with identifier {{ param }}",
+            "updated": "A Sc Messagings is updated with identifier {{ param }}",
+            "deleted": "A Sc Messagings is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sc Messagings {{ id }}?"
+            },
+            "detail": {
+                "title": "Sc Messagings"
+            },
+            "senderId": "Sender Id",
+            "subjectType": "Subject Type",
+            "subjectId": "Subject Id",
+            "data": "Data",
+            "time": "Time",
+            "isRead": "Is Read",
+            "isDeleted": "Is Deleted",
+            "user": "User"
+        }
+    }
+}

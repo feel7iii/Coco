@@ -1,0 +1,26 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "login"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "key",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "value",
+            "fieldType": "byte[]"
+        }
+    ],
+    "changelogDate": "20180209070031",
+    "entityTableName": "sc_settings",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

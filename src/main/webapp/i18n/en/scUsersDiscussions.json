@@ -1,0 +1,26 @@
+{
+    "cocoApp": {
+        "scUsersDiscussions" : {
+            "home": {
+                "title": "Sc Users Discussions",
+                "createLabel": "Create a new Sc Users Discussions",
+                "createOrEditLabel": "Create or edit a Sc Users Discussions",
+                "search": "Search for Sc Users Discussions"
+            },
+            "created": "A new Sc Users Discussions is created with identifier {{ param }}",
+            "updated": "A Sc Users Discussions is updated with identifier {{ param }}",
+            "deleted": "A Sc Users Discussions is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sc Users Discussions {{ id }}?"
+            },
+            "detail": {
+                "title": "Sc Users Discussions"
+            },
+            "readTime": "Read Time",
+            "readNumber": "Read Number",
+            "scSubscription": "Sc Subscription",
+            "user": "User",
+            "scDiscussions": "Sc Discussions"
+        }
+    }
+}

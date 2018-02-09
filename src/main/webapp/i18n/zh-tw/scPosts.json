@@ -1,0 +1,36 @@
+{
+    "cocoApp": {
+        "scPosts" : {
+            "home": {
+                "title": "Sc Posts",
+                "createLabel": "建立一筆新的 Sc Posts",
+                "createOrEditLabel": "建立或編輯 Sc Posts",
+                "search": "搜尋 Sc Posts"
+            },
+            "created": "新的 Sc Posts 建立成功，識別碼為 {{ param }}",
+            "updated": "識別碼為 {{ param }} 的 Sc Posts 更新成功",
+            "deleted": "識別碼為 {{ param }} 的 Sc Posts 刪除成功",
+            "delete": {
+                "question": "您確定要刪除 Sc Posts {{ id }} 嗎?"
+            },
+            "detail": {
+                "title": "Sc Posts"
+            },
+            "number": "Number",
+            "time": "Time",
+            "type": "Type",
+            "content": "Content",
+            "editTime": "Edit Time",
+            "editUserId": "Edit User Id",
+            "hideTime": "Hide Time",
+            "hideUserId": "Hide User Id",
+            "ipAddress": "Ip Address",
+            "isApproved": "Is Approved",
+            "isSpam": "Is Spam",
+            "scFlags": "Sc Flags",
+            "scPostsMentions": "Sc Posts Mentions",
+            "user": "User",
+            "scDiscussions": "Sc Discussions"
+        }
+    }
+}

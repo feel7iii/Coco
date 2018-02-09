@@ -1,0 +1,40 @@
+{
+    "cocoApp": {
+        "scDiscussions" : {
+            "home": {
+                "title": "Sc Discussions",
+                "createLabel": "建立一筆新的 Sc Discussions",
+                "createOrEditLabel": "建立或編輯 Sc Discussions",
+                "search": "搜尋 Sc Discussions"
+            },
+            "created": "新的 Sc Discussions 建立成功，識別碼為 {{ param }}",
+            "updated": "識別碼為 {{ param }} 的 Sc Discussions 更新成功",
+            "deleted": "識別碼為 {{ param }} 的 Sc Discussions 刪除成功",
+            "delete": {
+                "question": "您確定要刪除 Sc Discussions {{ id }} 嗎?"
+            },
+            "detail": {
+                "title": "Sc Discussions"
+            },
+            "title": "Title",
+            "commentsCount": "Comments Count",
+            "participantsCount": "Participants Count",
+            "numberIndex": "Number Index",
+            "startTime": "Start Time",
+            "startUserId": "Start User Id",
+            "startPostId": "Start Post Id",
+            "lastTime": "Last Time",
+            "lastUserId": "Last User Id",
+            "lastPostId": "Last Post Id",
+            "lastPostNumber": "Last Post Number",
+            "hideTime": "Hide Time",
+            "hideUserId": "Hide User Id",
+            "isApproved": "Is Approved",
+            "isLocked": "Is Locked",
+            "isSticky": "Is Sticky",
+            "scUsersDiscussions": "Sc Users Discussions",
+            "scPosts": "Sc Posts",
+            "scTags": "Sc Tags"
+        }
+    }
+}

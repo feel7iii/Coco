@@ -1,0 +1,91 @@
+
+<div *ngIf="scDiscussions">
+    <h2><span jhiTranslate="cocoApp.scDiscussions.detail.title">Sc Discussions</span> {{scDiscussions.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="cocoApp.scDiscussions.title">Title</span></dt>
+        <dd>
+            <span>{{scDiscussions.title}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scDiscussions.commentsCount">Comments Count</span></dt>
+        <dd>
+            <span>{{scDiscussions.commentsCount}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scDiscussions.participantsCount">Participants Count</span></dt>
+        <dd>
+            <span>{{scDiscussions.participantsCount}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scDiscussions.numberIndex">Number Index</span></dt>
+        <dd>
+            <span>{{scDiscussions.numberIndex}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scDiscussions.startTime">Start Time</span></dt>
+        <dd>
+            <span>{{scDiscussions.startTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scDiscussions.startUserId">Start User Id</span></dt>
+        <dd>
+            <span>{{scDiscussions.startUserId}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scDiscussions.startPostId">Start Post Id</span></dt>
+        <dd>
+            <span>{{scDiscussions.startPostId}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scDiscussions.lastTime">Last Time</span></dt>
+        <dd>
+            <span>{{scDiscussions.lastTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scDiscussions.lastUserId">Last User Id</span></dt>
+        <dd>
+            <span>{{scDiscussions.lastUserId}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scDiscussions.lastPostId">Last Post Id</span></dt>
+        <dd>
+            <span>{{scDiscussions.lastPostId}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scDiscussions.lastPostNumber">Last Post Number</span></dt>
+        <dd>
+            <span>{{scDiscussions.lastPostNumber}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scDiscussions.hideTime">Hide Time</span></dt>
+        <dd>
+            <span>{{scDiscussions.hideTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scDiscussions.hideUserId">Hide User Id</span></dt>
+        <dd>
+            <span>{{scDiscussions.hideUserId}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scDiscussions.isApproved">Is Approved</span></dt>
+        <dd>
+            <span>{{scDiscussions.isApproved}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scDiscussions.isLocked">Is Locked</span></dt>
+        <dd>
+            <span>{{scDiscussions.isLocked}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scDiscussions.isSticky">Is Sticky</span></dt>
+        <dd>
+            <span>{{scDiscussions.isSticky}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scDiscussions.scTags">Sc Tags</span></dt>
+        <dd>
+            <span *ngFor="let scTags of scDiscussions.scTags; let last = last">
+                <a [routerLink]="['/sc-tags', scTags?.id ]">{{scTags.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'sc-discussions/'+ scDiscussions.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

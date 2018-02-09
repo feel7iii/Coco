@@ -1,0 +1,27 @@
+{
+    "cocoApp": {
+        "scFlags" : {
+            "home": {
+                "title": "Sc Flags",
+                "createLabel": "Create a new Sc Flags",
+                "createOrEditLabel": "Create or edit a Sc Flags",
+                "search": "Search for Sc Flags"
+            },
+            "created": "A new Sc Flags is created with identifier {{ param }}",
+            "updated": "A Sc Flags is updated with identifier {{ param }}",
+            "deleted": "A Sc Flags is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sc Flags {{ id }}?"
+            },
+            "detail": {
+                "title": "Sc Flags"
+            },
+            "type": "Type",
+            "reason": "Reason",
+            "reasonDetail": "Reason Detail",
+            "time": "Time",
+            "user": "User",
+            "scPosts": "Sc Posts"
+        }
+    }
+}

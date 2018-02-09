@@ -1,0 +1,47 @@
+
+<div *ngIf="scPostsMentions">
+    <h2><span jhiTranslate="cocoApp.scPostsMentions.detail.title">Sc Posts Mentions</span> {{scPostsMentions.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="cocoApp.scPostsMentions.senderId">Sender Id</span></dt>
+        <dd>
+            <span>{{scPostsMentions.senderId}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scPostsMentions.data">Data</span></dt>
+        <dd>
+            <span>{{scPostsMentions.data}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scPostsMentions.time">Time</span></dt>
+        <dd>
+            <span>{{scPostsMentions.time | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scPostsMentions.isRead">Is Read</span></dt>
+        <dd>
+            <span>{{scPostsMentions.isRead}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scPostsMentions.user">User</span></dt>
+        <dd>
+            {{scPostsMentions.user?.login}}
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scPostsMentions.scPosts">Sc Posts</span></dt>
+        <dd>
+            <div *ngIf="scPostsMentions.scPosts">
+                <a [routerLink]="['/sc-posts', scPostsMentions.scPosts?.id]">{{scPostsMentions.scPosts?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'sc-posts-mentions/'+ scPostsMentions.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

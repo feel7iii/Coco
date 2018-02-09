@@ -1,0 +1,24 @@
+{
+    "cocoApp": {
+        "scSettings" : {
+            "home": {
+                "title": "Sc Settings",
+                "createLabel": "Create a new Sc Settings",
+                "createOrEditLabel": "Create or edit a Sc Settings",
+                "search": "Search for Sc Settings"
+            },
+            "created": "A new Sc Settings is created with identifier {{ param }}",
+            "updated": "A Sc Settings is updated with identifier {{ param }}",
+            "deleted": "A Sc Settings is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sc Settings {{ id }}?"
+            },
+            "detail": {
+                "title": "Sc Settings"
+            },
+            "key": "Key",
+            "value": "Value",
+            "user": "User"
+        }
+    }
+}

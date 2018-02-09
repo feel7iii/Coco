@@ -1,0 +1,38 @@
+{
+    "cocoApp": {
+        "scTags" : {
+            "home": {
+                "title": "Sc Tags",
+                "createLabel": "Create a new Sc Tags",
+                "createOrEditLabel": "Create or edit a Sc Tags",
+                "search": "Search for Sc Tags"
+            },
+            "created": "A new Sc Tags is created with identifier {{ param }}",
+            "updated": "A Sc Tags is updated with identifier {{ param }}",
+            "deleted": "A Sc Tags is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sc Tags {{ id }}?"
+            },
+            "detail": {
+                "title": "Sc Tags"
+            },
+            "name": "Name",
+            "slug": "Slug",
+            "description": "Description",
+            "color": "Color",
+            "backgroundPath": "Background Path",
+            "backgroundMode": "Background Mode",
+            "position": "Position",
+            "parentId": "Parent Id",
+            "defaultSort": "Default Sort",
+            "isRestricted": "Is Restricted",
+            "isHidden": "Is Hidden",
+            "discussionsCount": "Discussions Count",
+            "lastTime": "Last Time",
+            "lastDiscussionId": "Last Discussion Id",
+            "user": "User",
+            "scTags": "Sc Tags",
+            "scDiscussions": "Sc Discussions"
+        }
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "login"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "senderId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "subjectType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "subjectId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "data",
+            "fieldType": "byte[]"
+        },
+        {
+            "fieldName": "time",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "isRead",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "isDeleted",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20180209070032",
+    "entityTableName": "sc_messagings",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

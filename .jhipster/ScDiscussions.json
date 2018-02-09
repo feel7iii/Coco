@@ -1,0 +1,103 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "scUsersDiscussions",
+            "otherEntityName": "scUsersDiscussions",
+            "otherEntityRelationshipName": "scDiscussions"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "scPosts",
+            "otherEntityName": "scPosts",
+            "otherEntityRelationshipName": "scDiscussions"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "scDiscussions",
+            "relationshipName": "scTags",
+            "otherEntityName": "scTags",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": 1,
+            "fieldValidateRulesMaxlength": 64
+        },
+        {
+            "fieldName": "commentsCount",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "participantsCount",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "numberIndex",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "startTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "startUserId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "startPostId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "lastTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "lastUserId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "lastPostId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "lastPostNumber",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "hideTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "hideUserId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "isApproved",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "isLocked",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "isSticky",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20180209070025",
+    "entityTableName": "sc_discussions",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass"
+}

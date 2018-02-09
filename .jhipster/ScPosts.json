@@ -1,0 +1,80 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "scFlags",
+            "otherEntityName": "scFlags",
+            "otherEntityRelationshipName": "scPosts"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "scPostsMentions",
+            "otherEntityName": "scPostsMentions",
+            "otherEntityRelationshipName": "scPosts"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "user",
+            "otherEntityName": "user",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "scDiscussions",
+            "otherEntityName": "scDiscussions",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "number",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "time",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "content",
+            "fieldType": "byte[]"
+        },
+        {
+            "fieldName": "editTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "editUserId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "hideTime",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "hideUserId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "ipAddress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isApproved",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "isSpam",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20180209070026",
+    "entityTableName": "sc_posts",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceClass"
+}

@@ -1,0 +1,40 @@
+{
+    "cocoApp": {
+        "scDiscussions" : {
+            "home": {
+                "title": "Sc Discussions",
+                "createLabel": "Create a new Sc Discussions",
+                "createOrEditLabel": "Create or edit a Sc Discussions",
+                "search": "Search for Sc Discussions"
+            },
+            "created": "A new Sc Discussions is created with identifier {{ param }}",
+            "updated": "A Sc Discussions is updated with identifier {{ param }}",
+            "deleted": "A Sc Discussions is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sc Discussions {{ id }}?"
+            },
+            "detail": {
+                "title": "Sc Discussions"
+            },
+            "title": "Title",
+            "commentsCount": "Comments Count",
+            "participantsCount": "Participants Count",
+            "numberIndex": "Number Index",
+            "startTime": "Start Time",
+            "startUserId": "Start User Id",
+            "startPostId": "Start Post Id",
+            "lastTime": "Last Time",
+            "lastUserId": "Last User Id",
+            "lastPostId": "Last Post Id",
+            "lastPostNumber": "Last Post Number",
+            "hideTime": "Hide Time",
+            "hideUserId": "Hide User Id",
+            "isApproved": "Is Approved",
+            "isLocked": "Is Locked",
+            "isSticky": "Is Sticky",
+            "scUsersDiscussions": "Sc Users Discussions",
+            "scPosts": "Sc Posts",
+            "scTags": "Sc Tags"
+        }
+    }
+}

@@ -1,0 +1,92 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myScFlagsLabel" jhiTranslate="cocoApp.scFlags.home.createOrEditLabel">Create or edit a Sc Flags</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!scFlags.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="scFlags.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scFlags.type" for="field_type">Type</label>
+            <input type="text" class="form-control" name="type" id="field_type"
+                [(ngModel)]="scFlags.type"
+             />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scFlags.reason" for="field_reason">Reason</label>
+            <input type="text" class="form-control" name="reason" id="field_reason"
+                [(ngModel)]="scFlags.reason"
+            required minlength="1" maxlength="64" />
+            <div [hidden]="!(editForm.controls.reason?.dirty && editForm.controls.reason?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.reason?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.reason?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 1 }">
+                   This field is required to be at least 1 characters.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.reason?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 64 }">
+                   This field cannot be longer than 64 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scFlags.reasonDetail" for="field_reasonDetail">Reason Detail</label>
+            <input type="text" class="form-control" name="reasonDetail" id="field_reasonDetail"
+                [(ngModel)]="scFlags.reasonDetail"
+            required minlength="1" maxlength="64" />
+            <div [hidden]="!(editForm.controls.reasonDetail?.dirty && editForm.controls.reasonDetail?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.reasonDetail?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.reasonDetail?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 1 }">
+                   This field is required to be at least 1 characters.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.reasonDetail?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 64 }">
+                   This field cannot be longer than 64 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="cocoApp.scFlags.time" for="field_time">Time</label>
+            <div class="d-flex">
+                <input id="field_time" type="datetime-local" class="form-control" name="time" [(ngModel)]="scFlags.time"
+                  />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="cocoApp.scFlags.user" for="field_user">User</label>
+            <select class="form-control" id="field_user" name="user" [(ngModel)]="scFlags.user" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="userOption.id === scFlags.user?.id ? scFlags.user : userOption" *ngFor="let userOption of users; trackBy: trackUserById">{{userOption.login}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="cocoApp.scFlags.scPosts" for="field_scPosts">Sc Posts</label>
+            <select class="form-control" id="field_scPosts" name="scPosts" [(ngModel)]="scFlags.scPosts" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="scPostsOption.id === scFlags.scPosts?.id ? scFlags.scPosts : scPostsOption" *ngFor="let scPostsOption of scposts; trackBy: trackScPostsById">{{scPostsOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

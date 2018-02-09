@@ -7,6 +7,15 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "数据",
+                "scTags": "Sc Tags",
+                "scDiscussions": "Sc Discussions",
+                "scPosts": "Sc Posts",
+                "scFlags": "Sc Flags",
+                "scPostsMentions": "Sc Posts Mentions",
+                "scUsersDiscussions": "Sc Users Discussions",
+                "scGroups": "Sc Groups",
+                "scSettings": "Sc Settings",
+                "scMessagings": "Sc Messagings",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

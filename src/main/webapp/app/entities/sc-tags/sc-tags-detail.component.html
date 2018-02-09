@@ -1,0 +1,87 @@
+
+<div *ngIf="scTags">
+    <h2><span jhiTranslate="cocoApp.scTags.detail.title">Sc Tags</span> {{scTags.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="cocoApp.scTags.name">Name</span></dt>
+        <dd>
+            <span>{{scTags.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scTags.slug">Slug</span></dt>
+        <dd>
+            <span>{{scTags.slug}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scTags.description">Description</span></dt>
+        <dd>
+            <span>{{scTags.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scTags.color">Color</span></dt>
+        <dd>
+            <span>{{scTags.color}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scTags.backgroundPath">Background Path</span></dt>
+        <dd>
+            <span>{{scTags.backgroundPath}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scTags.backgroundMode">Background Mode</span></dt>
+        <dd>
+            <span>{{scTags.backgroundMode}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scTags.position">Position</span></dt>
+        <dd>
+            <span>{{scTags.position}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scTags.parentId">Parent Id</span></dt>
+        <dd>
+            <span>{{scTags.parentId}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scTags.defaultSort">Default Sort</span></dt>
+        <dd>
+            <span>{{scTags.defaultSort}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scTags.isRestricted">Is Restricted</span></dt>
+        <dd>
+            <span>{{scTags.isRestricted}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scTags.isHidden">Is Hidden</span></dt>
+        <dd>
+            <span>{{scTags.isHidden}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scTags.discussionsCount">Discussions Count</span></dt>
+        <dd>
+            <span>{{scTags.discussionsCount}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scTags.lastTime">Last Time</span></dt>
+        <dd>
+            <span>{{scTags.lastTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scTags.lastDiscussionId">Last Discussion Id</span></dt>
+        <dd>
+            <span>{{scTags.lastDiscussionId}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scTags.user">User</span></dt>
+        <dd>
+            {{scTags.user?.login}}
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scTags.scTags">Sc Tags</span></dt>
+        <dd>
+            <div *ngIf="scTags.scTags">
+                <a [routerLink]="['/sc-tags', scTags.scTags?.id]">{{scTags.scTags?.parentId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'sc-tags/'+ scTags.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

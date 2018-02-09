@@ -1,0 +1,75 @@
+
+<div *ngIf="scPosts">
+    <h2><span jhiTranslate="cocoApp.scPosts.detail.title">Sc Posts</span> {{scPosts.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="cocoApp.scPosts.number">Number</span></dt>
+        <dd>
+            <span>{{scPosts.number}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scPosts.time">Time</span></dt>
+        <dd>
+            <span>{{scPosts.time | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scPosts.type">Type</span></dt>
+        <dd>
+            <span>{{scPosts.type}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scPosts.content">Content</span></dt>
+        <dd>
+            <span>{{scPosts.content}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scPosts.editTime">Edit Time</span></dt>
+        <dd>
+            <span>{{scPosts.editTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scPosts.editUserId">Edit User Id</span></dt>
+        <dd>
+            <span>{{scPosts.editUserId}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scPosts.hideTime">Hide Time</span></dt>
+        <dd>
+            <span>{{scPosts.hideTime | date:'medium'}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scPosts.hideUserId">Hide User Id</span></dt>
+        <dd>
+            <span>{{scPosts.hideUserId}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scPosts.ipAddress">Ip Address</span></dt>
+        <dd>
+            <span>{{scPosts.ipAddress}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scPosts.isApproved">Is Approved</span></dt>
+        <dd>
+            <span>{{scPosts.isApproved}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scPosts.isSpam">Is Spam</span></dt>
+        <dd>
+            <span>{{scPosts.isSpam}}</span>
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scPosts.user">User</span></dt>
+        <dd>
+            {{scPosts.user?.login}}
+        </dd>
+        <dt><span jhiTranslate="cocoApp.scPosts.scDiscussions">Sc Discussions</span></dt>
+        <dd>
+            <div *ngIf="scPosts.scDiscussions">
+                <a [routerLink]="['/sc-discussions', scPosts.scDiscussions?.id]">{{scPosts.scDiscussions?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'sc-posts/'+ scPosts.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
